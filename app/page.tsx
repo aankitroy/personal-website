@@ -146,7 +146,7 @@ const Website = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">What Industry Leaders Say</h2>
-            <p className="text-gray-600">Insights from professionals I've worked with</p>
+            <p className="text-gray-600">Insights from professionals I&apos;ve worked with</p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -207,7 +207,7 @@ const Website = () => {
                 <img src="/api/placeholder/40/40" alt="TechCrunch" className="h-6 object-contain" />
               </div>
               <h3 className="font-bold text-lg mb-2">YC S19 Demo Day Favorite</h3>
-              <p className="text-gray-600 mb-4">Featured among TechCrunch's top 12 favorite startups from Y Combinator's Summer 2019 Demo Day.</p>
+              <p className="text-gray-600 mb-4">Featured among TechCrunch&apos;s top 12 favorite startups from Y Combinator&apos;s Summer 2019 Demo Day.</p>
               <a href="https://techcrunch.com/2019/08/21/our-12-favorite-startups-from-y-combinators-s19-demo-day-2" target="_blank" className="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
                 Read Article <ArrowRight className="w-4 h-4 ml-1" />
               </a>
@@ -229,7 +229,7 @@ const Website = () => {
                 <img src="/api/placeholder/40/40" alt="Forbes" className="h-6 object-contain" />
               </div>
               <h3 className="font-bold text-lg mb-2">Forbes India Feature</h3>
-              <p className="text-gray-600 mb-4">Featured in Forbes India's coverage of the rising regional podcast ecosystem.</p>
+              <p className="text-gray-600 mb-4">Featured in Forbes India&apos;s coverage of the rising regional podcast ecosystem.</p>
               <a href="https://www.forbesindia.com" target="_blank" className="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
                 Read Article <ArrowRight className="w-4 h-4 ml-1" />
               </a>
@@ -241,10 +241,10 @@ const Website = () => {
       {/* Contact CTA */}
       <section className="py-16 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Let's Transform Your Technical Challenges</h2>
+          <h2 className="text-3xl font-bold mb-6">Let&apos;s Transform Your Technical Challenges</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Whether you're looking to implement AI solutions or optimize existing systems,
-            I'm here to help turn your challenges into opportunities.
+            Whether you&apos;re looking to implement AI solutions or optimize existing systems,
+            I&apos;m here to help turn your challenges into opportunities.
           </p>
           <button className="bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition flex items-center gap-2 mx-auto">
             <MessagesSquare className="w-5 h-5" />

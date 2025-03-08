@@ -132,7 +132,7 @@ const JourneyTimeline = () => {
                         {item.company && <span className="text-gray-600"> @ {item.company}</span>}
                       </h3>
                       {item.tagline && (
-                        <p className="text-md text-gray-600 italic">"{item.tagline}"</p>
+                        <p className="text-md text-gray-600 italic">&quot;{item.tagline}&quot;</p>
                       )}
                     </div>
                     <span className="text-sm font-semibold px-4 py-2 rounded-full 
@@ -187,7 +187,7 @@ const AboutPage = () => {
               </p>
               <div className="flex gap-4">
                 <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-lg hover:opacity-90 transition">
-                  Let's Connect
+                  Let&apos;s Connect
                 </button>
                 <button className="border-2 border-purple-600 text-purple-600 px-6 py-3 rounded-lg hover:bg-purple-50 transition">
                   View Projects
@@ -287,10 +287,10 @@ const AboutPage = () => {
       {/* Contact Section */}
       <section className="py-16 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Let's Transform Your Technical Challenges</h2>
+          <h2 className="text-3xl font-bold mb-6">Let&apos;s Transform Your Technical Challenges</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Whether you're looking to implement AI solutions or optimize existing systems,
-            I'm here to help turn your challenges into opportunities.
+            Whether you&apos;re looking to implement AI solutions or optimize existing systems,
+            I&apos;m here to help turn your challenges into opportunities.
           </p>
           <div className="flex justify-center gap-4">
             <button className="bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition flex items-center gap-2">

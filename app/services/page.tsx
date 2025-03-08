@@ -15,7 +15,16 @@ import {
 } from 'lucide-react';
 
 // Service Card Component
-const ServiceCard = ({ service, isExpanded, onToggle }: { service: any, isExpanded: boolean, onToggle: () => void }) => {
+interface Service {
+  id: number;
+  title: string;
+  shortDesc: string;
+  icon: JSX.Element;
+  keyFeatures: { icon: JSX.Element; title: string; description: string }[];
+  deliverables: string[];
+}
+
+const ServiceCard = ({ service, isExpanded, onToggle }: { service: Service, isExpanded: boolean, onToggle: () => void }) => {
   return (
     <div 
       className={`bg-white rounded-xl shadow-sm transition-all duration-300 cursor-pointer
@@ -255,7 +264,7 @@ const ServicesPreview = () => {
       <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-16 rounded-xl text-center">
         <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Business?</h2>
         <p className="text-xl mb-8 max-w-2xl mx-auto">
-          Let's discuss how my services can help you achieve your technical and business objectives.
+          Let&apos;s discuss how my services can help you achieve your technical and business objectives.
         </p>
         <button className="bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition flex items-center gap-2 mx-auto">
           <MessagesSquare className="w-5 h-5" />
