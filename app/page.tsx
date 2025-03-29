@@ -43,12 +43,9 @@ const Website = () => {
                 <a href="mailto:aankitroy1990@gmail.com" className="text-purple-600 hover:text-purple-700">
                   <Mail className="w-5 h-5" />
                 </a>
-                <a href="https://linkedin.com/in/aankitroy" className="text-purple-600 hover:text-purple-700">
+                <a href="https://www.linkedin.com/in/aankit-roy-20515b35/" className="text-purple-600 hover:text-purple-700">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg hover:opacity-90">
-                  Contact
-                </button>
               </div>
             </div>
 
