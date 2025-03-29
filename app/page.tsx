@@ -111,7 +111,9 @@ const Website = () => {
           </div>
 
           <div className="mt-12 flex justify-center gap-4">
-            <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg hover:opacity-90 inline-flex items-center">
+            <button onClick={() => {
+              window.location.href = 'https://app.cal.com/aankit/30min';
+            }} className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg hover:opacity-90 inline-flex items-center">
               Schedule Free Consultation
               <ArrowRight className="ml-2" />
             </button>
@@ -243,7 +245,9 @@ const Website = () => {
             Whether you&apos;re looking to implement AI solutions or optimize existing systems,
             I&apos;m here to help turn your challenges into opportunities.
           </p>
-          <button className="bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition flex items-center gap-2 mx-auto">
+          <button onClick={() => {
+            window.location.href = 'https://app.cal.com/aankit/30min';
+          }} className="bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition flex items-center gap-2 mx-auto">
             <MessagesSquare className="w-5 h-5" />
             Schedule a Consultation
           </button>
