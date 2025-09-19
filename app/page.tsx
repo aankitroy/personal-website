@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Menu, X, ArrowRight, MessagesSquare, Mail, Linkedin, Twitter } from 'lucide-react';
+import { Menu, X, ArrowRight, MessagesSquare, Mail, Linkedin, Twitter, Github } from 'lucide-react';
 
 const Website = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -38,8 +38,50 @@ const Website = () => {
     }
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aankit Roy",
+    "url": "https://aankitroy.com",
+    "image": "https://aankitroy.com/aankitroy.png",
+    "jobTitle": "AI Strategy & Engineering Leadership Consultant",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Independent Consultant"
+    },
+    "alumniOf": [
+      {
+        "@type": "Organization",
+        "name": "Y Combinator"
+      },
+      {
+        "@type": "Organization", 
+        "name": "Birla Institute of Technology"
+      }
+    ],
+    "knowsAbout": [
+      "AI Strategy",
+      "Engineering Leadership",
+      "System Architecture", 
+      "AI Agents",
+      "Machine Learning",
+      "Technical Leadership",
+      "Startup Management"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/aankit-roy-20515b35/",
+      "https://x.com/AankitRoy",
+      "https://github.com/aankitroy"
+    ],
+    "description": "Transforming businesses through strategic AI implementation and engineering leadership. Over a decade of experience scaling products to serve millions of users."
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* Header */}
       <header className="border-b border-gray-200">
         <div className="container mx-auto px-4 py-4">
@@ -51,9 +93,7 @@ const Website = () => {
             <div className="hidden md:flex items-center space-x-8">
               <a href="/about" className="text-gray-600 hover:text-gray-900">About</a>
               <a href="/services" className="text-gray-600 hover:text-gray-900">Services</a>
-              <a href="#" className="text-gray-600 hover:text-gray-900">Blog</a>
               <a href="/testimonials" className="text-gray-600 hover:text-gray-900">Testimonials</a>
-              <a href="#" className="text-gray-600 hover:text-gray-900">Press</a>
               <div className="flex items-center space-x-4">
                 <a href="mailto:aankitroy1990@gmail.com" className="text-purple-600 hover:text-purple-700">
                   <Mail className="w-5 h-5" />
@@ -63,6 +103,9 @@ const Website = () => {
                 </a>
                 <a href="https://x.com/AankitRoy" target="_blank" className="text-purple-600 hover:text-purple-700">
                   <Twitter className="w-5 h-5" />
+                </a>
+                <a href="https://github.com/aankitroy" target="_blank" className="text-purple-600 hover:text-purple-700">
+                  <Github className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -79,11 +122,9 @@ const Website = () => {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="md:hidden py-4 space-y-4">
-              <a href="#" className="block text-gray-600 hover:text-gray-900">About</a>
-              <a href="#" className="block text-gray-600 hover:text-gray-900">Services</a>
-              <a href="#" className="block text-gray-600 hover:text-gray-900">Blog</a>
+              <a href="/about" className="block text-gray-600 hover:text-gray-900">About</a>
+              <a href="/services" className="block text-gray-600 hover:text-gray-900">Services</a>
               <a href="/testimonials" className="block text-gray-600 hover:text-gray-900">Testimonials</a>
-              <a href="#" className="block text-gray-600 hover:text-gray-900">Press</a>
               <div className="flex items-center space-x-4 pt-4">
                 <a href="mailto:aankitroy1990@gmail.com" className="text-purple-600 hover:text-purple-700">
                   <Mail className="w-5 h-5" />
@@ -93,6 +134,9 @@ const Website = () => {
                 </a>
                 <a href="https://x.com/AankitRoy" target="_blank" className="text-purple-600 hover:text-purple-700">
                   <Twitter className="w-5 h-5" />
+                </a>
+                <a href="https://github.com/aankitroy" target="_blank" className="text-purple-600 hover:text-purple-700">
+                  <Github className="w-5 h-5" />
                 </a>
               </div>
               <button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg">
@@ -370,9 +414,7 @@ const Website = () => {
             <div>
               <h3 className="font-bold mb-4 text-gray-900">Resources</h3>
               <ul className="space-y-2 text-gray-600">
-                <li>Blog</li>
                 <li><a href="/testimonials" className="hover:text-purple-600">Testimonials</a></li>
-                <li>Press Kit</li>
               </ul>
             </div>
 
@@ -381,6 +423,7 @@ const Website = () => {
               <ul className="space-y-2 text-gray-600">
                 <li><a href="https://www.linkedin.com/in/aankit-roy-20515b35/" target="_blank" className="hover:text-purple-600">LinkedIn</a></li>
                 <li><a href="https://x.com/AankitRoy" target="_blank" className="hover:text-purple-600">Twitter/X</a></li>
+                <li><a href="https://github.com/aankitroy" target="_blank" className="hover:text-purple-600">GitHub</a></li>
                 <li><a href="mailto:aankitroy1990@gmail.com" className="hover:text-purple-600">Email: aankitroy1990@gmail.com</a></li>
               </ul>
             </div>

@@ -80,7 +80,77 @@ var __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$g
 ;
 const metadata = {
     title: "Aankit Roy - AI Strategy & Engineering Leadership",
-    description: "Transforming businesses through strategic AI implementation and engineering leadership. Over a decade of experience scaling products to serve millions of users."
+    description: "Transforming businesses through strategic AI implementation and engineering leadership. Over a decade of experience scaling products to serve millions of users.",
+    keywords: [
+        "AI Strategy",
+        "Engineering Leadership",
+        "AI Implementation",
+        "Technical Leadership",
+        "AI Consultant",
+        "System Architecture",
+        "AI Agents",
+        "Machine Learning",
+        "Startup CTO",
+        "Y Combinator",
+        "Writesonic",
+        "Khabri",
+        "Technical Consultant"
+    ],
+    authors: [
+        {
+            name: "Aankit Roy"
+        }
+    ],
+    creator: "Aankit Roy",
+    publisher: "Aankit Roy",
+    formatDetection: {
+        email: false,
+        address: false,
+        telephone: false
+    },
+    metadataBase: new URL('https://aankitroy.com'),
+    alternates: {
+        canonical: '/'
+    },
+    openGraph: {
+        title: "Aankit Roy - AI Strategy & Engineering Leadership",
+        description: "Transforming businesses through strategic AI implementation and engineering leadership. Over a decade of experience scaling products to serve millions of users.",
+        url: 'https://aankitroy.com',
+        siteName: 'Aankit Roy',
+        locale: 'en_US',
+        type: 'website',
+        images: [
+            {
+                url: '/aankitroy.png',
+                width: 1200,
+                height: 630,
+                alt: 'Aankit Roy - AI Strategy & Engineering Leadership'
+            }
+        ]
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: "Aankit Roy - AI Strategy & Engineering Leadership",
+        description: "Transforming businesses through strategic AI implementation and engineering leadership. Over a decade of experience scaling products to serve millions of users.",
+        creator: '@AankitRoy',
+        images: [
+            '/aankitroy.png'
+        ]
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1
+        }
+    },
+    verification: {
+        google: 'your-google-verification-code-here'
+    }
 };
 function RootLayout({ children }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("html", {
@@ -90,12 +160,12 @@ function RootLayout({ children }) {
             children: children
         }, void 0, false, {
             fileName: "[project]/app/layout.tsx",
-            lineNumber: 27,
+            lineNumber: 91,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/layout.tsx",
-        lineNumber: 26,
+        lineNumber: 90,
         columnNumber: 5
     }, this);
 }
