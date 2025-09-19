@@ -189,17 +189,14 @@ const AboutPage = () => {
                 <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-lg hover:opacity-90 transition">
                   Let&apos;s Connect
                 </button>
-                <button className="border-2 border-purple-600 text-purple-600 px-6 py-3 rounded-lg hover:bg-purple-50 transition">
-                  View Projects
-                </button>
               </div>
             </div>
-            <div className="lg:w-1/2">
-              <div className="bg-gradient-to-r from-purple-100 to-blue-100 p-1 rounded-lg">
+            <div className="lg:w-1/2 flex justify-center">
+              <div className="bg-gradient-to-r from-purple-100 to-blue-100 p-1 rounded-lg max-w-md">
                 <img 
-                  src="/api/placeholder/600/500"
+                  src="/aankitroy.png"
                   alt="Aankit Roy"
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-auto object-cover rounded-lg max-h-96"
                 />
               </div>
             </div>
@@ -249,36 +246,20 @@ const AboutPage = () => {
       {/* Technical Philosophy */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl font-bold mb-6">Technical Philosophy</h2>
-              <div className="space-y-4">
-                {[
-                  "Pragmatic architecture decisions that balance innovation with reliability",
-                  "Deep focus on performance optimization and scalability",
-                  "Strong emphasis on building robust, maintainable AI systems",
-                  "Data-driven decision making and measurable outcomes"
-                ].map((point, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <Zap className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
-                    <p className="text-gray-700">{point}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="lg:w-1/2">
-              <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-1 rounded-xl">
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <img 
-                    src="/api/placeholder/500/400"
-                    alt="Technical Visualization"
-                    className="w-full rounded-lg mb-4"
-                  />
-                  <p className="text-sm text-gray-500 text-center">
-                    Visualization of system architecture and AI integration
-                  </p>
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-12">Technical Philosophy</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {[
+                "Pragmatic architecture decisions that balance innovation with reliability",
+                "Deep focus on performance optimization and scalability",
+                "Strong emphasis on building robust, maintainable AI systems",
+                "Data-driven decision making and measurable outcomes"
+              ].map((point, index) => (
+                <div key={index} className="flex items-start gap-3 text-left">
+                  <Zap className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
+                  <p className="text-gray-700">{point}</p>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

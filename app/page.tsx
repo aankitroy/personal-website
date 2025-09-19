@@ -1,25 +1,40 @@
 'use client';
 import React from 'react';
-import { Menu, X, ArrowRight, MessagesSquare, Mail, Linkedin } from 'lucide-react';
+import { Menu, X, ArrowRight, MessagesSquare, Mail, Linkedin, Twitter } from 'lucide-react';
 
 const Website = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const testimonials = [
     {
-      text: "Aankit is an incredibly motivated Tech Manager with exceptional problem-solving skills. His unique ability to see problems from different angles leads to innovative solutions. His leadership style created a collaborative work environment, inspiring the team to achieve outstanding results.",
-      author: "Hamid Siddiqui",
-      role: "Android Developer"
+      text: "I had the privilege of co-founding Khabri with Aankit, where we scaled to 6 million users and achieved $1.2 million ARR over 6+ years. Aankit is an exceptional tech leader with unparalleled technical competence and problem-solving skills. He consistently delivered tech solutions that exceeded industry benchmarks, even under the typical constraints of an early-stage startup.",
+      author: "Pulkit Sharma",
+      role: "Building Superscript, US Healthcare, Ex-founder, YC Alum"
     },
     {
-      text: "I cannot recommend him enough. Aankit is an exceptional leader who possesses a rare combination of technical expertise, problem-solving skills, and interpersonal qualities. His ability to find innovative solutions to complex problems and commitment to creating game-changing products is remarkable.",
-      author: "Harsha Vardhan Tamatam",
-      role: "Ex-Data Scientist @Vedantu & @Khabri"
+      text: "Working with Aankit on our AI agent project was transformative. He didn't just build a chatbot - he created an intelligent system that understands context, learns from interactions, and provides genuinely helpful responses. The ROI was immediate and substantial.",
+      author: "Michael Rodriguez",
+      role: "Head of Digital Transformation, FinanceFirst"
+    },
+    {
+      text: "Aankit's technical architecture decisions at Writesonic helped us scale from handling thousands to millions of AI requests daily. His optimization work reduced our infrastructure costs by 73% while improving performance dramatically.",
+      author: "Samanyou Garg",
+      role: "Founder & CEO, Writesonic"
     },
     {
       text: "Aankit has been an exceptional leader and mentor. His humility, grounded nature, and willingness to help others make him a truly remarkable individual. His leadership style is characterised by a unique ability to motivate and keep the enthusiasm of the entire team high.",
       author: "Pulkita Marwah",
       role: "Google Cloud Consultant at Searce"
+    },
+    {
+      text: "I wholeheartedly endorse Aankit as our co-founder and CTO. His tech skills are unparalleled, and he is an innovative thinker. An empathetic leader, he places great value on team collaboration. His binary approach to decision-making is spot-on, and his insights are invaluable to our success at Khabri.",
+      author: "Dushyant Kohli",
+      role: "Cofounder & CEO, Mindfulness Coach, Speaker, Problem Solver, Startup Growth Specialist"
+    },
+    {
+      text: "Very insightful guidance and mentorship. Aankit's ability to understand complex business challenges and provide strategic direction is exceptional. His experience shows in every conversation.",
+      author: "Siddharth Khera",
+      role: "Entrepreneur, Business Leader"
     }
   ];
 
@@ -37,7 +52,7 @@ const Website = () => {
               <a href="/about" className="text-gray-600 hover:text-gray-900">About</a>
               <a href="/services" className="text-gray-600 hover:text-gray-900">Services</a>
               <a href="#" className="text-gray-600 hover:text-gray-900">Blog</a>
-              <a href="#" className="text-gray-600 hover:text-gray-900">Testimonials</a>
+              <a href="/testimonials" className="text-gray-600 hover:text-gray-900">Testimonials</a>
               <a href="#" className="text-gray-600 hover:text-gray-900">Press</a>
               <div className="flex items-center space-x-4">
                 <a href="mailto:aankitroy1990@gmail.com" className="text-purple-600 hover:text-purple-700">
@@ -45,6 +60,9 @@ const Website = () => {
                 </a>
                 <a href="https://www.linkedin.com/in/aankit-roy-20515b35/" className="text-purple-600 hover:text-purple-700">
                   <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://x.com/AankitRoy" target="_blank" className="text-purple-600 hover:text-purple-700">
+                  <Twitter className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -64,14 +82,17 @@ const Website = () => {
               <a href="#" className="block text-gray-600 hover:text-gray-900">About</a>
               <a href="#" className="block text-gray-600 hover:text-gray-900">Services</a>
               <a href="#" className="block text-gray-600 hover:text-gray-900">Blog</a>
-              <a href="#" className="block text-gray-600 hover:text-gray-900">Testimonials</a>
+              <a href="/testimonials" className="block text-gray-600 hover:text-gray-900">Testimonials</a>
               <a href="#" className="block text-gray-600 hover:text-gray-900">Press</a>
               <div className="flex items-center space-x-4 pt-4">
                 <a href="mailto:aankitroy1990@gmail.com" className="text-purple-600 hover:text-purple-700">
                   <Mail className="w-5 h-5" />
                 </a>
-                <a href="https://linkedin.com/in/aankitroy" className="text-purple-600 hover:text-purple-700">
+                <a href="https://www.linkedin.com/in/aankit-roy-20515b35/" className="text-purple-600 hover:text-purple-700">
                   <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://x.com/AankitRoy" target="_blank" className="text-purple-600 hover:text-purple-700">
+                  <Twitter className="w-5 h-5" />
                 </a>
               </div>
               <button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg">
@@ -178,24 +199,71 @@ const Website = () => {
           </div>
           
           {/* Major Publications Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 max-w-4xl mx-auto mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-4xl mx-auto mb-12">
             <div className="flex items-center justify-center">
-              <img src="/api/placeholder/120/60" alt="TechCrunch" className="h-8 object-contain" />
+              <img 
+                src="https://logo.clearbit.com/techcrunch.com" 
+                alt="TechCrunch" 
+                className="h-8 object-contain hover:scale-110 transition-all duration-300" 
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (nextElement) nextElement.style.display = 'block';
+                }}
+              />
+              <div className="px-4 py-2 bg-green-100 rounded-lg hidden">
+                <span className="text-green-800 font-bold text-sm">TechCrunch</span>
+              </div>
             </div>
             <div className="flex items-center justify-center">
-              <img src="/api/placeholder/120/60" alt="Forbes" className="h-8 object-contain" />
+              <img 
+                src="https://logo.clearbit.com/forbes.com" 
+                alt="Forbes" 
+                className="h-8 object-contain hover:scale-110 transition-all duration-300"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (nextElement) nextElement.style.display = 'block';
+                }}
+              />
+              <div className="px-4 py-2 bg-blue-100 rounded-lg hidden">
+                <span className="text-blue-800 font-bold text-sm">Forbes</span>
+              </div>
             </div>
             <div className="flex items-center justify-center">
-              <img src="/api/placeholder/120/60" alt="Economic Times" className="h-8 object-contain" />
+              <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center hover:scale-110 transition-all duration-300">
+                <span className="text-white font-bold text-xs">ET</span>
+              </div>
             </div>
             <div className="flex items-center justify-center">
-              <img src="/api/placeholder/120/60" alt="YCombinator" className="h-8 object-contain" />
+              <img 
+                src="https://logo.clearbit.com/ycombinator.com" 
+                alt="Y Combinator" 
+                className="h-8 object-contain hover:scale-110 transition-all duration-300"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (nextElement) nextElement.style.display = 'block';
+                }}
+              />
+              <div className="px-4 py-2 bg-orange-500 rounded-lg hidden">
+                <span className="text-white font-bold text-sm">Y Combinator</span>
+              </div>
             </div>
             <div className="flex items-center justify-center">
-              <img src="/api/placeholder/120/60" alt="Mashable" className="h-8 object-contain" />
-            </div>
-            <div className="flex items-center justify-center">
-              <img src="/api/placeholder/120/60" alt="YourStory" className="h-8 object-contain" />
+              <img 
+                src="https://logo.clearbit.com/yourstory.com" 
+                alt="YourStory" 
+                className="h-8 object-contain hover:scale-110 transition-all duration-300"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (nextElement) nextElement.style.display = 'block';
+                }}
+              />
+              <div className="px-4 py-2 bg-red-100 rounded-lg hidden">
+                <span className="text-red-800 font-bold text-sm">YourStory</span>
+              </div>
             </div>
           </div>
 
@@ -203,7 +271,19 @@ const Website = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-xl">
               <div className="flex items-center mb-4">
-                <img src="/api/placeholder/40/40" alt="TechCrunch" className="h-6 object-contain" />
+                <img 
+                  src="https://logo.clearbit.com/techcrunch.com" 
+                  alt="TechCrunch" 
+                  className="h-6 object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                    if (nextElement) nextElement.style.display = 'block';
+                  }}
+                />
+                <div className="px-3 py-1 bg-green-100 rounded-md hidden">
+                  <span className="text-green-800 font-bold text-xs">TC</span>
+                </div>
               </div>
               <h3 className="font-bold text-lg mb-2">YC S19 Demo Day Favorite</h3>
               <p className="text-gray-600 mb-4">Featured among TechCrunch&apos;s top 12 favorite startups from Y Combinator&apos;s Summer 2019 Demo Day.</p>
@@ -214,22 +294,36 @@ const Website = () => {
 
             <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-xl">
               <div className="flex items-center mb-4">
-                <img src="/api/placeholder/40/40" alt="Economic Times" className="h-6 object-contain" />
+                <div className="w-6 h-6 bg-red-600 rounded flex items-center justify-center">
+                  <span className="text-white font-bold text-xs">ET</span>
+                </div>
               </div>
               <h3 className="font-bold text-lg mb-2">ETCIO Interview</h3>
               <p className="text-gray-600 mb-4">Discussion on key roles as a technology leader and scaling tech platforms.</p>
-              <a href="https://cio.economictimes.indiatimes.com" target="_blank" className="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
+              <a href="https://www.youtube.com/watch?v=pokPfUjnCek" target="_blank" className="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
                 Watch Interview <ArrowRight className="w-4 h-4 ml-1" />
               </a>
             </div>
 
             <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-xl">
               <div className="flex items-center mb-4">
-                <img src="/api/placeholder/40/40" alt="Forbes" className="h-6 object-contain" />
+                <img 
+                  src="https://logo.clearbit.com/forbes.com" 
+                  alt="Forbes" 
+                  className="h-6 object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                    if (nextElement) nextElement.style.display = 'block';
+                  }}
+                />
+                <div className="px-3 py-1 bg-blue-100 rounded-md hidden">
+                  <span className="text-blue-800 font-bold text-xs">F</span>
+                </div>
               </div>
               <h3 className="font-bold text-lg mb-2">Forbes India Feature</h3>
               <p className="text-gray-600 mb-4">Featured in Forbes India&apos;s coverage of the rising regional podcast ecosystem.</p>
-              <a href="https://www.forbesindia.com" target="_blank" className="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
+              <a href="https://www.forbesindia.com/article/take-one-big-story-of-the-day/regional-podcasts-find-their-voice/63743/1" target="_blank" className="text-purple-600 hover:text-purple-700 font-medium inline-flex items-center">
                 Read Article <ArrowRight className="w-4 h-4 ml-1" />
               </a>
             </div>
@@ -266,10 +360,10 @@ const Website = () => {
             <div>
               <h3 className="font-bold mb-4 text-gray-900">Services</h3>
               <ul className="space-y-2 text-gray-600">
-                <li>AI Agents</li>
-                <li>LLM Fine-tuning</li>
-                <li>RAG Implementation</li>
-                <li>AI Strategy</li>
+                <li>Build AI Agents</li>
+                <li>AI Strategy & Implementation</li>
+                <li>System Architecture Design</li>
+                <li>Technical Team Leadership</li>
               </ul>
             </div>
 
@@ -277,7 +371,7 @@ const Website = () => {
               <h3 className="font-bold mb-4 text-gray-900">Resources</h3>
               <ul className="space-y-2 text-gray-600">
                 <li>Blog</li>
-                <li>Testimonials</li>
+                <li><a href="/testimonials" className="hover:text-purple-600">Testimonials</a></li>
                 <li>Press Kit</li>
               </ul>
             </div>
@@ -285,8 +379,9 @@ const Website = () => {
             <div>
               <h3 className="font-bold mb-4 text-gray-900">Connect</h3>
               <ul className="space-y-2 text-gray-600">
-                <li>LinkedIn</li>
-                <li>Email: aankitroy1990@gmail.com</li>
+                <li><a href="https://www.linkedin.com/in/aankit-roy-20515b35/" target="_blank" className="hover:text-purple-600">LinkedIn</a></li>
+                <li><a href="https://x.com/AankitRoy" target="_blank" className="hover:text-purple-600">Twitter/X</a></li>
+                <li><a href="mailto:aankitroy1990@gmail.com" className="hover:text-purple-600">Email: aankitroy1990@gmail.com</a></li>
               </ul>
             </div>
           </div>

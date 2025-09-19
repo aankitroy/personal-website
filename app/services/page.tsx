@@ -11,7 +11,11 @@ import {
   ArrowRight,
   Settings,
   BarChart,
-  MessagesSquare
+  MessagesSquare,
+  Bot,
+  Zap,
+  Database,
+  MessageCircle
 } from 'lucide-react';
 
 // Service Card Component
@@ -191,6 +195,41 @@ const ServicesPreview = () => {
         "Performance metrics dashboard",
         "Training and mentorship plan",
         "Quarterly goals and OKRs"
+      ]
+    },
+    {
+      id: 4,
+      title: "Build AI Agents",
+      shortDesc: "Create intelligent, autonomous AI agents for your business",
+      icon: <Bot />,
+      keyFeatures: [
+        {
+          icon: <MessageCircle />,
+          title: "Conversational AI",
+          description: "Natural language understanding and contextual responses"
+        },
+        {
+          icon: <Brain />,
+          title: "Multi-Agent Systems",
+          description: "Coordinated AI agents working together on complex tasks"
+        },
+        {
+          icon: <Database />,
+          title: "RAG Integration",
+          description: "Knowledge-aware agents with real-time data access"
+        },
+        {
+          icon: <Zap />,
+          title: "Workflow Automation",
+          description: "End-to-end process automation with intelligent decision making"
+        }
+      ],
+      deliverables: [
+        "Custom AI agent architecture",
+        "Training data preparation and fine-tuning",
+        "Integration with existing systems",
+        "Performance monitoring dashboard",
+        "Documentation and maintenance guide"
       ]
     }
   ];
