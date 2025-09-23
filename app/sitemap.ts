@@ -3,6 +3,23 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://aankitroy.com'
   
+  // Blog posts
+  const blogPosts = [
+    'ai-agent-frameworks-comparison',
+    'ai-agents-complete-guide',
+    'ai-agents-future-of-business-automation',
+    'ai-strategy-implementation-guide',
+    'scaling-ai-systems-lessons-learned',
+    'building-technical-teams-that-scale'
+  ];
+  
+  const blogSitemapEntries = blogPosts.map(slug => ({
+    url: `${baseUrl}/blog/${slug}`,
+    lastModified: new Date('2025-09-15'),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+  
   return [
     {
       url: baseUrl,
@@ -23,10 +40,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/testimonials`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    ...blogSitemapEntries,
   ]
 }

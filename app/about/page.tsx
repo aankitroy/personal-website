@@ -170,6 +170,21 @@ const JourneyTimeline = () => {
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      {/* Header */}
+      <header className="border-b border-gray-200">
+        <div className="container mx-auto px-4 py-4">
+          <nav className="flex items-center justify-between">
+            <span className="text-xl font-bold text-gray-900">Aankit Roy</span>
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="/about" className="text-purple-600 font-semibold">About</a>
+              <a href="/services" className="text-gray-600 hover:text-gray-900">Services</a>
+              <a href="/blog" className="text-gray-600 hover:text-gray-900">Blog</a>
+              <a href="/testimonials" className="text-gray-600 hover:text-gray-900">Testimonials</a>
+            </div>
+          </nav>
+        </div>
+      </header>
+
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="container mx-auto px-4">

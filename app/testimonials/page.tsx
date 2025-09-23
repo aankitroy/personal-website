@@ -176,12 +176,12 @@ const TestimonialsPage = () => {
       <header className="border-b border-gray-200">
         <div className="container mx-auto px-4 py-4">
           <nav className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Link href="/" className="inline-flex items-center text-purple-600 hover:text-purple-700">
-                <ArrowLeft className="w-5 h-5 mr-2" />
-                Back to Home
-              </Link>
-              <span className="text-xl font-bold text-gray-900">Testimonials</span>
+            <span className="text-xl font-bold text-gray-900">Aankit Roy</span>
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="/about" className="text-gray-600 hover:text-gray-900">About</a>
+              <a href="/services" className="text-gray-600 hover:text-gray-900">Services</a>
+              <a href="/blog" className="text-gray-600 hover:text-gray-900">Blog</a>
+              <a href="/testimonials" className="text-purple-600 font-semibold">Testimonials</a>
             </div>
           </nav>
         </div>

@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Link from 'next/link';
 import { Menu, X, ArrowRight, MessagesSquare, Mail, Linkedin, Twitter, Github } from 'lucide-react';
 
 const Website = () => {
@@ -91,9 +92,10 @@ const Website = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="/about" className="text-gray-600 hover:text-gray-900">About</a>
-              <a href="/services" className="text-gray-600 hover:text-gray-900">Services</a>
-              <a href="/testimonials" className="text-gray-600 hover:text-gray-900">Testimonials</a>
+              <Link href="/about" className="text-gray-600 hover:text-gray-900">About</Link>
+              <Link href="/services" className="text-gray-600 hover:text-gray-900">Services</Link>
+              <Link href="/blog" className="text-gray-600 hover:text-gray-900">Blog</Link>
+              <Link href="/testimonials" className="text-gray-600 hover:text-gray-900">Testimonials</Link>
               <div className="flex items-center space-x-4">
                 <a href="mailto:aankitroy1990@gmail.com" className="text-purple-600 hover:text-purple-700">
                   <Mail className="w-5 h-5" />
@@ -122,9 +124,10 @@ const Website = () => {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="md:hidden py-4 space-y-4">
-              <a href="/about" className="block text-gray-600 hover:text-gray-900">About</a>
-              <a href="/services" className="block text-gray-600 hover:text-gray-900">Services</a>
-              <a href="/testimonials" className="block text-gray-600 hover:text-gray-900">Testimonials</a>
+              <Link href="/about" className="block text-gray-600 hover:text-gray-900">About</Link>
+              <Link href="/services" className="block text-gray-600 hover:text-gray-900">Services</Link>
+              <Link href="/blog" className="block text-gray-600 hover:text-gray-900">Blog</Link>
+              <Link href="/testimonials" className="block text-gray-600 hover:text-gray-900">Testimonials</Link>
               <div className="flex items-center space-x-4 pt-4">
                 <a href="mailto:aankitroy1990@gmail.com" className="text-purple-600 hover:text-purple-700">
                   <Mail className="w-5 h-5" />
@@ -414,6 +417,7 @@ const Website = () => {
             <div>
               <h3 className="font-bold mb-4 text-gray-900">Resources</h3>
               <ul className="space-y-2 text-gray-600">
+                <li><Link href="/blog" className="hover:text-purple-600">Blog</Link></li>
                 <li><a href="/testimonials" className="hover:text-purple-600">Testimonials</a></li>
               </ul>
             </div>
