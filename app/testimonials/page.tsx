@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Quote, Star, Briefcase, Users, Brain, Zap } from 'lucide-react';
+import { Header } from '../../components/Header';
 
 const TestimonialsPage = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -165,27 +166,14 @@ const TestimonialsPage = () => {
     return [...Array(5)].map((_, i) => (
       <Star 
         key={i} 
-        className={`w-4 h-4 ${i < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'}`} 
+        className={`w-4 h-4 ${i < rating ? 'text-yellow-400 fill-current' : 'text-gray-300 dark:text-gray-600'}`} 
       />
     ));
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Header */}
-      <header className="border-b border-gray-200">
-        <div className="container mx-auto px-4 py-4">
-          <nav className="flex items-center justify-between">
-            <span className="text-xl font-bold text-gray-900">Aankit Roy</span>
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="/about" className="text-gray-600 hover:text-gray-900">About</a>
-              <a href="/services" className="text-gray-600 hover:text-gray-900">Services</a>
-              <a href="/blog" className="text-gray-600 hover:text-gray-900">Blog</a>
-              <a href="/testimonials" className="text-purple-600 font-semibold">Testimonials</a>
-            </div>
-          </nav>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <Header currentPage="testimonials" />
 
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
@@ -198,7 +186,7 @@ const TestimonialsPage = () => {
       </section>
 
       {/* Category Filter */}
-      <section className="py-8 bg-white border-b">
+      <section className="py-8 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => {
@@ -210,7 +198,7 @@ const TestimonialsPage = () => {
                   className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all ${
                     activeCategory === category.id
                       ? 'bg-purple-600 text-white'
-                      : 'bg-gray-100 text-gray-600 hover:bg-purple-50 hover:text-purple-600'
+                      : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-purple-900 hover:text-purple-600'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -229,7 +217,7 @@ const TestimonialsPage = () => {
             {filteredTestimonials.map((testimonial) => (
               <div 
                 key={testimonial.id}
-                className="bg-white p-8 rounded-xl shadow-sm border hover:shadow-md transition-shadow"
+                className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow"
               >
                 <div className="flex items-start justify-between mb-6">
                   <Quote className="w-8 h-8 text-purple-600 opacity-60" />
@@ -238,13 +226,13 @@ const TestimonialsPage = () => {
                   </div>
                 </div>
                 
-                <p className="text-gray-700 mb-6 leading-relaxed">
+                <p className="text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">
                   &ldquo;{testimonial.text}&rdquo;
                 </p>
                 
                 <div>
-                  <p className="font-semibold text-gray-900">{testimonial.author}</p>
-                  <p className="text-sm text-gray-600">{testimonial.role}</p>
+                  <p className="font-semibold text-gray-900 dark:text-gray-100">{testimonial.author}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">{testimonial.role}</p>
                   {testimonial.company && (
                     <p className="text-sm text-purple-600">{testimonial.company}</p>
                   )}
@@ -264,7 +252,7 @@ const TestimonialsPage = () => {
           </p>
           <button 
             onClick={() => window.location.href = 'https://app.cal.com/aankit/30min'}
-            className="bg-white text-purple-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition font-semibold"
+            className="bg-white dark:bg-gray-800 text-purple-600 dark:text-purple-400 px-8 py-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition font-semibold border border-transparent dark:border-gray-600"
           >
             Schedule a Consultation
           </button>
@@ -272,9 +260,9 @@ const TestimonialsPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200">
+      <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4 py-8 text-center">
-          <p className="text-gray-600">
+          <p className="text-gray-600 dark:text-gray-300">
             © 2025 Aankit Roy. All rights reserved.
           </p>
         </div>

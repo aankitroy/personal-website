@@ -1531,12 +1531,12 @@ const BlogPostPage = () => {
         <header className="border-b border-gray-200">
           <div className="container mx-auto px-4 py-4">
             <nav className="flex items-center justify-between">
-              <Link href="/" className="text-xl font-bold text-gray-900">Aankit Roy</Link>
+              <Link href="/" className="text-xl font-bold text-gray-900 dark:text-gray-100">Aankit Roy</Link>
               <div className="hidden md:flex items-center space-x-8">
-                <Link href="/about" className="text-gray-600 hover:text-gray-900">About</Link>
-                <Link href="/services" className="text-gray-600 hover:text-gray-900">Services</Link>
+                <Link href="/about" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-gray-100">About</Link>
+                <Link href="/services" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-gray-100">Services</Link>
                 <Link href="/blog" className="text-purple-600 font-semibold">Blog</Link>
-                <Link href="/testimonials" className="text-gray-600 hover:text-gray-900">Testimonials</Link>
+                <Link href="/testimonials" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-gray-100">Testimonials</Link>
               </div>
             </nav>
           </div>
@@ -1544,7 +1544,7 @@ const BlogPostPage = () => {
         
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
-          <p className="text-gray-600 mb-8">The blog post you're looking for doesn't exist.</p>
+          <p className="text-gray-600 dark:text-gray-300 mb-8">The blog post you're looking for doesn't exist.</p>
           <Link href="/blog" className="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold">
             <ArrowLeft className="mr-2 w-4 h-4" />
             Back to Blog
@@ -1561,25 +1561,25 @@ const BlogPostPage = () => {
       .map((line, index) => {
         // Headers
         if (line.startsWith('# ')) {
-          return <h1 key={index} className="text-3xl font-bold mb-6 mt-8 text-gray-900">{line.substring(2)}</h1>;
+          return <h1 key={index} className="text-3xl font-bold mb-6 mt-8 text-gray-900 dark:text-gray-100">{line.substring(2)}</h1>;
         }
         if (line.startsWith('## ')) {
-          return <h2 key={index} className="text-2xl font-bold mb-4 mt-8 text-gray-900">{line.substring(3)}</h2>;
+          return <h2 key={index} className="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-gray-100">{line.substring(3)}</h2>;
         }
         if (line.startsWith('### ')) {
-          return <h3 key={index} className="text-xl font-semibold mb-3 mt-6 text-gray-900">{line.substring(4)}</h3>;
+          return <h3 key={index} className="text-xl font-semibold mb-3 mt-6 text-gray-900 dark:text-gray-100">{line.substring(4)}</h3>;
         }
         
         // Lists
         if (line.startsWith('- ')) {
-          return <li key={index} className="mb-2 text-gray-700">{line.substring(2)}</li>;
+          return <li key={index} className="mb-2 text-gray-700 dark:text-gray-200">{line.substring(2)}</li>;
         }
         
         // Bold text (simple **text** format)
         if (line.includes('**')) {
           const parts = line.split('**');
           return (
-            <p key={index} className="mb-4 text-gray-700 leading-relaxed">
+            <p key={index} className="mb-4 text-gray-700 dark:text-gray-200 leading-relaxed">
               {parts.map((part, i) => 
                 i % 2 === 1 ? <strong key={i} className="font-semibold">{part}</strong> : part
               )}
@@ -1598,7 +1598,7 @@ const BlogPostPage = () => {
         }
         
         // Regular paragraph
-        return <p key={index} className="mb-4 text-gray-700 leading-relaxed">{line}</p>;
+        return <p key={index} className="mb-4 text-gray-700 dark:text-gray-200 leading-relaxed">{line}</p>;
       });
   };
 
@@ -1611,12 +1611,12 @@ const BlogPostPage = () => {
       <header className="border-b border-gray-200">
         <div className="container mx-auto px-4 py-4">
           <nav className="flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold text-gray-900">Aankit Roy</Link>
+            <Link href="/" className="text-xl font-bold text-gray-900 dark:text-gray-100">Aankit Roy</Link>
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="/about" className="text-gray-600 hover:text-gray-900">About</Link>
-              <Link href="/services" className="text-gray-600 hover:text-gray-900">Services</Link>
+              <Link href="/about" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-gray-100">About</Link>
+              <Link href="/services" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-gray-100">Services</Link>
               <Link href="/blog" className="text-purple-600 font-semibold">Blog</Link>
-              <Link href="/testimonials" className="text-gray-600 hover:text-gray-900">Testimonials</Link>
+              <Link href="/testimonials" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-gray-100">Testimonials</Link>
             </div>
           </nav>
         </div>
@@ -1635,12 +1635,12 @@ const BlogPostPage = () => {
         <div className="max-w-4xl mx-auto">
           {/* Article Header */}
           <header className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-gray-100 leading-tight">
               {post.title}
             </h1>
             
             {/* Meta Information */}
-            <div className="flex flex-wrap items-center text-gray-600 mb-6">
+            <div className="flex flex-wrap items-center text-gray-600 dark:text-gray-300 mb-6">
               <div className="flex items-center mr-6 mb-2">
                 <User className="w-4 h-4 mr-2" />
                 <span>{post.author}</span>
@@ -1670,7 +1670,7 @@ const BlogPostPage = () => {
 
             {/* Share Buttons */}
             <div className="flex items-center space-x-4 pb-8 border-b border-gray-200">
-              <span className="text-gray-600 font-semibold">Share:</span>
+              <span className="text-gray-600 dark:text-gray-300 font-semibold">Share:</span>
               <a
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`}
                 target="_blank"
@@ -1703,8 +1703,8 @@ const BlogPostPage = () => {
           </header>
 
           {/* Article Content */}
-          <div className="prose prose-lg max-w-none">
-            <div className="text-gray-700 leading-relaxed">
+          <div className="prose prose-lg max-w-none dark:prose-invert">
+            <div className="text-gray-700 dark:text-gray-200 leading-relaxed">
               {formatContent(post.content)}
             </div>
           </div>
@@ -1716,8 +1716,8 @@ const BlogPostPage = () => {
                 AR
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Aankit Roy</h3>
-                <p className="text-gray-600 mb-4">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">Aankit Roy</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
                   AI Strategy & Engineering Leadership consultant with over a decade of experience scaling products 
                   to serve millions of users. Former CTO at Y Combinator companies, helping organizations implement 
                   AI solutions that deliver measurable business value.
@@ -1748,7 +1748,7 @@ const BlogPostPage = () => {
               href="https://app.cal.com/aankit/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
+              className="inline-flex items-center bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition"
             >
               Schedule a Consultation
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -1762,12 +1762,12 @@ const BlogPostPage = () => {
         <div className="container mx-auto px-4 py-12">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <Link href="/" className="text-xl font-bold text-gray-900">Aankit Roy</Link>
-              <p className="mt-4 text-gray-600">AI Strategy & Engineering Leadership</p>
+              <Link href="/" className="text-xl font-bold text-gray-900 dark:text-gray-100">Aankit Roy</Link>
+              <p className="mt-4 text-gray-600 dark:text-gray-300">AI Strategy & Engineering Leadership</p>
             </div>
             <div>
-              <h3 className="font-bold mb-4 text-gray-900">Navigation</h3>
-              <ul className="space-y-2 text-gray-600">
+              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Navigation</h3>
+              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
                 <li><Link href="/about" className="hover:text-purple-600">About</Link></li>
                 <li><Link href="/services" className="hover:text-purple-600">Services</Link></li>
                 <li><Link href="/blog" className="hover:text-purple-600">Blog</Link></li>
@@ -1775,8 +1775,8 @@ const BlogPostPage = () => {
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-4 text-gray-900">Services</h3>
-              <ul className="space-y-2 text-gray-600">
+              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Services</h3>
+              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
                 <li>AI Strategy & Implementation</li>
                 <li>Engineering Leadership</li>
                 <li>System Architecture</li>
@@ -1784,8 +1784,8 @@ const BlogPostPage = () => {
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-4 text-gray-900">Connect</h3>
-              <ul className="space-y-2 text-gray-600">
+              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Connect</h3>
+              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
                 <li><a href="https://www.linkedin.com/in/aankit-roy-20515b35/" target="_blank" className="hover:text-purple-600">LinkedIn</a></li>
                 <li><a href="https://x.com/AankitRoy" target="_blank" className="hover:text-purple-600">Twitter/X</a></li>
                 <li><a href="https://github.com/aankitroy" target="_blank" className="hover:text-purple-600">GitHub</a></li>

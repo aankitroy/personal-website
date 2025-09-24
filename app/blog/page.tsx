@@ -2,10 +2,36 @@
 import React from 'react';
 import { ArrowRight, Calendar, Clock, User } from 'lucide-react';
 import Link from 'next/link';
+import { Header } from '../../components/Header';
 
 const BlogPage = () => {
   // Sample blog posts data - in a real app, this would come from a CMS or API
   const blogPosts = [
+    {
+      id: 'langgraph-state-management-memory-guide',
+      title: 'LangGraph State Management and Memory for Advanced AI Agents',
+      excerpt: 'Deep dive into building stateful AI agents with persistent memory... because honestly, most "AI agents" out there are just glorified chatbots with no memory whatsoever.',
+      content: `# LangGraph State Management and Memory for Advanced AI Agents
+
+*deep dive into building stateful AI agents with persistent memory... because honestly, most "AI agents" out there are just glorified chatbots with no memory whatsoever*
+
+after working with dozens of AI implementations over the past year, i've noticed something frustrating... 
+everyone talks about "AI agents" but most are just stateless functions that forget everything between calls.
+
+real agents need memory. they need to remember what happened, learn from interactions, and maintain context across sessions. 
+that's where LangGraph comes in (and why i've been using it for client projects lately).
+
+*This is the beginning of a 15-minute deep-dive into state management patterns, memory types, and production deployment strategies for building real AI systems with persistent memory.*
+
+---
+
+*Need help implementing stateful AI agents? I offer strategic consulting and hands-on implementation support. [Schedule a consultation](https://app.cal.com/aankit/30min) to discuss your specific requirements.*`,
+      author: 'Aankit Roy',
+      date: '2025-09-24',
+      readTime: '15 min read',
+      tags: ['LangGraph', 'AI Agents', 'State Management', 'Memory Systems', 'AI Architecture'],
+      featured: true
+    },
     {
       id: 'ai-agent-frameworks-comparison',
       title: 'AI Agent Frameworks: The Honest Comparison Nobody Talks About',
@@ -401,32 +427,19 @@ Track both technical and human metrics:
   const recentPosts = blogPosts.filter(post => !post.featured).slice(0, 6);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Header */}
-      <header className="border-b border-gray-200">
-        <div className="container mx-auto px-4 py-4">
-          <nav className="flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold text-gray-900">Aankit Roy</Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/about" className="text-gray-600 hover:text-gray-900">About</Link>
-              <Link href="/services" className="text-gray-600 hover:text-gray-900">Services</Link>
-              <Link href="/blog" className="text-purple-600 font-semibold">Blog</Link>
-              <Link href="/testimonials" className="text-gray-600 hover:text-gray-900">Testimonials</Link>
-            </div>
-          </nav>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <Header currentPage="blog" />
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl font-bold mb-6">
+          <h1 className="text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
             Insights on 
             <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent"> AI Strategy </span> 
             & 
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Engineering Leadership</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
             Practical insights from scaling AI systems, building technical teams, and leading engineering organizations
           </p>
         </div>
@@ -435,11 +448,11 @@ Track both technical and human metrics:
       {/* Featured Posts */}
       {featuredPosts.length > 0 && (
         <section className="container mx-auto px-4 py-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Featured Posts</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">Featured Posts</h2>
           <div className="max-w-4xl mx-auto">
             {featuredPosts.map((post) => (
-              <article key={post.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
-                <div className="flex items-center text-sm text-gray-500 mb-4">
+              <article key={post.id} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-8 mb-8 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
                   <User className="w-4 h-4 mr-2" />
                   <span className="mr-4">{post.author}</span>
                   <Calendar className="w-4 h-4 mr-2" />
@@ -447,19 +460,19 @@ Track both technical and human metrics:
                   <Clock className="w-4 h-4 mr-2" />
                   <span>{post.readTime}</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">{post.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{post.excerpt}</p>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">{post.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">{post.excerpt}</p>
                 <div className="flex items-center justify-between">
                   <div className="flex flex-wrap gap-2">
                     {post.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
+                      <span key={tag} className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 rounded-full text-sm">
                         {tag}
                       </span>
                     ))}
                   </div>
                   <Link 
                     href={`/blog/${post.id}`}
-                    className="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold"
+                    className="inline-flex items-center text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-semibold transition-colors"
                   >
                     Read More
                     <ArrowRight className="ml-2 w-4 h-4" />
@@ -473,28 +486,28 @@ Track both technical and human metrics:
 
       {/* Recent Posts Grid */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-12 text-center">Recent Posts</h2>
+        <h2 className="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-gray-100">Recent Posts</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {recentPosts.map((post) => (
-            <article key={post.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
-              <div className="flex items-center text-sm text-gray-500 mb-3">
+            <article key={post.id} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 hover:shadow-xl hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300">
+              <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
                 <Calendar className="w-4 h-4 mr-2" />
                 <span className="mr-4">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
                 <Clock className="w-4 h-4 mr-2" />
                 <span>{post.readTime}</span>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">{post.title}</h3>
-              <p className="text-gray-600 mb-4 leading-relaxed">{post.excerpt}</p>
+              <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-gray-100">{post.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{post.excerpt}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {post.tags.map((tag) => (
-                  <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">
+                  <span key={tag} className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded text-xs">
                     {tag}
                   </span>
                 ))}
               </div>
               <Link 
                 href={`/blog/${post.id}`}
-                className="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold text-sm"
+                className="inline-flex items-center text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-semibold text-sm transition-colors"
               >
                 Read More
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -517,7 +530,7 @@ Track both technical and human metrics:
               placeholder="Enter your email" 
               className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-purple-300"
             />
-            <button className="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+            <button className="bg-white dark:bg-gray-800 text-purple-600 dark:text-purple-400 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition">
               Subscribe
             </button>
           </div>
@@ -525,16 +538,16 @@ Track both technical and human metrics:
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200">
+      <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4 py-12">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <Link href="/" className="text-xl font-bold text-gray-900">Aankit Roy</Link>
-              <p className="mt-4 text-gray-600">AI Strategy & Engineering Leadership</p>
+              <Link href="/" className="text-xl font-bold text-gray-900 dark:text-gray-100">Aankit Roy</Link>
+              <p className="mt-4 text-gray-600 dark:text-gray-300">AI Strategy & Engineering Leadership</p>
             </div>
             <div>
-              <h3 className="font-bold mb-4 text-gray-900">Navigation</h3>
-              <ul className="space-y-2 text-gray-600">
+              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Navigation</h3>
+              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
                 <li><Link href="/about" className="hover:text-purple-600">About</Link></li>
                 <li><Link href="/services" className="hover:text-purple-600">Services</Link></li>
                 <li><Link href="/blog" className="hover:text-purple-600">Blog</Link></li>
@@ -542,8 +555,8 @@ Track both technical and human metrics:
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-4 text-gray-900">Services</h3>
-              <ul className="space-y-2 text-gray-600">
+              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Services</h3>
+              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
                 <li>AI Strategy & Implementation</li>
                 <li>Engineering Leadership</li>
                 <li>System Architecture</li>
@@ -551,8 +564,8 @@ Track both technical and human metrics:
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-4 text-gray-900">Connect</h3>
-              <ul className="space-y-2 text-gray-600">
+              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Connect</h3>
+              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
                 <li><a href="https://www.linkedin.com/in/aankit-roy-20515b35/" target="_blank" className="hover:text-purple-600">LinkedIn</a></li>
                 <li><a href="https://x.com/AankitRoy" target="_blank" className="hover:text-purple-600">Twitter/X</a></li>
                 <li><a href="https://github.com/aankitroy" target="_blank" className="hover:text-purple-600">GitHub</a></li>

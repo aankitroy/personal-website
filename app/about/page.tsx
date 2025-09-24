@@ -12,6 +12,7 @@ import {
   Trophy,
   Building
 } from 'lucide-react';
+import { Header } from '../../components/Header';
 
 // Journey Timeline Component
 const JourneyTimeline = () => {
@@ -85,20 +86,20 @@ const JourneyTimeline = () => {
       description: "Built strong computer science foundations through hands-on problem-solving and innovation.",
       icon: GraduationCap,
       metrics: ["Problem Solving", "Innovation", "Computer Science"],
-      color: "text-gray-600"
+      color: "text-gray-600 dark:text-gray-300"
     }
   ];
 
   return (
     <div className="max-w-5xl mx-auto">
-      <h2 className="text-3xl font-bold mb-12 text-gray-800">Professional Journey</h2>
+      <h2 className="text-3xl font-bold mb-12 text-gray-800 dark:text-gray-100">Professional Journey</h2>
       
       <div className="relative">
         {/* Timeline line */}
-        <div className="absolute left-8 top-0 w-1 h-full bg-gradient-to-b from-purple-500 to-gray-300 rounded-full" />
+        <div className="absolute left-9 top-0 w-1 h-full bg-gradient-to-b from-purple-500 via-purple-400 to-gray-300 dark:to-gray-500 rounded-full shadow-sm" />
         
         {/* Journey items */}
-        <div className="space-y-12">
+        <div className="space-y-16">
           {journeyData.map((item, index) => {
             const Icon = item.icon;
             const isActive = index === activeIndex;
@@ -106,43 +107,45 @@ const JourneyTimeline = () => {
             return (
               <div
                 key={index}
-                className={`relative pl-20 transition-all duration-500 transform
+                className={`relative pl-24 transition-all duration-500 transform
                   ${isActive ? 'scale-102' : 'hover:scale-101'}`}
                 onClick={() => setActiveIndex(index)}
               >
                 {/* Timeline node */}
-                <div className={`absolute left-4 w-10 h-10 rounded-full 
-                  ${isActive ? 'bg-gradient-to-r from-purple-500 to-blue-500' : 'bg-white'}
-                  border-4 border-white shadow-lg
+                <div className={`absolute left-3 w-12 h-12 rounded-full 
+                  ${isActive ? 'bg-gradient-to-r from-purple-500 to-blue-500 shadow-purple-500/25' : 'bg-white dark:bg-gray-700 shadow-gray-500/25'}
+                  border-4 border-white dark:border-gray-800 shadow-xl
                   flex items-center justify-center transition-all duration-300
-                  cursor-pointer hover:scale-110`}>
+                  cursor-pointer hover:scale-110 hover:shadow-2xl`}>
                   <Icon className={`w-5 h-5 ${isActive ? 'text-white' : item.color}`} />
                 </div>
 
                 {/* Content card */}
-                <div className={`bg-white p-8 rounded-xl shadow-sm border-l-4 
-                  ${isActive ? 'border-l-purple-500' : 'border-l-gray-200'}
-                  hover:shadow-md transition-all duration-300`}>
+                <div className={`bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 
+                  ${isActive ? 'border-l-purple-500 shadow-purple-500/10' : 'border-l-gray-200 dark:border-l-gray-600'}
+                  hover:shadow-xl hover:border-l-purple-400 transition-all duration-300 backdrop-blur-sm`}>
                   
                   {/* Header */}
                   <div className="flex flex-wrap items-start justify-between mb-4">
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-800 mb-1">
+                      <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-1">
                         {item.role}
-                        {item.company && <span className="text-gray-600"> @ {item.company}</span>}
+                        {item.company && <span className="text-gray-600 dark:text-gray-300"> @ {item.company}</span>}
                       </h3>
                       {item.tagline && (
-                        <p className="text-md text-gray-600 italic">&quot;{item.tagline}&quot;</p>
+                        <p className="text-md text-gray-600 dark:text-gray-300 italic">&quot;{item.tagline}&quot;</p>
                       )}
                     </div>
                     <span className="text-sm font-semibold px-4 py-2 rounded-full 
-                      bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700">
+                      bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/40 dark:to-blue-900/40 
+                      text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-700/50
+                      shadow-sm hover:shadow-md transition-all duration-200">
                       {item.period}
                     </span>
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                     {item.description}
                   </p>
 
@@ -151,7 +154,7 @@ const JourneyTimeline = () => {
                     {item.metrics.map((metric, idx) => (
                       <span key={idx} 
                         className="px-3 py-1 rounded-full text-sm font-medium
-                        bg-gray-100 text-gray-700">
+                        bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200">
                         {metric}
                       </span>
                     ))}
@@ -169,34 +172,21 @@ const JourneyTimeline = () => {
 // Main About Page Component
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Header */}
-      <header className="border-b border-gray-200">
-        <div className="container mx-auto px-4 py-4">
-          <nav className="flex items-center justify-between">
-            <span className="text-xl font-bold text-gray-900">Aankit Roy</span>
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="/about" className="text-purple-600 font-semibold">About</a>
-              <a href="/services" className="text-gray-600 hover:text-gray-900">Services</a>
-              <a href="/blog" className="text-gray-600 hover:text-gray-900">Blog</a>
-              <a href="/testimonials" className="text-gray-600 hover:text-gray-900">Testimonials</a>
-            </div>
-          </nav>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <Header currentPage="about" />
 
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">
                 Engineering Leadership & 
                 <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                   {' '}AI Strategy
                 </span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
                 Bridging the gap between cutting-edge technology and business value with 
                 over a decade of experience scaling products to serve millions of users.
               </p>
@@ -207,7 +197,7 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="lg:w-1/2 flex justify-center">
-              <div className="bg-gradient-to-r from-purple-100 to-blue-100 p-1 rounded-lg max-w-md">
+              <div className="bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 p-1 rounded-lg max-w-md">
                 <img 
                   src="/aankitroy.png"
                   alt="Aankit Roy"
@@ -220,9 +210,9 @@ const AboutPage = () => {
       </section>
 
       {/* Expertise Cards */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Areas of Expertise</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">Areas of Expertise</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -241,10 +231,10 @@ const AboutPage = () => {
                 description: "Building and mentoring high-performing technical teams of 30+ engineers."
               }
             ].map((card, index) => (
-              <div key={index} className="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-xl hover:shadow-lg transition">
+              <div key={index} className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-6 rounded-xl hover:shadow-lg transition">
                 <div className="mb-4">{card.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
-                <p className="text-gray-600">{card.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">{card.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">{card.description}</p>
               </div>
             ))}
           </div>
@@ -252,17 +242,17 @@ const AboutPage = () => {
       </section>
 
       {/* Professional Journey Timeline */}
-      <section className="py-16 bg-gradient-to-r from-purple-50 to-blue-50">
+      <section className="py-16 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
           <JourneyTimeline />
         </div>
       </section>
 
       {/* Technical Philosophy */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-12">Technical Philosophy</h2>
+            <h2 className="text-3xl font-bold mb-12 text-gray-900 dark:text-gray-100">Technical Philosophy</h2>
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 "Pragmatic architecture decisions that balance innovation with reliability",
@@ -272,7 +262,7 @@ const AboutPage = () => {
               ].map((point, index) => (
                 <div key={index} className="flex items-start gap-3 text-left">
                   <Zap className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
-                  <p className="text-gray-700">{point}</p>
+                  <p className="text-gray-700 dark:text-gray-200">{point}</p>
                 </div>
               ))}
             </div>
@@ -289,7 +279,7 @@ const AboutPage = () => {
             I&apos;m here to help turn your challenges into opportunities.
           </p>
           <div className="flex justify-center gap-4">
-            <button className="bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition flex items-center gap-2">
+            <button className="bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-gray-100 dark:bg-gray-800 transition flex items-center gap-2">
               <MessagesSquare className="w-5 h-5" />
               Schedule a Consultation
             </button>

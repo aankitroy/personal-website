@@ -5,6 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   // Blog posts
   const blogPosts = [
+    'langgraph-state-management-memory-guide',
     'ai-agent-frameworks-comparison',
     'ai-agents-complete-guide',
     'ai-agents-future-of-business-automation',
@@ -15,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   const blogSitemapEntries = blogPosts.map(slug => ({
     url: `${baseUrl}/blog/${slug}`,
-    lastModified: new Date('2025-09-15'),
+    lastModified: new Date('2025-09-24'),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
