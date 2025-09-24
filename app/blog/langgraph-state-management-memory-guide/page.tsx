@@ -324,11 +324,11 @@ class AgentState(TypedDict):
             if it doesn't have memory and state, it's just an expensive API call.
           </p>
 
-          <div className="bg-purple-50 border-l-4 border-purple-400 p-6 my-8">
-            <p className="text-purple-800 font-medium">
+          <div className="bg-purple-50 dark:bg-purple-900/20 border-l-4 border-purple-400 dark:border-purple-500 p-6 my-8">
+            <p className="text-purple-800 dark:text-purple-200 font-medium">
               <strong>working on stateful AI systems?</strong> i help companies design and implement production-ready 
               AI agents with proper state management and memory systems. 
-              <Link href="/services" className="text-purple-600 hover:text-purple-700 underline">
+              <Link href="/services" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 underline">
                 let's discuss your specific requirements
               </Link>.
             </p>

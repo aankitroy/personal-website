@@ -1,6 +1,6 @@
 {
-  "/services/page": "app/services/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/blog/page": "app/blog/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/blog/langgraph-state-management-memory-guide/page": "app/blog/langgraph-state-management-memory-guide/page.js",
   "/testimonials/page": "app/testimonials/page.js"
 }
