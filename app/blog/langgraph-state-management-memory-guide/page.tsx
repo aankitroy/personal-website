@@ -336,7 +336,7 @@ class AgentState(TypedDict):
         </article>
 
         {/* Navigation */}
-        <div className="flex justify-between items-center mt-12 pt-8 border-t border-gray-200">
+        <div className="flex justify-between items-center mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
           <Link href="/blog" className="inline-flex items-center text-purple-600 hover:text-purple-700">
             <ArrowLeft className="w-4 h-4 mr-2" />
             All Posts

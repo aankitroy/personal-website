@@ -1,7 +1,9 @@
 'use client';
 import React from 'react';
-import { ArrowLeft, ArrowRight, Calendar, Clock, User, Share2, Mail, Linkedin, Twitter } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, Clock, User, Mail, Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
+import { Header } from '../../../components/Header';
+import { ShareButtons } from '../../../components/ShareButtons';
 
 const AIStrategyImplementationGuidePage = () => {
   const post = {
@@ -19,21 +21,9 @@ const AIStrategyImplementationGuidePage = () => {
   const shareText = `${post.title} by Aankit Roy`;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       {/* Header */}
-      <header className="border-b border-gray-200">
-        <div className="container mx-auto px-4 py-4">
-          <nav className="flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold text-gray-900 dark:text-gray-100">Aankit Roy</Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/about" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-gray-100">About</Link>
-              <Link href="/services" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-gray-100">Services</Link>
-              <Link href="/blog" className="text-purple-600 font-semibold">Blog</Link>
-              <Link href="/testimonials" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-gray-100">Testimonials</Link>
-            </div>
-          </nav>
-        </div>
-      </header>
+      <Header currentPage="blog" />
 
       {/* Back to Blog */}
       <div className="container mx-auto px-4 py-6">
@@ -75,43 +65,14 @@ const AIStrategyImplementationGuidePage = () => {
             {/* Tags */}
             <div className="flex flex-wrap gap-2 mb-8">
               {post.tags.map((tag) => (
-                <span key={tag} className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
+                <span key={tag} className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 rounded-full text-sm">
                   {tag}
                 </span>
               ))}
             </div>
 
             {/* Share Buttons */}
-            <div className="flex items-center space-x-4 pb-8 border-b border-gray-200">
-              <span className="text-gray-600 dark:text-gray-300 font-semibold">Share:</span>
-              <a
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center px-3 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
-              >
-                <Twitter className="w-4 h-4 mr-2" />
-                Twitter
-              </a>
-              <a
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center px-3 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition"
-              >
-                <Linkedin className="w-4 h-4 mr-2" />
-                LinkedIn
-              </a>
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText(shareUrl);
-                }}
-                className="flex items-center px-3 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition"
-              >
-                <Share2 className="w-4 h-4 mr-2" />
-                Copy Link
-              </button>
-            </div>
+            <ShareButtons shareUrl={shareUrl} shareText={shareText} />
           </header>
 
           {/* Article Content */}
@@ -277,7 +238,7 @@ const AIStrategyImplementationGuidePage = () => {
           </div>
 
           {/* Author Bio */}
-          <div className="mt-16 p-8 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl">
+          <div className="mt-16 p-8 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl border border-purple-200 dark:border-purple-700/50">
             <div className="flex items-start space-x-4">
               <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
                 AR
@@ -324,7 +285,7 @@ const AIStrategyImplementationGuidePage = () => {
       </article>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 mt-20">
+      <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 mt-20">
         <div className="container mx-auto px-4 py-12">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
