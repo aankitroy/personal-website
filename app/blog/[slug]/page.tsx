@@ -643,7 +643,7 @@ if you're serious about implementing AI agents in your organization, i offer str
 
 i'm always learning from other practitioners. if you're building agents or thinking about it, i'd love to hear about your challenges and successes.
 
-*[schedule a consultation](https://app.cal.com/aankit/30min) to discuss your specific agent implementation needs, or just reach out if you want to geek out about agent architecture.*`,
+*[schedule a consultation](https://cal.com/aankit/explore-synergies) to discuss your specific agent implementation needs, or just reach out if you want to geek out about agent architecture.*`,
       author: 'Aankit Roy',
       date: '2025-09-15',
       readTime: '18 min read',
@@ -783,7 +783,7 @@ Remember, successful AI implementation is a marathon, not a sprint. Focus on bui
 
 ---
 
-*Need help implementing AI in your organization? I offer strategic consulting and hands-on implementation support. [Schedule a consultation](https://app.cal.com/aankit/30min) to discuss your specific needs.*`,
+*Need help implementing AI in your organization? I offer strategic consulting and hands-on implementation support. [Schedule a consultation](https://cal.com/aankit/explore-synergies) to discuss your specific needs.*`,
       author: 'Aankit Roy',
       date: '2024-01-15',
       readTime: '8 min read',
@@ -972,7 +972,7 @@ Remember, scaling AI systems is as much about organizational maturity as it is a
 
 ---
 
-*Need help scaling your AI systems? I've helped organizations handle millions of AI requests efficiently. [Let's discuss your scaling challenges](https://app.cal.com/aankit/30min).*`,
+*Need help scaling your AI systems? I've helped organizations handle millions of AI requests efficiently. [Let's discuss your scaling challenges](https://cal.com/aankit/explore-synergies).*`,
       author: 'Aankit Roy',
       date: '2024-01-10',
       readTime: '12 min read',
@@ -1203,7 +1203,7 @@ The question isn't whether AI agents will transform business processes—it's wh
 
 ---
 
-*Ready to explore AI agents for your business? I help organizations design, build, and deploy AI agents that deliver real business value. [Schedule a consultation](https://app.cal.com/aankit/30min) to discuss your specific use cases and requirements.*`,
+*Ready to explore AI agents for your business? I help organizations design, build, and deploy AI agents that deliver real business value. [Schedule a consultation](https://cal.com/aankit/explore-synergies) to discuss your specific use cases and requirements.*`,
       author: 'Aankit Roy',
       date: '2025-09-15',
       readTime: '14 min read',
@@ -1520,7 +1520,7 @@ The companies that get this right don't just scale—they accelerate. They becom
 
 ---
 
-*Looking to scale your technical team? I help organizations build engineering teams that can grow from startup to enterprise scale. [Let's discuss your specific challenges and opportunities](https://app.cal.com/aankit/30min).*`,
+*Looking to scale your technical team? I help organizations build engineering teams that can grow from startup to enterprise scale. [Let's discuss your specific challenges and opportunities](https://cal.com/aankit/explore-synergies).*`,
       author: 'Aankit Roy',
       date: '2023-12-28',
       readTime: '15 min read',
@@ -1707,7 +1707,7 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
               Let's discuss how I can help you achieve your goals.
             </p>
             <a
-              href="https://app.cal.com/aankit/30min"
+              href="https://cal.com/aankit/explore-synergies"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition"

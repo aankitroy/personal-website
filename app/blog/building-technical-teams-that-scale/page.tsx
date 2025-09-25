@@ -178,7 +178,7 @@ const BuildingTechnicalTeamsPage = () => {
               Let's discuss your specific team building and leadership challenges.
             </p>
             <a
-              href="https://app.cal.com/aankit/30min"
+              href="https://cal.com/aankit/explore-synergies"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition"

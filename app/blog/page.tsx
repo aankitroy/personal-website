@@ -25,7 +25,7 @@ that's where LangGraph comes in (and why i've been using it for client projects 
 
 ---
 
-*Need help implementing stateful AI agents? I offer strategic consulting and hands-on implementation support. [Schedule a consultation](https://app.cal.com/aankit/30min) to discuss your specific requirements.*`,
+*Need help implementing stateful AI agents? I offer strategic consulting and hands-on implementation support. [Schedule a consultation](https://cal.com/aankit/explore-synergies) to discuss your specific requirements.*`,
       author: 'Aankit Roy',
       date: '2025-09-24',
       readTime: '15 min read',
@@ -56,7 +56,7 @@ meanwhile, you're sitting there thinking: *"i just want to build something that 
 
 ---
 
-*Need help choosing the right framework for your specific use case? I offer strategic consulting and hands-on framework evaluation. [Schedule a consultation](https://app.cal.com/aankit/30min) to discuss your requirements.*`,
+*Need help choosing the right framework for your specific use case? I offer strategic consulting and hands-on framework evaluation. [Schedule a consultation](https://cal.com/aankit/explore-synergies) to discuss your requirements.*`,
       author: 'Aankit Roy',
       date: '2025-09-15',
       readTime: '16 min read',
@@ -95,7 +95,7 @@ see the difference?
 
 ---
 
-*Need help implementing AI agents in your organization? I offer strategic consulting and hands-on implementation support. [Schedule a consultation](https://app.cal.com/aankit/30min) to discuss your specific needs.*`,
+*Need help implementing AI agents in your organization? I offer strategic consulting and hands-on implementation support. [Schedule a consultation](https://cal.com/aankit/explore-synergies) to discuss your specific needs.*`,
       author: 'Aankit Roy',
       date: '2025-09-15',
       readTime: '18 min read',
@@ -235,7 +235,7 @@ Remember, successful AI implementation is a marathon, not a sprint. Focus on bui
 
 ---
 
-*Need help implementing AI in your organization? I offer strategic consulting and hands-on implementation support. [Schedule a consultation](https://app.cal.com/aankit/30min) to discuss your specific needs.*`,
+*Need help implementing AI in your organization? I offer strategic consulting and hands-on implementation support. [Schedule a consultation](https://cal.com/aankit/explore-synergies) to discuss your specific needs.*`,
       author: 'Aankit Roy',
       date: '2024-01-15',
       readTime: '8 min read',
@@ -331,7 +331,7 @@ Organizations implementing AI agents typically see:
 - Enhanced customer satisfaction
 - Significant cost savings
 
-*Ready to explore AI agents for your business? [Schedule a consultation](https://app.cal.com/aankit/30min) to discuss your specific use cases.*`,
+*Ready to explore AI agents for your business? [Schedule a consultation](https://cal.com/aankit/explore-synergies) to discuss your specific use cases.*`,
       author: 'Aankit Roy',
       date: '2025-09-15',
       readTime: '14 min read',
@@ -524,15 +524,18 @@ Track both technical and human metrics:
           <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
             Get the latest insights on AI strategy, engineering leadership, and technical innovation delivered to your inbox.
           </p>
-          <div className="max-w-md mx-auto flex gap-4">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-purple-300"
-            />
-            <button className="bg-white dark:bg-gray-800 text-purple-600 dark:text-purple-400 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-              Subscribe
-            </button>
+          <div className="max-w-md mx-auto">
+            <a 
+              href="https://aankitroy30.substack.com/subscribe" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white dark:bg-gray-800 text-purple-600 dark:text-purple-400 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition inline-flex items-center gap-2"
+            >
+              📧 Subscribe to Newsletter
+            </a>
+            <p className="text-purple-100 text-sm mt-3">
+              Powered by <span className="font-semibold">Substack</span>
+            </p>
           </div>
         </div>
       </section>

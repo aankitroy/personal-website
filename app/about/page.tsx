@@ -191,9 +191,14 @@ const AboutPage = () => {
                 over a decade of experience scaling products to serve millions of users.
               </p>
               <div className="flex gap-4">
-                <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-lg hover:opacity-90 transition">
+                <a 
+                  href="https://cal.com/aankit/explore-synergies" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-lg hover:opacity-90 transition"
+                >
                   Let&apos;s Connect
-                </button>
+                </a>
               </div>
             </div>
             <div className="lg:w-1/2 flex justify-center">
@@ -279,10 +284,15 @@ const AboutPage = () => {
             I&apos;m here to help turn your challenges into opportunities.
           </p>
           <div className="flex justify-center gap-4">
-            <button className="bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-gray-100 dark:bg-gray-800 transition flex items-center gap-2">
+            <a 
+              href="https://cal.com/aankit/explore-synergies" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-gray-100 dark:bg-gray-800 transition flex items-center gap-2"
+            >
               <MessagesSquare className="w-5 h-5" />
               Schedule a Consultation
-            </button>
+            </a>
           </div>
         </div>
       </section>

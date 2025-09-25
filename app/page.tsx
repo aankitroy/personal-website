@@ -116,7 +116,7 @@ const Website = () => {
 
           <div className="mt-12 flex justify-center gap-4">
             <button onClick={() => {
-              window.location.href = 'https://app.cal.com/aankit/30min';
+              window.location.href = 'https://cal.com/aankit/explore-synergies';
             }} className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg hover:opacity-90 inline-flex items-center">
               Schedule Free Consultation
               <ArrowRight className="ml-2" />
@@ -141,6 +141,27 @@ const Website = () => {
             Learn more about my journey
             <ArrowRight className="ml-2 w-4 h-4" />
           </a>
+        </div>
+      </section>
+
+      {/* Newsletter Subscription */}
+      <section className="bg-gradient-to-r from-purple-600 to-blue-600 py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">AI Strategy Insights</h2>
+          <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+            Get weekly insights on AI strategy, engineering leadership, and technical innovation. Join 1000+ leaders building the future.
+          </p>
+          <a 
+            href="https://aankitroy30.substack.com/subscribe" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition inline-flex items-center gap-2"
+          >
+            📧 Subscribe to Newsletter
+          </a>
+          <p className="text-purple-100 text-sm mt-4">
+            Free • No spam • Unsubscribe anytime
+          </p>
         </div>
       </section>
 
@@ -323,7 +344,7 @@ const Website = () => {
             I&apos;m here to help turn your challenges into opportunities.
           </p>
           <button onClick={() => {
-            window.location.href = 'https://app.cal.com/aankit/30min';
+            window.location.href = 'https://cal.com/aankit/explore-synergies';
           }} className="bg-white dark:bg-gray-900 text-purple-600 px-6 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition flex items-center gap-2 mx-auto">
             <MessagesSquare className="w-5 h-5" />
             Schedule a Consultation
@@ -365,6 +386,7 @@ const Website = () => {
                 <li><a href="https://x.com/AankitRoy" target="_blank" className="hover:text-purple-600">Twitter/X</a></li>
                 <li><a href="https://github.com/aankitroy" target="_blank" className="hover:text-purple-600">GitHub</a></li>
                 <li><a href="mailto:aankitroy1990@gmail.com" className="hover:text-purple-600">Email: aankitroy1990@gmail.com</a></li>
+                <li><a href="https://aankitroy30.substack.com/subscribe" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600">📧 Newsletter</a></li>
               </ul>
             </div>
           </div>

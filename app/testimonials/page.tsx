@@ -250,12 +250,14 @@ const TestimonialsPage = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto text-purple-100">
             Let&apos;s discuss how I can help transform your technical challenges into opportunities
           </p>
-          <button 
-            onClick={() => window.location.href = 'https://app.cal.com/aankit/30min'}
+          <a
+            href="https://cal.com/aankit/explore-synergies" 
+            target="_blank" 
+            rel="noopener noreferrer"
             className="bg-white dark:bg-gray-800 text-purple-600 dark:text-purple-400 px-8 py-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition font-semibold border border-transparent dark:border-gray-600"
           >
             Schedule a Consultation
-          </button>
+          </a>
         </div>
       </section>
 
