@@ -8,6 +8,30 @@ const BlogPage = () => {
   // Sample blog posts data - in a real app, this would come from a CMS or API
   const blogPosts = [
     {
+      id: 'claude-agent-sdk-building-agents-that-work',
+      title: 'building agents with claude agent sdk (and why my first attempts failed spectacularly)',
+      excerpt: 'what i learned building real agents with the claude agent sdk after months of trial, error, and actually reading the anthropic engineering blog... the messy reality of agent development.',
+      content: `# building agents with claude agent sdk (and why my first attempts failed spectacularly)
+
+*anthropic just renamed the claude code sdk to the claude agent sdk... and honestly, it makes so much more sense now*
+
+last week, i spent 6 hours debugging an agent that kept writing python scripts to create excel files instead of just... calling the excel API. 
+turns out, i completely misunderstood how the claude agent sdk approaches tool selection.
+
+(this is the messy reality nobody talks about in those polished case studies)
+
+*This is the beginning of a 16-minute deep-dive into building production agents with the claude agent sdk, covering the agent loop (gather context → take action → verify work), tool design, subagents, and real deployment lessons from building 8 different agents.*
+
+---
+
+*Need help building production AI agents? I offer strategic consulting and hands-on implementation support. [Schedule a consultation](https://cal.com/aankit/explore-synergies) to discuss your specific use case.*`,
+      author: 'Aankit Roy',
+      date: '2025-09-30',
+      readTime: '16 min read',
+      tags: ['AI Agents', 'Claude', 'Agent Development', 'Implementation', 'Claude Agent SDK'],
+      featured: true
+    },
+    {
       id: 'langgraph-state-management-memory-guide',
       title: 'LangGraph State Management and Memory for Advanced AI Agents',
       excerpt: 'Deep dive into building stateful AI agents with persistent memory... because honestly, most "AI agents" out there are just glorified chatbots with no memory whatsoever.',

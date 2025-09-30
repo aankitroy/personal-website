@@ -313,7 +313,7 @@ const ServicesPreview = () => {
           href="https://cal.com/aankit/explore-synergies" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition flex items-center gap-2 mx-auto"
+          className="bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition inline-flex items-center gap-2 mx-auto"
         >
           <MessagesSquare className="w-5 h-5" />
           Schedule a Free Consultation
