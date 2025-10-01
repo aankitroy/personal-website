@@ -20,6 +20,31 @@ export async function generateStaticParams() {
 const getBlogPost = (slug: string) => {
   const blogPosts = [
     {
+      id: 'context-engineering-agents-practical-guide',
+      title: 'Context Engineering for Agents: The Practical Guide Nobody Writes',
+      excerpt: 'Understanding the four strategies—write, select, compress, and isolate—through real examples from Claude Code, ChatGPT, Cursor, and production research systems.',
+      content: `# Context Engineering for Agents: The Practical Guide Nobody Writes
+
+Understanding context engineering through real production examples from Claude Code, ChatGPT, Cursor, Windsurf, and Anthropic's research.
+
+Read the full article at [/blog/context-engineering-agents-practical-guide](/blog/context-engineering-agents-practical-guide)
+
+This practical guide covers:
+- The four context engineering strategies in production systems
+- How Claude Code implements auto-compaction at 95% context window
+- The 15x token multiplier in multi-agent architectures (from Anthropic)
+- What Windsurf learned about RAG for code agents
+- Memory systems across ChatGPT, Cursor, and other production agents
+- LangGraph's support for all four strategies
+
+Based on analysis of production systems and research from Anthropic, Cognition, HuggingFace, and others.`,
+      author: 'Aankit Roy',
+      date: '2025-10-02',
+      readTime: '16 min read',
+      tags: ['Context Engineering', 'AI Agents', 'Production AI', 'Agent Memory', 'Multi-Agent Systems'],
+      featured: true
+    },
+    {
       id: 'ai-agent-frameworks-comparison',
       title: 'AI Agent Frameworks: The Honest Comparison Nobody Talks About',
       excerpt: 'After building production systems with 8+ frameworks, here\'s what actually works (and what doesn\'t) when choosing between LangChain, LangGraph, CrewAI, AutoGen, and others.',

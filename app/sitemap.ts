@@ -3,24 +3,65 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://aankitroy.com'
   
-  // Blog posts
+  // Blog posts with individual dates
   const blogPosts = [
-    'context-engineering-ai-agents-guide',
-    'claude-agent-sdk-building-agents-that-work',
-    'langgraph-state-management-memory-guide',
-    'ai-agent-frameworks-comparison',
-    'ai-agents-complete-guide',
-    'ai-agents-future-of-business-automation',
-    'ai-strategy-implementation-guide',
-    'scaling-ai-systems-lessons-learned',
-    'building-technical-teams-that-scale'
+    {
+      slug: 'context-engineering-agents-practical-guide',
+      lastModified: '2025-10-02',
+      priority: 0.8, // Higher priority for newest post
+    },
+    {
+      slug: 'context-engineering-ai-agents-guide',
+      lastModified: '2025-10-01',
+      priority: 0.7,
+    },
+    {
+      slug: 'claude-agent-sdk-building-agents-that-work',
+      lastModified: '2025-09-30',
+      priority: 0.7,
+    },
+    {
+      slug: 'langgraph-state-management-memory-guide',
+      lastModified: '2025-09-24',
+      priority: 0.7,
+    },
+    {
+      slug: 'ai-agent-frameworks-comparison',
+      lastModified: '2025-09-15',
+      priority: 0.7,
+    },
+    {
+      slug: 'ai-agents-complete-guide',
+      lastModified: '2025-09-15',
+      priority: 0.7,
+    },
+    {
+      slug: 'ai-agents-future-of-business-automation',
+      lastModified: '2025-09-15',
+      priority: 0.6,
+    },
+    {
+      slug: 'ai-strategy-implementation-guide',
+      lastModified: '2024-01-15',
+      priority: 0.6,
+    },
+    {
+      slug: 'scaling-ai-systems-lessons-learned',
+      lastModified: '2024-01-10',
+      priority: 0.6,
+    },
+    {
+      slug: 'building-technical-teams-that-scale',
+      lastModified: '2023-12-28',
+      priority: 0.6,
+    }
   ];
   
-  const blogSitemapEntries = blogPosts.map(slug => ({
-    url: `${baseUrl}/blog/${slug}`,
-    lastModified: new Date('2025-09-24'),
+  const blogSitemapEntries = blogPosts.map(post => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.lastModified),
     changeFrequency: 'monthly' as const,
-    priority: 0.6,
+    priority: post.priority,
   }));
   
   return [

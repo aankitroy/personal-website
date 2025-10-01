@@ -8,6 +8,29 @@ const BlogPage = () => {
   // Sample blog posts data - in a real app, this would come from a CMS or API
   const blogPosts = [
     {
+      id: 'context-engineering-agents-practical-guide',
+      title: 'context engineering for agents: the practical guide nobody writes',
+      excerpt: 'understanding the four strategies—write, select, compress, and isolate—through real examples from Claude Code, ChatGPT, Cursor, and production research systems',
+      content: `# context engineering for agents: the practical guide nobody writes
+
+the LangChain blog on context engineering lays out four core strategies: write, select, compress, and isolate. these are the right categories. but understanding the nuances of when and how to apply them makes the difference between agents that work and agents that don't scale.
+
+this post digs deeper into the practical implications of each strategy, based on what we can learn from production systems like Claude Code, ChatGPT, Cursor, and Windsurf, as well as research from Anthropic, Cognition, and others building at the frontier.
+
+key insights include the 15x token multiplier in multi-agent systems, how Claude Code implements auto-compaction, what Windsurf learned about RAG for code agents, and practical approaches to memory systems across ChatGPT, Cursor, and other production agents.
+
+*This is a 16-minute deep-dive into context engineering based on real production systems and research.*
+
+---
+
+*Working on production agent systems? I help companies design agent architectures. [Schedule a consultation](https://cal.com/aankit/explore-synergies) to discuss your challenges.*`,
+      author: 'Aankit Roy',
+      date: '2025-10-02',
+      readTime: '16 min read',
+      tags: ['Context Engineering', 'AI Agents', 'Production AI', 'Agent Memory', 'Multi-Agent Systems'],
+      featured: true
+    },
+    {
       id: 'context-engineering-ai-agents-guide',
       title: 'context engineering for ai agents (or: why your agent keeps forgetting things)',
       excerpt: 'after debugging hundreds of "why did my agent do that?" moments, i realized most failures come down to bad context management... here\'s what actually works in production',
