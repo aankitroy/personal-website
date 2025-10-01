@@ -8,6 +8,29 @@ const BlogPage = () => {
   // Sample blog posts data - in a real app, this would come from a CMS or API
   const blogPosts = [
     {
+      id: 'context-engineering-ai-agents-guide',
+      title: 'context engineering for ai agents (or: why your agent keeps forgetting things)',
+      excerpt: 'after debugging hundreds of "why did my agent do that?" moments, i realized most failures come down to bad context management... here\'s what actually works in production',
+      content: `# context engineering for ai agents
+
+*last month, a client's agent kept hallucinating customer information. same question, different answers every time. the model was fine... the context was a mess*
+
+here's something nobody tells you when you start building ai agents: getting the model to *work* is easy. getting it to work *reliably* is where most projects die.
+
+and in my experience (building agents for 8+ clients over the past two years), the difference between "works in demo" and "works in production" usually comes down to one thing: how you manage context.
+
+*This is the beginning of an 18-minute deep-dive into context engineering, covering token budgets, context rot, compaction strategies, agentic search vs RAG, and practical implementation from production systems.*
+
+---
+
+*Need help with context management in your AI agents? I offer strategic consulting and hands-on implementation support. [Schedule a consultation](https://cal.com/aankit/explore-synergies) to discuss your challenges.*`,
+      author: 'Aankit Roy',
+      date: '2025-10-01',
+      readTime: '18 min read',
+      tags: ['Context Engineering', 'AI Agents', 'Production AI', 'Agent Architecture', 'Token Optimization'],
+      featured: true
+    },
+    {
       id: 'claude-agent-sdk-building-agents-that-work',
       title: 'building agents with claude agent sdk (and why my first attempts failed spectacularly)',
       excerpt: 'what i learned building real agents with the claude agent sdk after months of trial, error, and actually reading the anthropic engineering blog... the messy reality of agent development.',

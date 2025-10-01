@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST='{"components/ClientThemeToggle.tsx -> ./ThemeToggle":{"id":3379,"files":["static/chunks/379.66ea66870ee1c198.js"]}}';

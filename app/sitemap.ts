@@ -5,6 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   // Blog posts
   const blogPosts = [
+    'context-engineering-ai-agents-guide',
     'claude-agent-sdk-building-agents-that-work',
     'langgraph-state-management-memory-guide',
     'ai-agent-frameworks-comparison',
