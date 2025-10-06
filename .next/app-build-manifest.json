@@ -28,7 +28,7 @@
       "static/chunks/4bd1b696-f5da7b63396f8429.js",
       "static/chunks/517-3dae868636a8c0fb.js",
       "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/app/about/layout-662f15054d485207.js"
+      "static/chunks/app/about/layout-2ff5a1cd3427f733.js"
     ],
     "/about/page": [
       "static/chunks/webpack-b713ccab2cefd4df.js",
@@ -43,23 +43,7 @@
       "static/chunks/4bd1b696-f5da7b63396f8429.js",
       "static/chunks/517-3dae868636a8c0fb.js",
       "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/app/blog/layout-1961ba35e2f6cf8c.js"
-    ],
-    "/blog/ai-strategy-implementation-guide/page": [
-      "static/chunks/webpack-b713ccab2cefd4df.js",
-      "static/chunks/4bd1b696-f5da7b63396f8429.js",
-      "static/chunks/517-3dae868636a8c0fb.js",
-      "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/677-66fbe74138823297.js",
-      "static/chunks/app/blog/ai-strategy-implementation-guide/page-6703631348b85b96.js"
-    ],
-    "/blog/ai-agents-future-of-business-automation/page": [
-      "static/chunks/webpack-b713ccab2cefd4df.js",
-      "static/chunks/4bd1b696-f5da7b63396f8429.js",
-      "static/chunks/517-3dae868636a8c0fb.js",
-      "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/677-66fbe74138823297.js",
-      "static/chunks/app/blog/ai-agents-future-of-business-automation/page-8d6da34be96a646f.js"
+      "static/chunks/app/blog/layout-d626a01786e41857.js"
     ],
     "/blog/building-technical-teams-that-scale/page": [
       "static/chunks/webpack-b713ccab2cefd4df.js",
@@ -69,6 +53,30 @@
       "static/chunks/677-66fbe74138823297.js",
       "static/chunks/app/blog/building-technical-teams-that-scale/page-0e03e037a2deffd2.js"
     ],
+    "/blog/ai-agents-future-of-business-automation/page": [
+      "static/chunks/webpack-b713ccab2cefd4df.js",
+      "static/chunks/4bd1b696-f5da7b63396f8429.js",
+      "static/chunks/517-3dae868636a8c0fb.js",
+      "static/chunks/main-app-a38aca453999f6ad.js",
+      "static/chunks/677-66fbe74138823297.js",
+      "static/chunks/app/blog/ai-agents-future-of-business-automation/page-8d6da34be96a646f.js"
+    ],
+    "/blog/page": [
+      "static/chunks/webpack-b713ccab2cefd4df.js",
+      "static/chunks/4bd1b696-f5da7b63396f8429.js",
+      "static/chunks/517-3dae868636a8c0fb.js",
+      "static/chunks/main-app-a38aca453999f6ad.js",
+      "static/chunks/677-66fbe74138823297.js",
+      "static/chunks/app/blog/page-8bcee7e283413183.js"
+    ],
+    "/blog/ai-strategy-implementation-guide/page": [
+      "static/chunks/webpack-b713ccab2cefd4df.js",
+      "static/chunks/4bd1b696-f5da7b63396f8429.js",
+      "static/chunks/517-3dae868636a8c0fb.js",
+      "static/chunks/main-app-a38aca453999f6ad.js",
+      "static/chunks/677-66fbe74138823297.js",
+      "static/chunks/app/blog/ai-strategy-implementation-guide/page-6703631348b85b96.js"
+    ],
     "/blog/scaling-ai-systems-lessons-learned/page": [
       "static/chunks/webpack-b713ccab2cefd4df.js",
       "static/chunks/4bd1b696-f5da7b63396f8429.js",
@@ -77,35 +85,12 @@
       "static/chunks/677-66fbe74138823297.js",
       "static/chunks/app/blog/scaling-ai-systems-lessons-learned/page-31080c7e46a81e10.js"
     ],
-    "/blog/page": [
-      "static/chunks/webpack-b713ccab2cefd4df.js",
-      "static/chunks/4bd1b696-f5da7b63396f8429.js",
-      "static/chunks/517-3dae868636a8c0fb.js",
-      "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/677-66fbe74138823297.js",
-      "static/chunks/app/blog/page-be6a1963faf9e5a1.js"
-    ],
-    "/services/layout": [
-      "static/chunks/webpack-b713ccab2cefd4df.js",
-      "static/chunks/4bd1b696-f5da7b63396f8429.js",
-      "static/chunks/517-3dae868636a8c0fb.js",
-      "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/app/services/layout-07471486c5c166f6.js"
-    ],
-    "/services/page": [
-      "static/chunks/webpack-b713ccab2cefd4df.js",
-      "static/chunks/4bd1b696-f5da7b63396f8429.js",
-      "static/chunks/517-3dae868636a8c0fb.js",
-      "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/677-66fbe74138823297.js",
-      "static/chunks/app/services/page-8a29a0110d82381b.js"
-    ],
     "/testimonials/layout": [
       "static/chunks/webpack-b713ccab2cefd4df.js",
       "static/chunks/4bd1b696-f5da7b63396f8429.js",
       "static/chunks/517-3dae868636a8c0fb.js",
       "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/app/testimonials/layout-a1d5726f305446a4.js"
+      "static/chunks/app/testimonials/layout-c01f1f0e178a6215.js"
     ],
     "/testimonials/page": [
       "static/chunks/webpack-b713ccab2cefd4df.js",
@@ -115,6 +100,21 @@
       "static/chunks/677-66fbe74138823297.js",
       "static/chunks/app/testimonials/page-a5875d46d68f53ff.js"
     ],
+    "/services/layout": [
+      "static/chunks/webpack-b713ccab2cefd4df.js",
+      "static/chunks/4bd1b696-f5da7b63396f8429.js",
+      "static/chunks/517-3dae868636a8c0fb.js",
+      "static/chunks/main-app-a38aca453999f6ad.js",
+      "static/chunks/app/services/layout-50878186b83c5a5f.js"
+    ],
+    "/services/page": [
+      "static/chunks/webpack-b713ccab2cefd4df.js",
+      "static/chunks/4bd1b696-f5da7b63396f8429.js",
+      "static/chunks/517-3dae868636a8c0fb.js",
+      "static/chunks/main-app-a38aca453999f6ad.js",
+      "static/chunks/677-66fbe74138823297.js",
+      "static/chunks/app/services/page-8a29a0110d82381b.js"
+    ],
     "/blog/[slug]/page": [
       "static/chunks/webpack-b713ccab2cefd4df.js",
       "static/chunks/4bd1b696-f5da7b63396f8429.js",
@@ -123,27 +123,12 @@
       "static/chunks/677-66fbe74138823297.js",
       "static/chunks/app/blog/[slug]/page-2aa76bf43d2753c5.js"
     ],
-    "/blog/ai-agents-complete-guide/layout": [
-      "static/chunks/webpack-b713ccab2cefd4df.js",
-      "static/chunks/4bd1b696-f5da7b63396f8429.js",
-      "static/chunks/517-3dae868636a8c0fb.js",
-      "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/app/blog/ai-agents-complete-guide/layout-783678266e046ee8.js"
-    ],
-    "/blog/ai-agents-complete-guide/page": [
-      "static/chunks/webpack-b713ccab2cefd4df.js",
-      "static/chunks/4bd1b696-f5da7b63396f8429.js",
-      "static/chunks/517-3dae868636a8c0fb.js",
-      "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/677-66fbe74138823297.js",
-      "static/chunks/app/blog/ai-agents-complete-guide/page-af11317fd2b01712.js"
-    ],
     "/blog/ai-agent-frameworks-comparison/layout": [
       "static/chunks/webpack-b713ccab2cefd4df.js",
       "static/chunks/4bd1b696-f5da7b63396f8429.js",
       "static/chunks/517-3dae868636a8c0fb.js",
       "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/app/blog/ai-agent-frameworks-comparison/layout-9fa26bb1a23a9d2f.js"
+      "static/chunks/app/blog/ai-agent-frameworks-comparison/layout-17d6b088c6d7b0b1.js"
     ],
     "/blog/ai-agent-frameworks-comparison/page": [
       "static/chunks/webpack-b713ccab2cefd4df.js",
@@ -153,27 +138,42 @@
       "static/chunks/677-66fbe74138823297.js",
       "static/chunks/app/blog/ai-agent-frameworks-comparison/page-6410949364458383.js"
     ],
-    "/blog/claude-agent-sdk-building-agents-that-work/layout": [
+    "/blog/agentic-design-patterns-complete-guide/layout": [
       "static/chunks/webpack-b713ccab2cefd4df.js",
       "static/chunks/4bd1b696-f5da7b63396f8429.js",
       "static/chunks/517-3dae868636a8c0fb.js",
       "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/app/blog/claude-agent-sdk-building-agents-that-work/layout-889a6d71308f220e.js"
+      "static/chunks/app/blog/agentic-design-patterns-complete-guide/layout-81c05e3d877ab805.js"
     ],
-    "/blog/claude-agent-sdk-building-agents-that-work/page": [
+    "/blog/agentic-design-patterns-complete-guide/page": [
       "static/chunks/webpack-b713ccab2cefd4df.js",
       "static/chunks/4bd1b696-f5da7b63396f8429.js",
       "static/chunks/517-3dae868636a8c0fb.js",
       "static/chunks/main-app-a38aca453999f6ad.js",
       "static/chunks/677-66fbe74138823297.js",
-      "static/chunks/app/blog/claude-agent-sdk-building-agents-that-work/page-f1c9975805877569.js"
+      "static/chunks/app/blog/agentic-design-patterns-complete-guide/page-1dd871275042b3f8.js"
+    ],
+    "/blog/ai-agents-complete-guide/layout": [
+      "static/chunks/webpack-b713ccab2cefd4df.js",
+      "static/chunks/4bd1b696-f5da7b63396f8429.js",
+      "static/chunks/517-3dae868636a8c0fb.js",
+      "static/chunks/main-app-a38aca453999f6ad.js",
+      "static/chunks/app/blog/ai-agents-complete-guide/layout-c1aa20bc0e930290.js"
+    ],
+    "/blog/ai-agents-complete-guide/page": [
+      "static/chunks/webpack-b713ccab2cefd4df.js",
+      "static/chunks/4bd1b696-f5da7b63396f8429.js",
+      "static/chunks/517-3dae868636a8c0fb.js",
+      "static/chunks/main-app-a38aca453999f6ad.js",
+      "static/chunks/677-66fbe74138823297.js",
+      "static/chunks/app/blog/ai-agents-complete-guide/page-af11317fd2b01712.js"
     ],
     "/blog/context-engineering-ai-agents-guide/layout": [
       "static/chunks/webpack-b713ccab2cefd4df.js",
       "static/chunks/4bd1b696-f5da7b63396f8429.js",
       "static/chunks/517-3dae868636a8c0fb.js",
       "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/app/blog/context-engineering-ai-agents-guide/layout-091bc6ebf8763a93.js"
+      "static/chunks/app/blog/context-engineering-ai-agents-guide/layout-45c9ac6dd89cd714.js"
     ],
     "/blog/context-engineering-ai-agents-guide/page": [
       "static/chunks/webpack-b713ccab2cefd4df.js",
@@ -183,12 +183,27 @@
       "static/chunks/677-66fbe74138823297.js",
       "static/chunks/app/blog/context-engineering-ai-agents-guide/page-44f6461fbf4cfcb1.js"
     ],
+    "/blog/claude-agent-sdk-building-agents-that-work/layout": [
+      "static/chunks/webpack-b713ccab2cefd4df.js",
+      "static/chunks/4bd1b696-f5da7b63396f8429.js",
+      "static/chunks/517-3dae868636a8c0fb.js",
+      "static/chunks/main-app-a38aca453999f6ad.js",
+      "static/chunks/app/blog/claude-agent-sdk-building-agents-that-work/layout-3fcf24b06f9a2da6.js"
+    ],
+    "/blog/claude-agent-sdk-building-agents-that-work/page": [
+      "static/chunks/webpack-b713ccab2cefd4df.js",
+      "static/chunks/4bd1b696-f5da7b63396f8429.js",
+      "static/chunks/517-3dae868636a8c0fb.js",
+      "static/chunks/main-app-a38aca453999f6ad.js",
+      "static/chunks/677-66fbe74138823297.js",
+      "static/chunks/app/blog/claude-agent-sdk-building-agents-that-work/page-f1c9975805877569.js"
+    ],
     "/blog/langgraph-state-management-memory-guide/layout": [
       "static/chunks/webpack-b713ccab2cefd4df.js",
       "static/chunks/4bd1b696-f5da7b63396f8429.js",
       "static/chunks/517-3dae868636a8c0fb.js",
       "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/app/blog/langgraph-state-management-memory-guide/layout-55649e01ca72a251.js"
+      "static/chunks/app/blog/langgraph-state-management-memory-guide/layout-ee22712153ee3c25.js"
     ],
     "/blog/langgraph-state-management-memory-guide/page": [
       "static/chunks/webpack-b713ccab2cefd4df.js",
@@ -203,7 +218,7 @@
       "static/chunks/4bd1b696-f5da7b63396f8429.js",
       "static/chunks/517-3dae868636a8c0fb.js",
       "static/chunks/main-app-a38aca453999f6ad.js",
-      "static/chunks/app/blog/context-engineering-agents-practical-guide/layout-7633c7ecbb3eb377.js"
+      "static/chunks/app/blog/context-engineering-agents-practical-guide/layout-4f8b5099b99952c6.js"
     ],
     "/blog/context-engineering-agents-practical-guide/page": [
       "static/chunks/webpack-b713ccab2cefd4df.js",

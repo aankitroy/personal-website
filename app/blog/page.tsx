@@ -8,6 +8,31 @@ const BlogPage = () => {
   // Sample blog posts data - in a real app, this would come from a CMS or API
   const blogPosts = [
     {
+      id: 'agentic-design-patterns-complete-guide',
+      title: 'agentic design patterns: the complete guide to building agents that actually work',
+      excerpt: 'understanding reflection, planning, tool use, multi-agent orchestration, and memory-augmented patterns through real implementations. includes orchestration design framework and pattern selection framework.',
+      content: `# agentic design patterns: the complete guide to building agents that actually work
+
+*after building agents for two years, i've learned that success isn't about picking the right framework—it's about understanding the core design patterns and knowing when to use each one*
+
+last month, i watched a team spend three weeks building an agent that could have been built in three days. why? they kept throwing tools at the problem instead of stepping back to understand the underlying design pattern they actually needed.
+
+this post breaks down the five core agentic design patterns: reflection, planning, tool use, multi-agent coordination, and memory-augmented systems. includes comprehensive orchestration design framework (sequential, parallel, hierarchical, network) and pattern selection framework for choosing the right pattern based on task characteristics.
+
+covers ReAct vs plan-and-execute, when to use multi-agent orchestration (and when not to), tool design principles, memory types and retrieval strategies, and how to combine patterns effectively for production systems.
+
+*This is a 25-minute deep-dive into agentic design patterns based on building dozens of production agent systems.*
+
+---
+
+*Need help choosing the right patterns for your agent system? [Schedule a consultation](https://cal.com/aankit/explore-synergies) to discuss your architecture decisions.*`,
+      author: 'Aankit Roy',
+      date: '2025-10-06',
+      readTime: '25 min read',
+      tags: ['Agentic Design Patterns', 'AI Agents', 'Agent Architecture', 'ReAct', 'Multi-Agent Systems', 'Agent Memory'],
+      featured: true
+    },
+    {
       id: 'context-engineering-agents-practical-guide',
       title: 'context engineering for agents: the practical guide nobody writes',
       excerpt: 'understanding the four strategies—write, select, compress, and isolate—through real examples from Claude Code, ChatGPT, Cursor, and production research systems',
