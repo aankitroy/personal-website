@@ -6,9 +6,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog posts with individual dates
   const blogPosts = [
     {
+      slug: 'agentic-rag-complete-guide',
+      lastModified: '2025-10-07',
+      priority: 1.0, // Highest priority for newest post
+    },
+    {
       slug: 'agentic-design-patterns-complete-guide',
       lastModified: '2025-10-06',
-      priority: 0.9, // Higher priority for newest post
+      priority: 0.9,
     },
     {
       slug: 'context-engineering-agents-practical-guide',

@@ -2,5 +2,6 @@
   "/page": "app/page.js",
   "/blog/page": "app/blog/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/blog/agentic-rag-complete-guide/page": "app/blog/agentic-rag-complete-guide/page.js"
+  "/blog/agentic-rag-complete-guide/page": "app/blog/agentic-rag-complete-guide/page.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js"
 }
