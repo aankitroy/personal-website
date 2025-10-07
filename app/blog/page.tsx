@@ -8,6 +8,29 @@ const BlogPage = () => {
   // Sample blog posts data - in a real app, this would come from a CMS or API
   const blogPosts = [
     {
+      id: 'agentic-rag-complete-guide',
+      title: 'agentic rag: when retrieval gets smarter than your search bar',
+      excerpt: 'understanding how agents transform RAG from simple retrieval to intelligent information synthesis—with contextual retrieval reducing failures by 67%',
+      content: `# agentic rag: when retrieval gets smarter than your search bar
+
+*traditional RAG retrieves documents. agentic RAG reasons about what to retrieve, how to retrieve it, and whether the retrieved information actually answers the question. the difference? production reliability.*
+
+traditional RAG systems blindly retrieve and inject context. agentic RAG brings intelligence to retrieval through query decomposition, adaptive search strategies, multi-source validation, and self-critique.
+
+covers Anthropic's contextual retrieval breakthrough (35-67% improvement in retrieval accuracy), agentic RAG patterns (query decomposition, ReAct retrieval, multi-source orchestration), hybrid search strategies (embeddings + BM25 + reranking), and real production implementation with financial analysis agent achieving 89% accuracy vs 62% with traditional RAG.
+
+*This is an 18-minute deep-dive into building intelligent retrieval systems that actually work in production.*
+
+---
+
+*Building agentic RAG systems? [Schedule a consultation](https://cal.com/aankit/explore-synergies) to discuss your retrieval challenges.*`,
+      author: 'Aankit Roy',
+      date: '2025-10-07',
+      readTime: '18 min read',
+      tags: ['Agentic RAG', 'RAG', 'AI Agents', 'Contextual Retrieval', 'Vector Databases', 'Information Retrieval'],
+      featured: true
+    },
+    {
       id: 'agentic-design-patterns-complete-guide',
       title: 'agentic design patterns: the complete guide to building agents that actually work',
       excerpt: 'understanding reflection, planning, tool use, multi-agent orchestration, and memory-augmented patterns through real implementations. includes orchestration design framework and pattern selection framework.',
