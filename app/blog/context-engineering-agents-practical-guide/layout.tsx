@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     ],
     images: [
       {
-        url: 'https://aankitroy.com/aankitroy.png',
+        url: 'https://aankitroy.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Context Engineering for Agents by Aankit Roy',
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     description: "Context engineering through production examples: Claude Code's auto-compaction, multi-agent's 15x token cost, and real memory systems.",
     creator: '@AankitRoy',
     site: '@AankitRoy',
-    images: ['https://aankitroy.com/aankitroy.png'],
+    images: ['https://aankitroy.com/og-image.png'],
   },
   alternates: {
     canonical: 'https://aankitroy.com/blog/context-engineering-agents-practical-guide',

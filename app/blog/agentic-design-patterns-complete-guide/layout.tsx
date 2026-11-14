@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     siteName: 'Aankit Roy',
     images: [
       {
-        url: 'https://aankitroy.com/aankitroy.png',
+        url: 'https://aankitroy.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Aankit Roy - AI Strategy & Engineering Leadership',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Agentic Design Patterns: The Complete Guide to Building Agents That Actually Work',
     description: 'Understanding reflection, planning, tool use, and multi-agent patterns through real implementations',
-    images: ['https://aankitroy.com/aankitroy.png'],
+    images: ['https://aankitroy.com/og-image.png'],
     creator: '@AankitRoy',
   },
   robots: {

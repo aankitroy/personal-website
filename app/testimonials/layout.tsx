@@ -1,23 +1,25 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Client Testimonials - Aankit Roy AI Strategy & Engineering Leadership",
-  description: "Read testimonials from clients and colleagues about Aankit Roy's AI strategy consulting, engineering leadership, and technical expertise. Real feedback from successful projects.",
-  keywords: ["Client Testimonials", "AI Strategy Reviews", "Engineering Leadership Feedback", "Technical Consulting Reviews", "Aankit Roy Recommendations"],
+  title: "Testimonials | Aankit Roy",
+  description: "What co-founders, CEOs, engineers and mentees say about working with Aankit Roy, from Khabri and Writesonic to AI advisory and mentorship.",
+  keywords: ["Aankit Roy testimonials", "Aankit Roy recommendations", "AI mentorship", "engineering leadership"],
   openGraph: {
-    title: "Client Testimonials - Aankit Roy AI Strategy & Engineering Leadership",
-    description: "Read testimonials from clients and colleagues about Aankit Roy's AI strategy consulting, engineering leadership, and technical expertise.",
-    url: 'https://aankitroy.com/testimonials',
-    type: 'website',
+    title: "Testimonials | Aankit Roy",
+    description: "What co-founders, CEOs, engineers and mentees say about working with Aankit Roy, from Khabri and Writesonic to AI advisory and mentorship.",
+    url: "https://aankitroy.com/testimonials",
+    siteName: "Aankit Roy",
+    type: "website",
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Aankit Roy, AI strategy and production AI systems' }],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: "Client Testimonials - Aankit Roy AI Strategy & Engineering Leadership",
-    description: "Read testimonials from clients and colleagues about Aankit Roy's AI strategy consulting, engineering leadership, and technical expertise.",
+    card: "summary_large_image",
+    title: "Testimonials | Aankit Roy",
+    description: "What co-founders, CEOs, engineers and mentees say about working with Aankit Roy, from Khabri and Writesonic to AI advisory and mentorship.",
+    creator: "@AankitRoy",
+    images: ["/og-image.png"],
   },
-  alternates: {
-    canonical: '/testimonials',
-  },
+  alternates: { canonical: "/testimonials" },
 };
 
 export default function TestimonialsLayout({

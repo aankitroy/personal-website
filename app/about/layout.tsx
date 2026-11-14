@@ -1,23 +1,25 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "About Aankit Roy - AI Strategy & Engineering Leadership Expert",
-  description: "Learn about Aankit Roy's journey from engineering to AI strategy leadership. Over a decade of experience scaling technical teams and implementing AI solutions at Y Combinator companies.",
-  keywords: ["Aankit Roy", "AI Strategy Expert", "Engineering Leadership", "CTO", "Y Combinator", "Writesonic", "Khabri", "Technical Leadership"],
+  title: "About Aankit Roy | AI Engineering Leader and Founder",
+  description: "From co-founding Khabri (YC S19) to leading AI engineering at GeoIQ: twelve years building products used by millions, and the principles behind the work.",
+  keywords: ["Aankit Roy", "AI engineering leader", "VP AI Engineering", "GeoIQ", "Khabri", "Y Combinator", "startup CTO", "Writesonic"],
   openGraph: {
-    title: "About Aankit Roy - AI Strategy & Engineering Leadership Expert",
-    description: "Learn about Aankit Roy's journey from engineering to AI strategy leadership. Over a decade of experience scaling technical teams and implementing AI solutions.",
-    url: 'https://aankitroy.com/about',
-    type: 'website',
+    title: "About Aankit Roy | AI Engineering Leader and Founder",
+    description: "From co-founding Khabri (YC S19) to leading AI engineering at GeoIQ: twelve years building products used by millions, and the principles behind the work.",
+    url: "https://aankitroy.com/about",
+    siteName: "Aankit Roy",
+    type: "website",
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Aankit Roy, AI strategy and production AI systems' }],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: "About Aankit Roy - AI Strategy & Engineering Leadership Expert",
-    description: "Learn about Aankit Roy's journey from engineering to AI strategy leadership. Over a decade of experience scaling technical teams and implementing AI solutions.",
+    card: "summary_large_image",
+    title: "About Aankit Roy | AI Engineering Leader and Founder",
+    description: "From co-founding Khabri (YC S19) to leading AI engineering at GeoIQ: twelve years building products used by millions, and the principles behind the work.",
+    creator: "@AankitRoy",
+    images: ["/og-image.png"],
   },
-  alternates: {
-    canonical: '/about',
-  },
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutLayout({

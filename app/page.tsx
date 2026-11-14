@@ -135,8 +135,9 @@ const structuredData = {
   '@type': 'Person',
   name: 'Aankit Roy',
   url: 'https://aankitroy.com',
-  image: 'https://aankitroy.com/aankitroy.png',
-  jobTitle: 'AI Strategy & Engineering Leadership Advisor',
+  image: 'https://aankitroy.com/aankitroy-portrait.jpg',
+  jobTitle: 'AI Engineering Leader and Founder',
+  worksFor: { '@type': 'Organization', name: 'Stealth AI startup' },
   alumniOf: [
     { '@type': 'Organization', name: 'Y Combinator' },
     { '@type': 'Organization', name: 'Birla Institute of Technology' },
@@ -148,7 +149,7 @@ const structuredData = {
     'https://github.com/aankitroy',
   ],
   description:
-    'Advisor to founders and leadership teams on AI strategy and engineering leadership. Over a decade of building products used by millions.',
+    'Co-founder of a stealth AI startup, former VP of AI Engineering at GeoIQ and co-founder & CTO of Khabri (Y Combinator S19). Twelve years building products used by millions.',
 };
 
 export default function Home() {

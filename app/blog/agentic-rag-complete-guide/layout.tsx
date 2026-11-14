@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     authors: ['Aankit Roy'],
     images: [
       {
-        url: 'https://aankitroy.com/aankitroy.png',
+        url: 'https://aankitroy.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Agentic RAG: When Retrieval Gets Smarter Than Your Search Bar',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: 'Agentic RAG: When Retrieval Gets Smarter Than Your Search Bar',
     description: 'Understanding how agents transform RAG from simple retrieval to intelligent information synthesis—with contextual retrieval reducing failures by 67%',
     creator: '@AankitRoy',
-    images: ['https://aankitroy.com/aankitroy.png'],
+    images: ['https://aankitroy.com/og-image.png'],
   },
   alternates: {
     canonical: 'https://aankitroy.com/blog/agentic-rag-complete-guide',

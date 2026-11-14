@@ -28,7 +28,7 @@ export default function AgenticRAGPage() {
     "description": post.excerpt,
     "image": {
       "@type": "ImageObject",
-      "url": "https://aankitroy.com/aankitroy.png",
+      "url": "https://aankitroy.com/og-image.png",
       "width": "1200",
       "height": "630"
     },
@@ -38,7 +38,7 @@ export default function AgenticRAGPage() {
       "@type": "Person",
       "name": "Aankit Roy",
       "url": "https://aankitroy.com",
-      "jobTitle": "AI Strategy & Engineering Leadership Consultant",
+      "jobTitle": "AI Engineering Leader and Founder",
       "sameAs": [
         "https://www.linkedin.com/in/aankit-roy-20515b35/",
         "https://x.com/AankitRoy",
@@ -51,7 +51,7 @@ export default function AgenticRAGPage() {
       "url": "https://aankitroy.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://aankitroy.com/aankitroy.png",
+        "url": "https://aankitroy.com/og-image.png",
         "width": "400",
         "height": "400"
       }

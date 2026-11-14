@@ -26,14 +26,14 @@ export default function ClaudeAgentSDKPage() {
     "@type": "BlogPosting",
     "headline": post.title,
     "description": post.excerpt,
-    "image": "https://aankitroy.com/aankitroy.png",
+    "image": "https://aankitroy.com/og-image.png",
     "datePublished": post.date,
     "dateModified": post.date,
     "author": {
       "@type": "Person",
       "name": "Aankit Roy",
       "url": "https://aankitroy.com",
-      "jobTitle": "AI Strategy & Engineering Leadership Consultant",
+      "jobTitle": "AI Engineering Leader and Founder",
       "sameAs": [
         "https://www.linkedin.com/in/aankit-roy-20515b35/",
         "https://x.com/AankitRoy",
