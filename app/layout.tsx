@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Hanken_Grotesk } from "next/font/google";
+import { Newsreader, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 
-const display = Cormorant_Garamond({
+const display = Newsreader({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
+  axes: ["opsz"],
   display: "swap",
 });
 

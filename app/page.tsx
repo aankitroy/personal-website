@@ -25,7 +25,7 @@ const record = [
   },
   {
     years: '2024',
-    org: 'Pruoo Healthcare',
+    org: 'Pruoo Healthcare (iMumz)',
     role: 'Head of Engineering',
     outcome: 'Rebuilt the engineering team behind a million-user parenting platform and cut app launch time by 80%.',
   },
@@ -41,6 +41,16 @@ const record = [
     role: 'Co-founder & CTO',
     outcome: 'Built a vernacular audio platform to 5M+ users with 14ms response times. Raised $3.2M.',
   },
+];
+
+// Logos are rendered in white on the hero band. Brands that only publish a mark get their name set beside it.
+const companies: { name: string; logo?: string; logoClass?: string; showName: boolean }[] = [
+  { name: 'GeoIQ', logo: '/companies/geoiq.png', logoClass: 'h-11', showName: false },
+  { name: 'Isha Foundation', logo: '/companies/isha.svg', logoClass: 'h-11', showName: false },
+  { name: 'Writesonic', logo: '/companies/writesonic.svg', logoClass: 'h-5', showName: true },
+  { name: 'iMumz by Pruoo Healthcare', logo: '/companies/imumz.png', logoClass: 'h-12', showName: false },
+  { name: 'Khabri', logo: '/companies/khabri.png', logoClass: 'h-9', showName: false },
+  { name: 'Y Combinator', logo: '/companies/ycombinator.svg', logoClass: 'h-6', showName: true },
 ];
 
 const featuredQuote = {
@@ -67,22 +77,33 @@ const quotes = [
   },
 ];
 
-const coverage = [
-  {
-    outlet: 'TechCrunch',
-    title: 'Named one of 12 favourite startups at Y Combinator’s S19 Demo Day',
-    href: 'https://techcrunch.com/2019/08/21/our-12-favorite-startups-from-y-combinators-s19-demo-day-2',
-    action: 'Read the article',
-  },
+const pressFeature = {
+  outlet: 'TechCrunch',
+  logo: '/press/techcrunch.svg',
+  date: 'August 2019',
+  quote: 'could fill a sizable void in the country where a dedicated heavyweight has failed to emerge.',
+  context: 'Khabri, picked as one of TechCrunch’s 12 favourite startups from Y Combinator’s S19 Demo Day.',
+  href: 'https://techcrunch.com/2019/08/21/our-12-favorite-startups-from-y-combinators-s19-demo-day-2',
+};
+
+const pressMore = [
   {
     outlet: 'Forbes India',
-    title: 'Khabri in the story of regional podcasts finding their voice',
+    logo: '/press/forbes-india.svg',
+    logoClass: 'h-7',
+    date: 'October 2020',
+    headline: 'Regional podcasts find their voice',
+    context: 'On Khabri’s 350% month-on-month growth through the 2020 lockdown, and the creator economy behind it.',
     href: 'https://www.forbesindia.com/article/take-one-big-story-of-the-day/regional-podcasts-find-their-voice/63743/1',
-    action: 'Read the article',
+    action: 'Read on Forbes India',
   },
   {
     outlet: 'ETCIO',
-    title: 'On the role of a technology leader and scaling platforms',
+    logo: '/press/economic-times.svg',
+    logoClass: 'h-5',
+    date: 'ETCIO video interview',
+    headline: 'Your tech mantra for success',
+    context: 'A conversation on the role of a technology leader and scaling a platform to millions of listeners.',
     href: 'https://www.youtube.com/watch?v=pokPfUjnCek',
     action: 'Watch the interview',
   },
@@ -174,6 +195,27 @@ export default function Home() {
             </div>
           </figure>
         </div>
+
+        <div className="border-t border-evergreen-800">
+          <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 lg:flex-row lg:items-center lg:gap-14 lg:px-10">
+            <p className="shrink-0 text-sm text-evergreen-100/60">Where I&apos;ve built</p>
+            <ul className="flex flex-wrap items-center gap-x-10 gap-y-6 sm:gap-x-12">
+              {companies.map((c) => (
+                <li key={c.name} className="flex items-center gap-2.5 text-white/85">
+                  {c.logo && (
+                    <img
+                      src={c.logo}
+                      alt={c.showName ? '' : c.name}
+                      aria-hidden={c.showName ? true : undefined}
+                      className={`${c.logoClass} w-auto brightness-0 invert opacity-85`}
+                    />
+                  )}
+                  {c.showName && <span className="text-lg font-semibold tracking-tight">{c.name}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </section>
 
       {/* Record */}
@@ -240,27 +282,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Coverage */}
-      <section className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
-        <h2 className="font-serif text-display-sm sm:text-display-md">In the press</h2>
-        <ul className="mt-12">
-          {coverage.map((c) => (
-            <li key={c.outlet} className="border-t border-gray-200 dark:border-gray-800">
+      {/* Press */}
+      <section className="bg-evergreen-900 text-evergreen-50">
+        <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
+          <h2 className="font-serif text-display-sm text-white sm:text-display-md">What the press saw early</h2>
+
+          <div className="mt-16 grid gap-16 lg:grid-cols-12 lg:gap-12">
+            <figure className="lg:col-span-7">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                <img src={pressFeature.logo} alt="" aria-hidden className="h-10 w-auto brightness-0 invert" />
+                <span className="font-serif text-2xl text-white">TechCrunch</span>
+                <span className="text-sm text-brass-200">{pressFeature.date}</span>
+              </div>
+              <blockquote className="mt-6 font-serif text-[2rem] italic leading-[1.2] text-white sm:text-[2.75rem]">
+                Khabri “{pressFeature.quote}”
+              </blockquote>
+              <figcaption className="mt-8 max-w-md leading-relaxed text-evergreen-100/75">{pressFeature.context}</figcaption>
               <a
-                href={c.href}
+                href={pressFeature.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group grid gap-2 py-8 sm:grid-cols-[14rem_1fr_auto] sm:items-baseline sm:gap-8"
+                className="mt-8 inline-block rounded-full border border-brass-300/60 px-6 py-2.5 text-[15px] text-brass-100 transition-colors hover:bg-brass-300 hover:text-evergreen-950"
               >
-                <span className="font-serif text-3xl">{c.outlet}</span>
-                <span className="leading-relaxed text-gray-600 dark:text-gray-400">{c.title}</span>
-                <span className="text-sm text-evergreen-700 underline decoration-transparent underline-offset-4 transition-colors group-hover:decoration-brass-400 dark:text-evergreen-300">
-                  {c.action}
-                </span>
+                Read on TechCrunch
               </a>
-            </li>
-          ))}
-        </ul>
+            </figure>
+
+            <ul className="space-y-0 lg:col-span-5 lg:border-l lg:border-evergreen-700 lg:pl-12">
+              {pressMore.map((item) => (
+                <li key={item.outlet} className="border-t border-evergreen-700 py-8 first:border-t-0 first:pt-0 lg:first:pt-2">
+                  <a href={item.href} target="_blank" rel="noopener noreferrer" className="group block">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                      <img src={item.logo} alt={item.outlet} className={`${item.logoClass} w-auto brightness-0 invert opacity-90`} />
+                      <span className="text-sm text-brass-200">{item.date}</span>
+                    </div>
+                    <p className="mt-3 font-serif text-[1.75rem] leading-tight text-white decoration-brass-300 underline-offset-[5px] group-hover:underline">
+                      {item.headline}
+                    </p>
+                    <p className="mt-3 leading-relaxed text-evergreen-100/75">{item.context}</p>
+                    <span className="mt-4 inline-block text-sm text-brass-100 underline decoration-brass-300/50 underline-offset-4 group-hover:decoration-brass-300">
+                      {item.action}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </section>
 
       {/* Writing */}

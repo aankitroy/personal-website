@@ -26,7 +26,7 @@ const journey = [
   {
     period: '2024',
     role: 'Head of Engineering',
-    org: 'Pruoo Healthcare',
+    org: 'Pruoo Healthcare (iMumz)',
     description:
       'Led the technical transformation of a million-user parenting platform. Rebuilt the engineering team, cut app launch time by 80%, and moved the backend to Python FastAPI and Terraform.',
   },
