@@ -3,19 +3,48 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F5F6F3;
+  --foreground: #161B19;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.dark {
+  --background: #0D1110;
+  --foreground: #E7EAE6;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01", "kern";
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #E4D2AD;
+  color: #102A22;
+}
+
+:focus-visible {
+  outline: 2px solid #B08A4E;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Single orchestrated page-load moment on the hero */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.hero-rise { animation: rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.hero-rise-2 { animation-delay: 120ms; }
+.hero-rise-3 { animation-delay: 240ms; }
+.hero-rule { transform-origin: left; animation: draw 1200ms cubic-bezier(0.6, 0, 0.2, 1) 300ms both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise, .hero-rule { animation: none; }
 }

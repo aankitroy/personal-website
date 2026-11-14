@@ -1,12 +1,23 @@
 'use client';
 import React from 'react';
-import { ArrowRight, Calendar, Clock, User } from 'lucide-react';
 import Link from 'next/link';
 import { Header } from '../../components/Header';
+import { SiteFooter } from '../../components/SiteFooter';
 
 const BlogPage = () => {
   // Sample blog posts data - in a real app, this would come from a CMS or API
   const blogPosts = [
+    {
+      id: 'jev-architecture-calibrated-decision-models',
+      title: 'jev and the case for models that decide instead of talk',
+      excerpt: 'what the jev architecture tells us about the next layer of production ai: encode context once, answer typed questions in parallel, and return probabilities you can actually put a threshold on.',
+      content: '',
+      author: 'Aankit Roy',
+      date: '2026-11-14',
+      readTime: '14 min read',
+      tags: ['Jev', 'RLCD', 'Calibration', 'Decision Models', 'AI Agents'],
+      featured: true
+    },
     {
       id: 'agentic-rag-complete-guide',
       title: 'agentic rag: when retrieval gets smarter than your search bar',
@@ -541,161 +552,78 @@ Track both technical and human metrics:
     }
   ];
 
-  const featuredPosts = blogPosts.filter(post => post.featured);
-  const recentPosts = blogPosts.filter(post => !post.featured).slice(0, 6);
+  const [lead, ...rest] = blogPosts;
+  const formatDate = (d: string) =>
+    new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
       <Header currentPage="blog" />
 
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
-            Insights on 
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent"> AI Strategy </span> 
-            & 
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Engineering Leadership</span>
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-            Practical insights from scaling AI systems, building technical teams, and leading engineering organizations
-          </p>
-        </div>
+      <section className="mx-auto max-w-6xl px-6 pb-16 pt-16 lg:px-10 lg:pt-24">
+        <h1 className="hero-rise max-w-4xl font-serif text-[2.75rem] leading-[1.02] tracking-[-0.02em] sm:text-display-lg lg:text-display-xl">
+          Writing on AI agents, strategy and engineering leadership.
+        </h1>
+        <p className="mt-8 max-w-[34rem] text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+          Field notes from building production AI systems and the teams behind them.
+        </p>
       </section>
 
-      {/* Featured Posts */}
-      {featuredPosts.length > 0 && (
-        <section className="container mx-auto px-4 py-16">
-          <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">Featured Posts</h2>
-          <div className="max-w-4xl mx-auto">
-            {featuredPosts.map((post) => (
-              <article key={post.id} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-8 mb-8 hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-                  <User className="w-4 h-4 mr-2" />
-                  <span className="mr-4">{post.author}</span>
-                  <Calendar className="w-4 h-4 mr-2" />
-                  <span className="mr-4">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                  <Clock className="w-4 h-4 mr-2" />
-                  <span>{post.readTime}</span>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">{post.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">{post.excerpt}</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 rounded-full text-sm">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <Link 
-                    href={`/blog/${post.id}`}
-                    className="inline-flex items-center text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-semibold transition-colors"
-                  >
-                    Read More
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
+      <section className="mx-auto max-w-6xl px-6 lg:px-10">
+        <Link
+          href={`/blog/${lead.id}`}
+          className="group block rounded-sm bg-evergreen-900 px-8 py-12 text-evergreen-50 sm:px-12 sm:py-16"
+        >
+          <p className="text-sm text-evergreen-100/70">
+            Latest, {formatDate(lead.date)}, {lead.readTime}
+          </p>
+          <h2 className="mt-5 max-w-3xl font-serif text-display-sm leading-[1.1] text-white decoration-brass-300 underline-offset-[6px] group-hover:underline sm:text-display-md">
+            {lead.title}
+          </h2>
+          <p className="mt-6 max-w-2xl leading-relaxed text-evergreen-100/80">{lead.excerpt}</p>
+        </Link>
+      </section>
 
-      {/* Recent Posts Grid */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-gray-100">Recent Posts</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {recentPosts.map((post) => (
-            <article key={post.id} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 hover:shadow-xl hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300">
-              <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
-                <Calendar className="w-4 h-4 mr-2" />
-                <span className="mr-4">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
-                <Clock className="w-4 h-4 mr-2" />
-                <span>{post.readTime}</span>
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-gray-100">{post.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{post.excerpt}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {post.tags.map((tag) => (
-                  <span key={tag} className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded text-xs">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <Link 
+      <section className="mx-auto max-w-6xl px-6 py-20 lg:px-10">
+        <ul>
+          {rest.map((post) => (
+            <li key={post.id} className="border-t border-gray-200 dark:border-gray-800">
+              <Link
                 href={`/blog/${post.id}`}
-                className="inline-flex items-center text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-semibold text-sm transition-colors"
+                className="group grid gap-3 py-9 md:grid-cols-[11rem_1fr_6rem] md:gap-10"
               >
-                Read More
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <span className="pt-1.5 text-sm tabular-nums text-gray-500">{formatDate(post.date)}</span>
+                <span>
+                  <span className="block font-serif text-[1.75rem] leading-[1.2] decoration-brass-400 underline-offset-4 group-hover:underline">
+                    {post.title}
+                  </span>
+                  <span className="mt-3 block max-w-2xl leading-relaxed text-gray-600 dark:text-gray-400">{post.excerpt}</span>
+                </span>
+                <span className="pt-1.5 text-sm text-gray-500 md:text-right">{post.readTime}</span>
               </Link>
-            </article>
+            </li>
           ))}
+        </ul>
+      </section>
+
+      <section className="border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+        <div className="mx-auto flex max-w-6xl flex-col justify-between gap-8 px-6 py-16 md:flex-row md:items-center lg:px-10">
+          <div>
+            <h2 className="font-serif text-3xl">New essays, by email</h2>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">Sent when there is something worth reading. Hosted on Substack.</p>
+          </div>
+          <a
+            href="https://aankitroy30.substack.com/subscribe"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="self-start rounded-full border border-evergreen-800 px-6 py-3 text-[15px] text-evergreen-800 transition-colors hover:bg-evergreen-800 hover:text-white md:self-auto dark:border-brass-300 dark:text-brass-200 dark:hover:bg-brass-300 dark:hover:text-evergreen-950"
+          >
+            Subscribe
+          </a>
         </div>
       </section>
 
-      {/* Newsletter CTA */}
-      <section className="bg-gradient-to-r from-purple-600 to-blue-600 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Stay Updated</h2>
-          <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-            Get the latest insights on AI strategy, engineering leadership, and technical innovation delivered to your inbox.
-          </p>
-          <div className="max-w-md mx-auto">
-            <a 
-              href="https://aankitroy30.substack.com/subscribe" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-white dark:bg-gray-800 text-purple-600 dark:text-purple-400 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition inline-flex items-center gap-2"
-            >
-              📧 Subscribe to Newsletter
-            </a>
-            <p className="text-purple-100 text-sm mt-3">
-              Powered by <span className="font-semibold">Substack</span>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <Link href="/" className="text-xl font-bold text-gray-900 dark:text-gray-100">Aankit Roy</Link>
-              <p className="mt-4 text-gray-600 dark:text-gray-300">AI Strategy & Engineering Leadership</p>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Navigation</h3>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li><Link href="/about" className="hover:text-purple-600">About</Link></li>
-                <li><Link href="/services" className="hover:text-purple-600">Services</Link></li>
-                <li><Link href="/blog" className="hover:text-purple-600">Blog</Link></li>
-                <li><Link href="/testimonials" className="hover:text-purple-600">Testimonials</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Services</h3>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li>AI Strategy & Implementation</li>
-                <li>Engineering Leadership</li>
-                <li>System Architecture</li>
-                <li>Technical Consulting</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Connect</h3>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li><a href="https://www.linkedin.com/in/aankit-roy-20515b35/" target="_blank" className="hover:text-purple-600">LinkedIn</a></li>
-                <li><a href="https://x.com/AankitRoy" target="_blank" className="hover:text-purple-600">Twitter/X</a></li>
-                <li><a href="https://github.com/aankitroy" target="_blank" className="hover:text-purple-600">GitHub</a></li>
-                <li><a href="mailto:aankitroy1990@gmail.com" className="hover:text-purple-600">Email</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 };

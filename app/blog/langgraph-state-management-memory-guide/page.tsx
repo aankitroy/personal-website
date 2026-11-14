@@ -328,7 +328,7 @@ class AgentState(TypedDict):
             <p className="text-purple-800 dark:text-purple-200 font-medium">
               <strong>working on stateful AI systems?</strong> i help companies design and implement production-ready 
               AI agents with proper state management and memory systems. 
-              <Link href="/services" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 underline">
+              <Link href="https://cal.com/aankit/explore-synergies" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 underline">
                 let's discuss your specific requirements
               </Link>.
             </p>

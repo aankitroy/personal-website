@@ -3,6 +3,7 @@ import React from 'react';
 import { ArrowLeft, ArrowRight, Calendar, Clock, User, Mail, Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
 import { Header } from '../../../components/Header';
+import { SiteFooter } from '../../../components/SiteFooter';
 import { ShareButtons } from '../../../components/ShareButtons';
 
 const BuildingTechnicalTeamsPage = () => {
@@ -190,43 +191,7 @@ const BuildingTechnicalTeamsPage = () => {
         </div>
       </article>
 
-      <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 mt-20">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <Link href="/" className="text-xl font-bold text-gray-900 dark:text-gray-100">Aankit Roy</Link>
-              <p className="mt-4 text-gray-600 dark:text-gray-300">AI Strategy & Engineering Leadership</p>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Navigation</h3>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li><Link href="/about" className="hover:text-purple-600">About</Link></li>
-                <li><Link href="/services" className="hover:text-purple-600">Services</Link></li>
-                <li><Link href="/blog" className="hover:text-purple-600">Blog</Link></li>
-                <li><Link href="/testimonials" className="hover:text-purple-600">Testimonials</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Services</h3>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li>AI Strategy & Implementation</li>
-                <li>Engineering Leadership</li>
-                <li>System Architecture</li>
-                <li>Technical Consulting</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Connect</h3>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li><a href="https://www.linkedin.com/in/aankit-roy-20515b35/" target="_blank" className="hover:text-purple-600">LinkedIn</a></li>
-                <li><a href="https://x.com/AankitRoy" target="_blank" className="hover:text-purple-600">Twitter/X</a></li>
-                <li><a href="https://github.com/aankitroy" target="_blank" className="hover:text-purple-600">GitHub</a></li>
-                <li><a href="mailto:aankitroy1990@gmail.com" className="hover:text-purple-600">Email</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 };

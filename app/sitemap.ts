@@ -6,9 +6,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog posts with individual dates
   const blogPosts = [
     {
+      slug: 'jev-architecture-calibrated-decision-models',
+      lastModified: '2026-11-14',
+      priority: 1.0,
+    },
+    {
       slug: 'agentic-rag-complete-guide',
       lastModified: '2025-10-07',
-      priority: 1.0, // Highest priority for newest post
+      priority: 0.9,
     },
     {
       slug: 'agentic-design-patterns-complete-guide',
@@ -86,12 +91,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
     },
     {
       url: `${baseUrl}/blog`,

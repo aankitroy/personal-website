@@ -1,13 +1,31 @@
 'use client';
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { ArrowLeft, Quote, Star, Briefcase, Users, Brain, Zap } from 'lucide-react';
 import { Header } from '../../components/Header';
+import { SiteFooter } from '../../components/SiteFooter';
 
 const TestimonialsPage = () => {
   const [activeCategory, setActiveCategory] = useState('all');
 
   const testimonials = [
+    // Mentorship sessions (most recent first)
+    {
+      id: 101,
+      category: 'mentorship',
+      text: "Aankit was amazing! From providing valuable career guidance to sharing practical feedback that helped me gain clarity on navigating my career. Truly appreciate his support!",
+      author: "Krusnansh Gupta",
+      role: "Mentorship session, November 2026",
+      company: "",
+      rating: 5
+    },
+    {
+      id: 102,
+      category: 'mentorship',
+      text: "Genuinely helpful, friendly, and deeply insightful when it comes to AI implementation. He quickly broke down complex ideas into clear, practical direction and understanding",
+      author: "Naman Goyal",
+      role: "Mentorship session, November 2026",
+      company: "",
+      rating: 5
+    },
     // Leadership & Team Management
     {
       id: 1,
@@ -151,124 +169,72 @@ const TestimonialsPage = () => {
   ];
 
   const categories = [
-    { id: 'all', label: 'All Testimonials', icon: Users },
-    { id: 'leadership', label: 'Leadership', icon: Briefcase },
-    { id: 'ai-agents', label: 'AI Agents', icon: Brain },
-    { id: 'startup', label: 'Startup Experience', icon: Zap },
-    { id: 'technical', label: 'Technical Excellence', icon: Star }
+    { id: 'all', label: 'All' },
+    { id: 'mentorship', label: 'Mentorship' },
+    { id: 'leadership', label: 'Leadership' },
+    { id: 'startup', label: 'Founding Khabri' },
+    { id: 'technical', label: 'Technical work' },
+    { id: 'ai-agents', label: 'AI agents' },
   ];
 
-  const filteredTestimonials = activeCategory === 'all' 
-    ? testimonials 
+  const filteredTestimonials = activeCategory === 'all'
+    ? testimonials
     : testimonials.filter(t => t.category === activeCategory);
 
-  const renderStars = (rating: number) => {
-    return [...Array(5)].map((_, i) => (
-      <Star 
-        key={i} 
-        className={`w-4 h-4 ${i < rating ? 'text-yellow-400 fill-current' : 'text-gray-300 dark:text-gray-600'}`} 
-      />
-    ));
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
       <Header currentPage="testimonials" />
 
-      {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4">What People Say</h1>
-          <p className="text-xl text-purple-100 max-w-2xl mx-auto">
-            Hear from colleagues, co-founders, and clients about their experiences working with me
-          </p>
-        </div>
+      <section className="mx-auto max-w-6xl px-6 pb-16 pt-16 lg:px-10 lg:pt-24">
+        <h1 className="hero-rise max-w-4xl font-serif text-[2.75rem] leading-[1.02] tracking-[-0.02em] sm:text-display-lg lg:text-display-xl">
+          In the words of the people I have built with.
+        </h1>
+        <p className="mt-8 max-w-[34rem] text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+          Co-founders, CEOs, engineers and clients, from Khabri and Writesonic to the teams I advise today.
+        </p>
       </section>
 
-      {/* Category Filter */}
-      <section className="py-8 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => {
-              const Icon = category.icon;
-              return (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all ${
-                    activeCategory === category.id
-                      ? 'bg-purple-600 text-white'
-                      : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-purple-900 hover:text-purple-600'
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  {category.label}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Grid */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredTestimonials.map((testimonial) => (
-              <div 
-                key={testimonial.id}
-                className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow"
+      <div className="mx-auto max-w-6xl px-6 lg:px-10">
+        <div role="tablist" aria-label="Filter testimonials" className="flex flex-wrap gap-2 border-b border-gray-200 pb-6 dark:border-gray-800">
+          {categories.map((category) => {
+            const selected = activeCategory === category.id;
+            return (
+              <button
+                key={category.id}
+                role="tab"
+                aria-selected={selected}
+                onClick={() => setActiveCategory(category.id)}
+                className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
+                  selected
+                    ? 'border-evergreen-800 bg-evergreen-800 text-white dark:border-brass-300 dark:bg-brass-300 dark:text-evergreen-950'
+                    : 'border-gray-300 text-gray-600 hover:border-gray-500 hover:text-gray-900 dark:border-gray-700 dark:text-gray-400 dark:hover:text-gray-100'
+                }`}
               >
-                <div className="flex items-start justify-between mb-6">
-                  <Quote className="w-8 h-8 text-purple-600 opacity-60" />
-                  <div className="flex gap-1">
-                    {renderStars(testimonial.rating)}
-                  </div>
-                </div>
-                
-                <p className="text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">
-                  &ldquo;{testimonial.text}&rdquo;
-                </p>
-                
-                <div>
-                  <p className="font-semibold text-gray-900 dark:text-gray-100">{testimonial.author}</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{testimonial.role}</p>
-                  {testimonial.company && (
-                    <p className="text-sm text-purple-600">{testimonial.company}</p>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+                {category.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <section className="mx-auto max-w-6xl px-6 pb-28 lg:px-10">
+        <div className="columns-1 gap-14 md:columns-2">
+          {filteredTestimonials.map((t) => (
+            <figure key={t.id} className="break-inside-avoid border-b border-gray-200 py-10 dark:border-gray-800">
+              <blockquote className="font-serif text-[1.45rem] leading-[1.4] text-gray-800 dark:text-gray-200">
+                “{t.text}”
+              </blockquote>
+              <figcaption className="mt-6 text-sm">
+                <span className="font-medium text-gray-900 dark:text-gray-100">{t.author}</span>
+                <br />
+                <span className="text-gray-500">{t.role}</span>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Work Together?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto text-purple-100">
-            Let&apos;s discuss how I can help transform your technical challenges into opportunities
-          </p>
-          <a
-            href="https://cal.com/aankit/explore-synergies" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-white dark:bg-gray-800 text-purple-600 dark:text-purple-400 px-8 py-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition font-semibold border border-transparent dark:border-gray-600"
-          >
-            Schedule a Consultation
-          </a>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-        <div className="container mx-auto px-4 py-8 text-center">
-          <p className="text-gray-600 dark:text-gray-300">
-            © 2025 Aankit Roy. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 };

@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
   
   // Performance optimizations
   compress: true,
+
+  // The services page was retired; send old links home.
+  async redirects() {
+    return [{ source: '/services', destination: '/', permanent: true }];
+  },
   
   // PWA capabilities (optional - makes site installable on mobile)
   // Uncomment if you want progressive web app features

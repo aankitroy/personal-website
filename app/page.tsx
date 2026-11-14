@@ -1,399 +1,296 @@
-'use client';
 import React from 'react';
 import Link from 'next/link';
-import { Menu, X, ArrowRight, MessagesSquare, Mail, Linkedin, Twitter, Github } from 'lucide-react';
 import { Header } from '../components/Header';
+import { SiteFooter } from '../components/SiteFooter';
+import { BOOKING_URL } from '../components/site';
 
-const Website = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+const record = [
+  {
+    years: '2026 – now',
+    org: 'Stealth AI startup',
+    role: 'Co-founder',
+    outcome: 'Building an autonomous AI engine.',
+  },
+  {
+    years: '2025 – 2026',
+    org: 'GeoIQ',
+    role: 'VP, AI Engineering',
+    outcome: 'Built the AI engineering team from scratch and shipped agentic systems handling 10,000 sessions a day in production, while cutting agent cost by 75%. Presented the work at the Ai4 conference.',
+  },
+  {
+    years: '2025',
+    org: 'Isha Foundation',
+    role: 'Engineering Leader',
+    outcome: 'Led engineering on the Miracle of Mind project.',
+  },
+  {
+    years: '2024',
+    org: 'Pruoo Healthcare',
+    role: 'Head of Engineering',
+    outcome: 'Rebuilt the engineering team behind a million-user parenting platform and cut app launch time by 80%.',
+  },
+  {
+    years: '2023',
+    org: 'Writesonic',
+    role: 'Engineering Manager',
+    outcome: 'Took response times from 1.5s to 400ms for 3M+ paying users, halved infrastructure cost and tripled the team.',
+  },
+  {
+    years: '2017 – 2023',
+    org: 'Khabri, Y Combinator S19',
+    role: 'Co-founder & CTO',
+    outcome: 'Built a vernacular audio platform to 5M+ users with 14ms response times. Raised $3.2M.',
+  },
+];
 
-  const testimonials = [
-    {
-      text: "I had the privilege of co-founding Khabri with Aankit, where we scaled to 6 million users and achieved $1.2 million ARR over 6+ years. Aankit is an exceptional tech leader with unparalleled technical competence and problem-solving skills. He consistently delivered tech solutions that exceeded industry benchmarks, even under the typical constraints of an early-stage startup.",
-      author: "Pulkit Sharma",
-      role: "Building Superscript, US Healthcare, Ex-founder, YC Alum"
-    },
-    {
-      text: "Working with Aankit on our AI agent project was transformative. He didn't just build a chatbot - he created an intelligent system that understands context, learns from interactions, and provides genuinely helpful responses. The ROI was immediate and substantial.",
-      author: "Michael Rodriguez",
-      role: "Head of Digital Transformation, FinanceFirst"
-    },
-    {
-      text: "Aankit's technical architecture decisions at Writesonic helped us scale from handling thousands to millions of AI requests daily. His optimization work reduced our infrastructure costs by 73% while improving performance dramatically.",
-      author: "Samanyou Garg",
-      role: "Founder & CEO, Writesonic"
-    },
-    {
-      text: "Aankit has been an exceptional leader and mentor. His humility, grounded nature, and willingness to help others make him a truly remarkable individual. His leadership style is characterised by a unique ability to motivate and keep the enthusiasm of the entire team high.",
-      author: "Pulkita Marwah",
-      role: "Google Cloud Consultant at Searce"
-    },
-    {
-      text: "I wholeheartedly endorse Aankit as our co-founder and CTO. His tech skills are unparalleled, and he is an innovative thinker. An empathetic leader, he places great value on team collaboration. His binary approach to decision-making is spot-on, and his insights are invaluable to our success at Khabri.",
-      author: "Dushyant Kohli",
-      role: "Cofounder & CEO, Mindfulness Coach, Speaker, Problem Solver, Startup Growth Specialist"
-    },
-    {
-      text: "Very insightful guidance and mentorship. Aankit's ability to understand complex business challenges and provide strategic direction is exceptional. His experience shows in every conversation.",
-      author: "Siddharth Khera",
-      role: "Entrepreneur, Business Leader"
-    }
-  ];
-
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Aankit Roy",
-    "url": "https://aankitroy.com",
-    "image": "https://aankitroy.com/aankitroy.png",
-    "jobTitle": "AI Strategy & Engineering Leadership Consultant",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Independent Consultant"
-    },
-    "alumniOf": [
-      {
-        "@type": "Organization",
-        "name": "Y Combinator"
-      },
-      {
-        "@type": "Organization", 
-        "name": "Birla Institute of Technology"
-      }
-    ],
-    "knowsAbout": [
-      "AI Strategy",
-      "Engineering Leadership",
-      "System Architecture", 
-      "AI Agents",
-      "Machine Learning",
-      "Technical Leadership",
-      "Startup Management"
-    ],
-    "sameAs": [
-      "https://www.linkedin.com/in/aankit-roy-20515b35/",
-      "https://x.com/AankitRoy",
-      "https://github.com/aankitroy"
-    ],
-    "description": "Transforming businesses through strategic AI implementation and engineering leadership. Over a decade of experience scaling products to serve millions of users."
-  };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-      <Header currentPage="home" />
-
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6 text-gray-900 dark:text-gray-100">
-            Where 
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent"> AI Strategy </span> 
-            Meets 
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Implementation</span>
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-4">Transforming businesses through strategic AI solutions</p>
-          
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-purple-600 dark:text-purple-400 mb-2">Strategic Clarity</h3>
-              <p className="text-gray-600 dark:text-gray-300">Know exactly where and how to implement AI in your business</p>
-            </div>
-            
-            <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-blue-600 dark:text-blue-400 mb-2">Clear ROI</h3>
-              <p className="text-gray-600 dark:text-gray-300">Cut through the hype to focus on AI solutions with measurable impact</p>
-            </div>
-            
-            <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-purple-600 dark:text-purple-400 mb-2">Future-Ready</h3>
-              <p className="text-gray-600 dark:text-gray-300">Stay ahead with the latest advancements in AI technology</p>
-            </div>
-          </div>
-
-          <div className="mt-12 flex justify-center gap-4">
-            <button onClick={() => {
-              window.location.href = 'https://cal.com/aankit/explore-synergies';
-            }} className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg hover:opacity-90 inline-flex items-center">
-              Schedule Free Consultation
-              <ArrowRight className="ml-2" />
-            </button>
-            <button onClick={() => {
-              window.location.href = '/services';
-            }}  className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-lg hover:bg-purple-50">
-              Explore Solutions
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section with CTA */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">About Me</h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-8">
-            With over a decade of engineering leadership experience at companies like Writesonic and Khabri, I combine deep technical expertise with strategic AI implementation. My journey spans from scaling systems for millions of users to architecting cutting-edge AI solutions. I specialize in helping businesses navigate the AI landscape while ensuring robust, scalable implementations that deliver measurable results.
-          </p>
-          <a href="/about" className="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold">
-            Learn more about my journey
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </a>
-        </div>
-      </section>
-
-      {/* Newsletter Subscription */}
-      <section className="bg-gradient-to-r from-purple-600 to-blue-600 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">AI Strategy Insights</h2>
-          <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-            Get weekly insights on AI strategy, engineering leadership, and technical innovation. Join 1000+ leaders building the future.
-          </p>
-          <a 
-            href="https://aankitroy30.substack.com/subscribe" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition inline-flex items-center gap-2"
-          >
-            📧 Subscribe to Newsletter
-          </a>
-          <p className="text-purple-100 text-sm mt-4">
-            Free • No spam • Unsubscribe anytime
-          </p>
-        </div>
-      </section>
-
-      {/* Featured Testimonials Preview */}
-      <section className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">What Industry Leaders Say</h2>
-            <p className="text-gray-600 dark:text-gray-300">Insights from professionals I&apos;ve worked with</p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {testimonials.map((testimonial, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
-                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">&ldquo;{testimonial.text}&rdquo;</p>
-                <div>
-                  <p className="font-semibold text-gray-900 dark:text-gray-100">{testimonial.author}</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{testimonial.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-8">
-            <a href="/testimonials" className="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold">
-              View all testimonials
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Press Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">Featured In</h2>
-            <p className="text-gray-600 dark:text-gray-300">Our journey has been covered by major publications</p>
-          </div>
-          
-          {/* Major Publications Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-4xl mx-auto mb-12">
-            <div className="flex items-center justify-center">
-              <img 
-                src="https://logo.clearbit.com/techcrunch.com" 
-                alt="TechCrunch" 
-                className="h-8 object-contain hover:scale-110 transition-all duration-300" 
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
-                  if (nextElement) nextElement.style.display = 'block';
-                }}
-              />
-              <div className="px-4 py-2 bg-green-100 rounded-lg hidden">
-                <span className="text-green-800 font-bold text-sm">TechCrunch</span>
-              </div>
-            </div>
-            <div className="flex items-center justify-center">
-              <img 
-                src="https://logo.clearbit.com/forbes.com" 
-                alt="Forbes" 
-                className="h-8 object-contain hover:scale-110 transition-all duration-300"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
-                  if (nextElement) nextElement.style.display = 'block';
-                }}
-              />
-              <div className="px-4 py-2 bg-blue-100 rounded-lg hidden">
-                <span className="text-blue-800 font-bold text-sm">Forbes</span>
-              </div>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center hover:scale-110 transition-all duration-300">
-                <span className="text-white font-bold text-xs">ET</span>
-              </div>
-            </div>
-            <div className="flex items-center justify-center">
-              <img 
-                src="https://logo.clearbit.com/ycombinator.com" 
-                alt="Y Combinator" 
-                className="h-8 object-contain hover:scale-110 transition-all duration-300"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
-                  if (nextElement) nextElement.style.display = 'block';
-                }}
-              />
-              <div className="px-4 py-2 bg-orange-500 rounded-lg hidden">
-                <span className="text-white font-bold text-sm">Y Combinator</span>
-              </div>
-            </div>
-            <div className="flex items-center justify-center">
-              <img 
-                src="https://logo.clearbit.com/yourstory.com" 
-                alt="YourStory" 
-                className="h-8 object-contain hover:scale-110 transition-all duration-300"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
-                  if (nextElement) nextElement.style.display = 'block';
-                }}
-              />
-              <div className="px-4 py-2 bg-red-100 rounded-lg hidden">
-                <span className="text-red-800 font-bold text-sm">YourStory</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Featured Articles */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl border border-gray-200 dark:border-gray-600">
-              <div className="flex items-center mb-4">
-                <img 
-                  src="https://logo.clearbit.com/techcrunch.com" 
-                  alt="TechCrunch" 
-                  className="h-6 object-contain"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
-                    if (nextElement) nextElement.style.display = 'block';
-                  }}
-                />
-                <div className="px-3 py-1 bg-green-100 dark:bg-green-900/30 rounded-md hidden">
-                  <span className="text-green-800 dark:text-green-300 font-bold text-xs">TC</span>
-                </div>
-              </div>
-              <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">YC S19 Demo Day Favorite</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">Featured among TechCrunch&apos;s top 12 favorite startups from Y Combinator&apos;s Summer 2019 Demo Day.</p>
-              <a href="https://techcrunch.com/2019/08/21/our-12-favorite-startups-from-y-combinators-s19-demo-day-2" target="_blank" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium inline-flex items-center transition-colors">
-                Read Article <ArrowRight className="w-4 h-4 ml-1" />
-              </a>
-            </div>
-
-            <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl border border-gray-200 dark:border-gray-600">
-              <div className="flex items-center mb-4">
-                <div className="w-6 h-6 bg-red-600 rounded flex items-center justify-center">
-                  <span className="text-white font-bold text-xs">ET</span>
-                </div>
-              </div>
-              <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">ETCIO Interview</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">Discussion on key roles as a technology leader and scaling tech platforms.</p>
-              <a href="https://www.youtube.com/watch?v=pokPfUjnCek" target="_blank" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium inline-flex items-center transition-colors">
-                Watch Interview <ArrowRight className="w-4 h-4 ml-1" />
-              </a>
-            </div>
-
-            <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl border border-gray-200 dark:border-gray-600">
-              <div className="flex items-center mb-4">
-                <img 
-                  src="https://logo.clearbit.com/forbes.com" 
-                  alt="Forbes" 
-                  className="h-6 object-contain"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
-                    if (nextElement) nextElement.style.display = 'block';
-                  }}
-                />
-                <div className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 rounded-md hidden">
-                  <span className="text-blue-800 dark:text-blue-300 font-bold text-xs">F</span>
-                </div>
-              </div>
-              <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">Forbes India Feature</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">Featured in Forbes India&apos;s coverage of the rising regional podcast ecosystem.</p>
-              <a href="https://www.forbesindia.com/article/take-one-big-story-of-the-day/regional-podcasts-find-their-voice/63743/1" target="_blank" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium inline-flex items-center transition-colors">
-                Read Article <ArrowRight className="w-4 h-4 ml-1" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact CTA */}
-      <section className="py-16 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Let&apos;s Transform Your Technical Challenges</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Whether you&apos;re looking to implement AI solutions or optimize existing systems,
-            I&apos;m here to help turn your challenges into opportunities.
-          </p>
-          <button onClick={() => {
-            window.location.href = 'https://cal.com/aankit/explore-synergies';
-          }} className="bg-white dark:bg-gray-900 text-purple-600 px-6 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition flex items-center gap-2 mx-auto">
-            <MessagesSquare className="w-5 h-5" />
-            Schedule a Consultation
-          </button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <span className="text-xl font-bold text-gray-900 dark:text-gray-100">Aankit Roy</span>
-              <p className="mt-4 text-gray-600 dark:text-gray-300">Transforming businesses through strategic AI implementation.</p>
-            </div>
-
-            <div>
-              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Services</h3>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li>Build AI Agents</li>
-                <li>AI Strategy & Implementation</li>
-                <li>System Architecture Design</li>
-                <li>Technical Team Leadership</li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Resources</h3>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li><Link href="/blog" className="hover:text-purple-600">Blog</Link></li>
-                <li><a href="/testimonials" className="hover:text-purple-600">Testimonials</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-bold mb-4 text-gray-900 dark:text-gray-100">Connect</h3>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li><a href="https://www.linkedin.com/in/aankit-roy-20515b35/" target="_blank" className="hover:text-purple-600">LinkedIn</a></li>
-                <li><a href="https://x.com/AankitRoy" target="_blank" className="hover:text-purple-600">Twitter/X</a></li>
-                <li><a href="https://github.com/aankitroy" target="_blank" className="hover:text-purple-600">GitHub</a></li>
-                <li><a href="mailto:aankitroy1990@gmail.com" className="hover:text-purple-600">Email: aankitroy1990@gmail.com</a></li>
-                <li><a href="https://aankitroy30.substack.com/subscribe" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600">📧 Newsletter</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
+const featuredQuote = {
+  text: 'Aankit’s technical architecture decisions at Writesonic helped us scale from handling thousands to millions of AI requests daily. His optimization work reduced our infrastructure costs by 73% while improving performance dramatically.',
+  author: 'Samanyou Garg',
+  role: 'Founder & CEO, Writesonic',
 };
 
-export default Website;
+const quotes = [
+  {
+    text: 'We scaled to 6 million users and achieved $1.2 million ARR over 6+ years… He consistently delivered tech solutions that exceeded industry benchmarks, even under the typical constraints of an early-stage startup.',
+    author: 'Pulkit Sharma',
+    role: 'Co-founder of Khabri, YC alum',
+  },
+  {
+    text: 'His tech skills are unparalleled, and he is an innovative thinker. His binary approach to decision-making is spot-on.',
+    author: 'Dushyant Kohli',
+    role: 'Co-founder & CEO, Khabri',
+  },
+  {
+    text: 'His leadership style is characterised by a unique ability to motivate and keep the enthusiasm of the entire team high.',
+    author: 'Pulkita Marwah',
+    role: 'Google Cloud Consultant, Searce',
+  },
+];
+
+const coverage = [
+  {
+    outlet: 'TechCrunch',
+    title: 'Named one of 12 favourite startups at Y Combinator’s S19 Demo Day',
+    href: 'https://techcrunch.com/2019/08/21/our-12-favorite-startups-from-y-combinators-s19-demo-day-2',
+    action: 'Read the article',
+  },
+  {
+    outlet: 'Forbes India',
+    title: 'Khabri in the story of regional podcasts finding their voice',
+    href: 'https://www.forbesindia.com/article/take-one-big-story-of-the-day/regional-podcasts-find-their-voice/63743/1',
+    action: 'Read the article',
+  },
+  {
+    outlet: 'ETCIO',
+    title: 'On the role of a technology leader and scaling platforms',
+    href: 'https://www.youtube.com/watch?v=pokPfUjnCek',
+    action: 'Watch the interview',
+  },
+];
+
+const essays = [
+  {
+    slug: 'jev-architecture-calibrated-decision-models',
+    title: 'Jev and the case for models that decide instead of talk',
+    date: 'November 2026',
+    read: '14 min',
+  },
+  {
+    slug: 'agentic-rag-complete-guide',
+    title: 'Agentic RAG: when retrieval gets smarter than your search bar',
+    date: 'October 2025',
+    read: '18 min',
+  },
+  {
+    slug: 'agentic-design-patterns-complete-guide',
+    title: 'Agentic design patterns: building agents that actually work',
+    date: 'October 2025',
+    read: '25 min',
+  },
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Aankit Roy',
+  url: 'https://aankitroy.com',
+  image: 'https://aankitroy.com/aankitroy.png',
+  jobTitle: 'AI Strategy & Engineering Leadership Advisor',
+  alumniOf: [
+    { '@type': 'Organization', name: 'Y Combinator' },
+    { '@type': 'Organization', name: 'Birla Institute of Technology' },
+  ],
+  knowsAbout: ['AI Strategy', 'Engineering Leadership', 'System Architecture', 'AI Agents', 'Technical Leadership'],
+  sameAs: [
+    'https://www.linkedin.com/in/aankit-roy-20515b35/',
+    'https://x.com/AankitRoy',
+    'https://github.com/aankitroy',
+  ],
+  description:
+    'Advisor to founders and leadership teams on AI strategy and engineering leadership. Over a decade of building products used by millions.',
+};
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <Header currentPage="home" tone="dark" />
+
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-evergreen-900 text-evergreen-50">
+        <div className="mx-auto grid max-w-6xl items-end gap-14 px-6 pb-20 pt-14 lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-10 lg:pb-24 lg:pt-16">
+          <div className="lg:col-span-7">
+            <h1 className="hero-rise font-serif text-[2.75rem] font-normal leading-[1.02] tracking-[-0.02em] text-white sm:text-display-lg lg:text-[4.25rem] xl:text-display-xl [text-wrap:balance]">
+              AI strategy from someone who has built it, at scale.
+            </h1>
+            <div className="hero-rule mt-10 h-px w-40 bg-brass-300" aria-hidden />
+            <p className="hero-rise hero-rise-2 mt-8 max-w-[34rem] text-lg leading-relaxed text-evergreen-100/85 sm:text-[21px] sm:leading-[1.55]">
+              I advise founders, CEOs and boards on where AI creates real value, then help their teams build it.
+              Twelve years of engineering leadership, from a Y Combinator startup I co-founded to platforms serving millions.
+            </p>
+            <div className="hero-rise hero-rise-3 mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <a
+                href={BOOKING_URL}
+                className="rounded-full bg-brass-300 px-7 py-3.5 text-[15px] font-medium text-evergreen-950 transition-colors hover:bg-brass-200"
+              >
+                Book a conversation
+              </a>
+              <Link href="/about" className="text-[15px] text-evergreen-100/85 underline decoration-brass-300/50 underline-offset-[6px] hover:text-white">
+                Read my background
+              </Link>
+            </div>
+          </div>
+
+          <figure className="hero-rise hero-rise-2 mx-auto w-full max-w-[20rem] lg:col-span-5 lg:mr-0">
+            <div className="relative">
+              <div className="absolute -inset-3 rounded-t-full border border-brass-300/40" aria-hidden />
+              <img
+                src="/aankitroy-portrait.jpg"
+                alt="Portrait of Aankit Roy"
+                width={960}
+                height={1280}
+                className="relative aspect-[3/4] w-full rounded-t-full object-cover object-top"
+              />
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      {/* Record */}
+      <section className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
+        <div className="grid gap-14 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <h2 className="font-serif text-display-sm sm:text-display-md">Built for millions, before advising anyone.</h2>
+            <p className="mt-6 max-w-sm leading-relaxed text-gray-600 dark:text-gray-400">
+              The advice I give comes from systems I have shipped and teams I have led, not from slides.
+            </p>
+          </div>
+          <ol className="lg:col-span-8">
+            {record.map((r) => (
+              <li
+                key={r.org}
+                className="grid gap-2 border-t border-gray-200 py-7 first:border-t-0 first:pt-0 sm:grid-cols-[8.5rem_1fr] sm:gap-8 dark:border-gray-800"
+              >
+                <span className="pt-1 text-sm tabular-nums text-gray-500">{r.years}</span>
+                <div>
+                  <p className="font-serif text-2xl leading-tight">
+                    {r.org}
+                    <span className="text-gray-500"> / {r.role}</span>
+                  </p>
+                  <p className="mt-2 max-w-xl leading-relaxed text-gray-600 dark:text-gray-400">{r.outcome}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Testimony */}
+      <section className="border-y border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+        <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
+          <blockquote className="max-w-4xl">
+            <p className="font-serif text-[1.9rem] italic leading-[1.25] text-evergreen-900 sm:text-[2.6rem] dark:text-evergreen-100">
+              “{featuredQuote.text}”
+            </p>
+            <footer className="mt-8 text-[15px]">
+              <span className="font-medium">{featuredQuote.author}</span>
+              <span className="text-gray-500">, {featuredQuote.role}</span>
+            </footer>
+          </blockquote>
+
+          <div className="mt-20 grid gap-10 md:grid-cols-3 md:gap-0 md:divide-x md:divide-gray-200 dark:md:divide-gray-800">
+            {quotes.map((q) => (
+              <figure key={q.author} className="md:px-8 md:first:pl-0 md:last:pr-0">
+                <blockquote className="leading-relaxed text-gray-700 dark:text-gray-300">“{q.text}”</blockquote>
+                <figcaption className="mt-5 text-sm">
+                  <span className="font-medium text-gray-900 dark:text-gray-100">{q.author}</span>
+                  <br />
+                  <span className="text-gray-500">{q.role}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <Link
+            href="/testimonials"
+            className="mt-14 inline-block text-[15px] text-evergreen-700 underline decoration-brass-400/60 underline-offset-[6px] hover:text-evergreen-900 dark:text-evergreen-300 dark:hover:text-white"
+          >
+            Read all testimonials
+          </Link>
+        </div>
+      </section>
+
+      {/* Coverage */}
+      <section className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
+        <h2 className="font-serif text-display-sm sm:text-display-md">In the press</h2>
+        <ul className="mt-12">
+          {coverage.map((c) => (
+            <li key={c.outlet} className="border-t border-gray-200 dark:border-gray-800">
+              <a
+                href={c.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group grid gap-2 py-8 sm:grid-cols-[14rem_1fr_auto] sm:items-baseline sm:gap-8"
+              >
+                <span className="font-serif text-3xl">{c.outlet}</span>
+                <span className="leading-relaxed text-gray-600 dark:text-gray-400">{c.title}</span>
+                <span className="text-sm text-evergreen-700 underline decoration-transparent underline-offset-4 transition-colors group-hover:decoration-brass-400 dark:text-evergreen-300">
+                  {c.action}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Writing */}
+      <section className="bg-evergreen-50 dark:bg-evergreen-950/60">
+        <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <h2 className="max-w-xl font-serif text-display-sm sm:text-display-md">Notes from building AI agents in production</h2>
+            <Link
+              href="/blog"
+              className="text-[15px] text-evergreen-700 underline decoration-brass-400/60 underline-offset-[6px] hover:text-evergreen-900 dark:text-evergreen-300 dark:hover:text-white"
+            >
+              All writing
+            </Link>
+          </div>
+          <div className="mt-14 grid gap-12 md:grid-cols-3 md:gap-10">
+            {essays.map((e) => (
+              <Link key={e.slug} href={`/blog/${e.slug}`} className="group block border-t border-evergreen-200 pt-6 dark:border-evergreen-800">
+                <p className="text-sm text-gray-500">
+                  {e.date}, {e.read} read
+                </p>
+                <h3 className="mt-4 font-serif text-[1.65rem] leading-[1.2] decoration-brass-400 underline-offset-4 group-hover:underline">
+                  {e.title}
+                </h3>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SiteFooter />
+    </div>
+  );
+}

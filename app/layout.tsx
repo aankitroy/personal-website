@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Cormorant_Garamond, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const display = Cormorant_Garamond({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const sans = Hanken_Grotesk({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -112,7 +121,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} antialiased`}
+        className={`${display.variable} ${sans.variable} antialiased`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>
