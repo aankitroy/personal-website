@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Newsreader, Hanken_Grotesk, Cormorant_Garamond } from "next/font/google";
+import { Newsreader, Hanken_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 
@@ -19,12 +20,14 @@ const sans = Hanken_Grotesk({
 });
 
 // Light, high-contrast display face for the premium surfaces (home, header, footer).
-const luxe = Cormorant_Garamond({
+// Self-hosted variable font (weights 300–500): the Google Fonts fetch for Cormorant fails on Vercel builds.
+const luxe = localFont({
   variable: "--font-luxe",
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
   display: "swap",
+  src: [
+    { path: "./fonts/cormorant-garamond-latin.woff2", weight: "300 500", style: "normal" },
+    { path: "./fonts/cormorant-garamond-italic-latin.woff2", weight: "300 500", style: "italic" },
+  ],
 });
 
 export const metadata: Metadata = {
