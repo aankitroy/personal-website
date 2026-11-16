@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Newsreader, Hanken_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -30,9 +30,16 @@ const luxe = localFont({
   ],
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#0f2a22" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a1d17" },
+  ],
+};
+
 export const metadata: Metadata = {
   title: "Aankit Roy | AI Strategy and Production AI Systems",
-  description: "Co-founder of a stealth AI startup, former VP of AI Engineering at GeoIQ and YC-backed CTO. Aankit Roy helps leaders turn AI strategy into production systems.",
+  description: "AI strategy from someone who has built it at scale. Aankit Roy advises founders, CEOs and boards on where AI creates real value, then helps their teams build it.",
   keywords: [
     "Aankit Roy",
     "AI strategy",
@@ -55,7 +62,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     title: "Aankit Roy | AI Strategy and Production AI Systems",
-    description: "Co-founder of a stealth AI startup, former VP of AI Engineering at GeoIQ and YC-backed CTO. Aankit Roy helps leaders turn AI strategy into production systems.",
+    description: "AI strategy from someone who has built it at scale. Aankit Roy advises founders, CEOs and boards on where AI creates real value, then helps their teams build it.",
     url: "https://aankitroy.com",
     siteName: "Aankit Roy",
     locale: "en_US",
@@ -65,7 +72,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Aankit Roy | AI Strategy and Production AI Systems",
-    description: "Co-founder of a stealth AI startup, former VP of AI Engineering at GeoIQ and YC-backed CTO. Aankit Roy helps leaders turn AI strategy into production systems.",
+    description: "AI strategy from someone who has built it at scale. Aankit Roy advises founders, CEOs and boards on where AI creates real value, then helps their teams build it.",
     site: "@AankitRoy",
     creator: "@AankitRoy",
     images: ["/og-image.png"],

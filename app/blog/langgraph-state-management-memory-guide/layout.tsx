@@ -20,16 +20,21 @@ export const metadata: Metadata = {
     title: 'LangGraph State Management and Memory for Advanced AI Agents',
     description: 'Deep dive into building stateful AI agents with persistent memory using LangGraph. Learn state management patterns, memory types, and production deployment strategies.',
     type: 'article',
+    url: 'https://aankitroy.com/blog/langgraph-state-management-memory-guide',
+    siteName: 'Aankit Roy',
+    images: [{ url: 'https://aankitroy.com/og-image.png', width: 1200, height: 630, alt: 'Aankit Roy, AI strategy and production AI systems' }],
     publishedTime: '2025-09-24',
     authors: ['Aankit Roy'],
     tags: ['LangGraph', 'AI Agents', 'State Management', 'Memory Systems', 'AI Architecture']
   },
   twitter: {
     card: 'summary_large_image',
+    images: ['https://aankitroy.com/og-image.png'],
     title: 'LangGraph State Management and Memory for Advanced AI Agents',
     description: 'Deep dive into building stateful AI agents with persistent memory using LangGraph. Production patterns and real-world implementation strategies.',
-    creator: '@aankitroy'
-  }
+    creator: '@AankitRoy'
+  },
+  alternates: { canonical: 'https://aankitroy.com/blog/langgraph-state-management-memory-guide' },
 };
 
 export default function Layout({

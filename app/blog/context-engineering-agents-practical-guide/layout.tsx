@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "Context Engineering for Agents: The Practical Guide Nobody Writes",
     description: "Understanding context engineering through real production examples. How Claude Code, ChatGPT, Cursor, and others implement write, select, compress, and isolate strategies.",
     url: 'https://aankitroy.com/blog/context-engineering-agents-practical-guide',
-    siteName: 'Aankit Roy - AI Strategy & Engineering Leadership',
+    siteName: 'Aankit Roy',
     locale: 'en_US',
     type: 'article',
     publishedTime: '2025-10-02T00:00:00.000Z',

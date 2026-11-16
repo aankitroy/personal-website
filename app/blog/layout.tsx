@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Writing on AI Agents and Engineering Leadership | Aankit Roy",
-  description: "Field notes on building production AI agents, retrieval, calibration and engineering teams, from twelve years of shipping software at scale.",
+  title: "Field Notes on Production AI Systems | Aankit Roy",
+  description: "Essays on AI agents, retrieval, calibration and the engineering teams behind them. Written from systems that shipped, by Aankit Roy.",
   keywords: ["AI agents", "agentic AI", "agentic RAG", "context engineering", "calibrated AI decisions", "engineering leadership", "Aankit Roy blog"],
   openGraph: {
-    title: "Writing on AI Agents and Engineering Leadership | Aankit Roy",
-    description: "Field notes on building production AI agents, retrieval, calibration and engineering teams, from twelve years of shipping software at scale.",
+    title: "Field Notes on Production AI Systems | Aankit Roy",
+    description: "Essays on AI agents, retrieval, calibration and the engineering teams behind them. Written from systems that shipped, by Aankit Roy.",
     url: "https://aankitroy.com/blog",
     siteName: "Aankit Roy",
     type: "website",
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Writing on AI Agents and Engineering Leadership | Aankit Roy",
-    description: "Field notes on building production AI agents, retrieval, calibration and engineering teams, from twelve years of shipping software at scale.",
+    title: "Field Notes on Production AI Systems | Aankit Roy",
+    description: "Essays on AI agents, retrieval, calibration and the engineering teams behind them. Written from systems that shipped, by Aankit Roy.",
     creator: "@AankitRoy",
     images: ["/og-image.png"],
   },

@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "About Aankit Roy | AI Engineering Leader and Founder",
-  description: "From co-founding Khabri (YC S19) to leading AI engineering at GeoIQ: twelve years building products used by millions, and the principles behind the work.",
+  title: "About Aankit Roy | Engineer First, Advisor Second",
+  description: "Twelve years building software millions use, from co-founding Khabri (YC S19) to leading AI engineering at GeoIQ. Now helping founders and boards turn AI strategy into production.",
   keywords: ["Aankit Roy", "AI engineering leader", "VP AI Engineering", "GeoIQ", "Khabri", "Y Combinator", "startup CTO", "Writesonic"],
   openGraph: {
-    title: "About Aankit Roy | AI Engineering Leader and Founder",
-    description: "From co-founding Khabri (YC S19) to leading AI engineering at GeoIQ: twelve years building products used by millions, and the principles behind the work.",
+    title: "About Aankit Roy | Engineer First, Advisor Second",
+    description: "Twelve years building software millions use, from co-founding Khabri (YC S19) to leading AI engineering at GeoIQ. Now helping founders and boards turn AI strategy into production.",
     url: "https://aankitroy.com/about",
     siteName: "Aankit Roy",
     type: "website",
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Aankit Roy | AI Engineering Leader and Founder",
-    description: "From co-founding Khabri (YC S19) to leading AI engineering at GeoIQ: twelve years building products used by millions, and the principles behind the work.",
+    title: "About Aankit Roy | Engineer First, Advisor Second",
+    description: "Twelve years building software millions use, from co-founding Khabri (YC S19) to leading AI engineering at GeoIQ. Now helping founders and boards turn AI strategy into production.",
     creator: "@AankitRoy",
     images: ["/og-image.png"],
   },
