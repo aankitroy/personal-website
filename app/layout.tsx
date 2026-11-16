@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     siteName: "Aankit Roy",
     locale: "en_US",
     type: "website",
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Aankit Roy, AI strategy and production AI systems' }],
+    images: [{ url: '/og-cover.png', width: 1200, height: 630, alt: 'Aankit Roy, AI strategy and production AI systems' }],
   },
   twitter: {
     card: "summary_large_image",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     description: "AI strategy from someone who has built it at scale. Aankit Roy advises founders, CEOs and boards on where AI creates real value, then helps their teams build it.",
     site: "@AankitRoy",
     creator: "@AankitRoy",
-    images: ["/og-image.png"],
+    images: ["/og-cover.png"],
   },
   robots: {
     index: true,

@@ -28,7 +28,7 @@ export default function ContextEngineeringPracticalPage() {
     "description": post.excerpt,
     "image": {
       "@type": "ImageObject",
-      "url": "https://aankitroy.com/og-image.png",
+      "url": "https://aankitroy.com/og-cover.png",
       "width": "1200",
       "height": "630"
     },
@@ -51,7 +51,7 @@ export default function ContextEngineeringPracticalPage() {
       "url": "https://aankitroy.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://aankitroy.com/og-image.png",
+        "url": "https://aankitroy.com/og-cover.png",
         "width": "400",
         "height": "400"
       }

@@ -26,7 +26,7 @@ export default function ContextEngineeringPage() {
     "@type": "BlogPosting",
     "headline": post.title,
     "description": post.excerpt,
-    "image": "https://aankitroy.com/og-image.png",
+    "image": "https://aankitroy.com/og-cover.png",
     "datePublished": post.date,
     "dateModified": post.date,
     "author": {

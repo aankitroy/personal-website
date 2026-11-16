@@ -28,7 +28,7 @@ export default function JevArchitecturePage() {
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt,
-    image: { '@type': 'ImageObject', url: 'https://aankitroy.com/og-image.png', width: '1200', height: '630' },
+    image: { '@type': 'ImageObject', url: 'https://aankitroy.com/og-cover.png', width: '1200', height: '630' },
     datePublished: post.date,
     dateModified: post.date,
     author: {

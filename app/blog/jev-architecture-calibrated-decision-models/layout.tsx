@@ -32,14 +32,14 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2026-11-14T00:00:00.000Z',
     authors: ['Aankit Roy'],
-    images: [{ url: 'https://aankitroy.com/og-image.png', width: 1200, height: 630, alt: title }],
+    images: [{ url: 'https://aankitroy.com/og-cover.png', width: 1200, height: 630, alt: title }],
   },
   twitter: {
     card: 'summary_large_image',
     title,
     description,
     creator: '@AankitRoy',
-    images: ['https://aankitroy.com/og-image.png'],
+    images: ['https://aankitroy.com/og-cover.png'],
   },
   alternates: { canonical: url },
 };

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: 'Aankit Roy',
     locale: 'en_US',
     type: 'article',
-    images: [{ url: 'https://aankitroy.com/og-image.png', width: 1200, height: 630, alt: 'Aankit Roy, AI strategy and production AI systems' }],
+    images: [{ url: 'https://aankitroy.com/og-cover.png', width: 1200, height: 630, alt: 'Aankit Roy, AI strategy and production AI systems' }],
     publishedTime: '2025-09-30T00:00:00.000Z',
     modifiedTime: '2025-09-30T00:00:00.000Z',
     authors: ['Aankit Roy'],
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['https://aankitroy.com/og-image.png'],
+    images: ['https://aankitroy.com/og-cover.png'],
     title: "Building Agents with Claude Agent SDK - Real Implementation Guide",
     description: "Learn to build production AI agents with Claude Agent SDK. Real lessons from building 8+ agents with code examples and metrics.",
     creator: '@AankitRoy',
