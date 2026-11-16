@@ -125,7 +125,7 @@ export default function AgenticRAGPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="article-page min-h-screen">
       {/* Structured Data */}
       <script
         type="application/ld+json"

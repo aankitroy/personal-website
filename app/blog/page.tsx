@@ -3,6 +3,12 @@ import React from 'react';
 import Link from 'next/link';
 import { Header } from '../../components/Header';
 import { SiteFooter } from '../../components/SiteFooter';
+import { Reveal } from '../../components/Reveal';
+import { DecisionField } from '../../components/home/DecisionField';
+import { NEWSLETTER_URL } from '../../components/site';
+import s from '../home.module.css';
+
+const d = (ms: number) => ({ '--d': `${ms}ms` }) as React.CSSProperties;
 
 const BlogPage = () => {
   // Sample blog posts data - in a real app, this would come from a CMS or API
@@ -553,71 +559,92 @@ Track both technical and human metrics:
   ];
 
   const [lead, ...rest] = blogPosts;
-  const formatDate = (d: string) =>
-    new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  const formatDate = (date: string) =>
+    new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
-      <Header currentPage="blog" />
+    <div className={s.page}>
+      <Reveal />
+      <Header currentPage="blog" tone="dark" />
 
-      <section className="mx-auto max-w-6xl px-6 pb-16 pt-16 lg:px-10 lg:pt-24">
-        <h1 className="hero-rise max-w-4xl font-serif text-[2.75rem] leading-[1.02] tracking-[-0.02em] sm:text-display-lg lg:text-display-xl">
-          Writing on AI agents, strategy and engineering leadership.
-        </h1>
-        <p className="mt-8 max-w-[34rem] text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-          Field notes from building production AI systems and the teams behind them.
-        </p>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 lg:px-10">
-        <Link
-          href={`/blog/${lead.id}`}
-          className="group block rounded-sm bg-evergreen-900 px-8 py-12 text-evergreen-50 sm:px-12 sm:py-16"
-        >
-          <p className="text-sm text-evergreen-100/70">
-            Latest, {formatDate(lead.date)}, {lead.readTime}
-          </p>
-          <h2 className="mt-5 max-w-3xl font-serif text-display-sm leading-[1.1] text-white decoration-brass-300 underline-offset-[6px] group-hover:underline sm:text-display-md">
-            {lead.title}
-          </h2>
-          <p className="mt-6 max-w-2xl leading-relaxed text-evergreen-100/80">{lead.excerpt}</p>
-        </Link>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-20 lg:px-10">
-        <ul>
-          {rest.map((post) => (
-            <li key={post.id} className="border-t border-gray-200 dark:border-gray-800">
-              <Link
-                href={`/blog/${post.id}`}
-                className="group grid gap-3 py-9 md:grid-cols-[11rem_1fr_6rem] md:gap-10"
-              >
-                <span className="pt-1.5 text-sm tabular-nums text-gray-500">{formatDate(post.date)}</span>
-                <span>
-                  <span className="block font-serif text-[1.75rem] leading-[1.2] decoration-brass-400 underline-offset-4 group-hover:underline">
-                    {post.title}
-                  </span>
-                  <span className="mt-3 block max-w-2xl leading-relaxed text-gray-600 dark:text-gray-400">{post.excerpt}</span>
-                </span>
-                <span className="pt-1.5 text-sm text-gray-500 md:text-right">{post.readTime}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
-        <div className="mx-auto flex max-w-6xl flex-col justify-between gap-8 px-6 py-16 md:flex-row md:items-center lg:px-10">
+      {/* Hero */}
+      <section className={s.pageHero}>
+        <DecisionField className={s.field} threshold={false} intensity={1} />
+        <div className={s.pageHeroShade} aria-hidden />
+        <div className={s.pageHeroGrid} style={{ gridTemplateColumns: '1fr' }}>
           <div>
-            <h2 className="font-serif text-3xl">New essays, by email</h2>
-            <p className="mt-2 text-gray-600 dark:text-gray-400">Sent when there is something worth reading. Hosted on Substack.</p>
+            <p className={`${s.kicker} ${s.rise}`} style={d(100)}>Writing</p>
+            <h1 className={`${s.display} ${s.pageTitle} ${s.rise}`} style={d(250)}>
+              Field notes from building
+              <br />
+              <em>production AI systems.</em>
+            </h1>
+            <span className={s.rule} aria-hidden />
+            <p className={`${s.pageLede} ${s.rise}`} style={d(450)}>
+              Essays on AI agents, retrieval, calibration and the engineering teams behind them. Written from systems that shipped.
+            </p>
           </div>
-          <a
-            href="https://aankitroy30.substack.com/subscribe"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="self-start rounded-full border border-evergreen-800 px-6 py-3 text-[15px] text-evergreen-800 transition-colors hover:bg-evergreen-800 hover:text-white md:self-auto dark:border-brass-300 dark:text-brass-200 dark:hover:bg-brass-300 dark:hover:text-evergreen-950"
-          >
+        </div>
+      </section>
+
+      {/* Latest */}
+      <section className={`${s.section} ${s.tint}`} style={{ paddingBottom: 'clamp(64px, 8vw, 112px)' }}>
+        <div className={s.inner}>
+          <Link href={`/blog/${lead.id}`} className={s.leadPost} data-reveal>
+            <div className={s.leadMeta}>
+              <span>Latest essay</span>
+              <span>{formatDate(lead.date)}</span>
+              <span>{lead.readTime}</span>
+            </div>
+            <div>
+              <h2 className={s.leadTitle}>{lead.title}</h2>
+              <p className={s.leadExcerpt}>{lead.excerpt}</p>
+              <span className={s.btnLine}>Read the essay</span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* Archive */}
+      <section className={s.section}>
+        <div className={s.inner}>
+          <header data-reveal style={{ marginBottom: 'clamp(40px, 5vw, 64px)' }}>
+            <p className={s.eyebrow}>The archive</p>
+            <h2 className={s.h2}>
+              Every essay,
+              <br />
+              <em>newest first.</em>
+            </h2>
+          </header>
+          <ul className={s.postList}>
+            {rest.map((post, i) => (
+              <li key={post.id} data-reveal style={d(Math.min(i, 6) * 50)}>
+                <Link href={`/blog/${post.id}`}>
+                  <span className={s.postDate}>{formatDate(post.date)}</span>
+                  <span>
+                    <span className={s.postTitle}>{post.title}</span>
+                    <span className={s.postExcerpt}>{post.excerpt}</span>
+                  </span>
+                  <span className={s.postRead}>{post.readTime}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className={`${s.section} ${s.dark}`} style={{ paddingBlock: 'clamp(72px, 9vw, 120px)' }}>
+        <div className={`${s.inner} ${s.subscribe}`} data-reveal>
+          <div>
+            <h2 className={s.h2Light}>
+              New essays,
+              <br />
+              <em>by email.</em>
+            </h2>
+            <p className={s.filmLede} style={{ marginTop: 20 }}>Sent when there is something worth reading. Hosted on Substack.</p>
+          </div>
+          <a href={NEWSLETTER_URL} target="_blank" rel="noopener noreferrer" className={s.btnBrass}>
             Subscribe
           </a>
         </div>

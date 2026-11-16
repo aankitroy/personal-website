@@ -1570,7 +1570,7 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <div className="article-page min-h-screen">
         <Header currentPage="blog" />
         
         <div className="container mx-auto px-4 py-20 text-center">
@@ -1637,7 +1637,7 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
   const shareText = `${post.title} by Aankit Roy`;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="article-page min-h-screen">
       <Header currentPage="blog" />
 
       {/* Back to Blog */}

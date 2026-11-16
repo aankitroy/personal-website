@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { ClientThemeToggle } from './ClientThemeToggle';
 import { BOOKING_URL, NAV } from './site';
@@ -15,6 +16,33 @@ interface HeaderProps {
 export function Header({ currentPage = 'home', tone = 'light' }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const onDark = tone === 'dark';
+  const pathname = usePathname();
+  const isEssay = pathname?.startsWith('/blog/') ?? false;
+  const progressRef = useRef<HTMLSpanElement>(null);
+
+  // Brass reading-progress hairline on essays.
+  useEffect(() => {
+    if (!isEssay) return;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const el = progressRef.current;
+      if (!el) return;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      el.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, [isEssay]);
 
   const base = onDark
     ? 'bg-[#0f2a22]/95 text-[#f4f3ee] border-white/10'
@@ -29,6 +57,7 @@ export function Header({ currentPage = 'home', tone = 'light' }: HeaderProps) {
 
   return (
     <header className={`sticky top-0 z-30 border-b px-[clamp(20px,5vw,80px)] backdrop-blur-md ${base}`}>
+      {isEssay && <span ref={progressRef} className="reading-progress" aria-hidden />}
       <div className="mx-auto flex max-w-[1240px] items-center justify-between py-5">
         <Link href="/" className="font-luxe text-[1.3rem] font-medium uppercase leading-none tracking-[0.22em]">
           Aankit Roy

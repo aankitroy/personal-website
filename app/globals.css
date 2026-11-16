@@ -48,3 +48,114 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .hero-rise, .hero-rule { animation: none; }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Article layer: one premium reading surface for every essay.
+   Scoped to .article-page so the essays' own markup stays untouched.
+   ───────────────────────────────────────────────────────────── */
+.article-page {
+  --a-bg: #f4f3ee;
+  --a-paper: #fbfaf7;
+  --a-ink: #132019;
+  --a-body: #35403a;
+  --a-muted: #7d867f;
+  --a-brass: #a8834a;
+  --a-line: rgba(19, 32, 25, 0.13);
+  --a-code: #ebeae3;
+  background: var(--a-bg);
+  color: var(--a-ink);
+}
+html.dark .article-page {
+  --a-bg: #0c1310;
+  --a-paper: #131d18;
+  --a-ink: #ecebe4;
+  --a-body: #c3cac5;
+  --a-muted: #87918a;
+  --a-brass: #c8a86e;
+  --a-line: rgba(236, 235, 228, 0.12);
+  --a-code: #111a16;
+}
+
+/* reading column */
+.article-page .max-w-4xl,
+.article-page > .container { max-width: 46rem; }
+.article-page main, .article-page > article { padding-top: clamp(56px, 8vw, 104px); }
+.article-page > .container:first-of-type { padding-top: 40px; padding-bottom: 0; }
+
+/* back links */
+.article-page main a[href="/blog"],
+.article-page article a[href="/blog"],
+.article-page > .container a[href="/blog"] {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--a-muted);
+}
+.article-page main a[href="/blog"]:hover,
+.article-page article a[href="/blog"]:hover,
+.article-page > .container a[href="/blog"]:hover { color: var(--a-brass); }
+
+/* title + header */
+.article-page main h1, .article-page article h1 {
+  font-family: var(--font-luxe), 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300; font-size: clamp(40px, 4.6vw, 62px); line-height: 1.04; letter-spacing: -0.015em;
+  color: var(--a-ink); text-wrap: balance;
+}
+.article-page main header .rounded-full,
+.article-page article header .rounded-full {
+  border-radius: 0; background: transparent; border: 1px solid var(--a-line);
+  color: var(--a-muted); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+}
+.article-page main header > p.italic,
+.article-page main header > p.text-xl,
+.article-page article header > p.italic {
+  font-family: var(--font-luxe), Georgia, serif; font-size: 25px; line-height: 1.45; color: var(--a-body);
+}
+
+/* headings in the body */
+.article-page main h2, .article-page article h2,
+.article-page .prose h2 {
+  font-family: var(--font-luxe), Georgia, serif; font-weight: 400;
+  font-size: clamp(32px, 3.2vw, 42px); line-height: 1.1; letter-spacing: -0.01em; color: var(--a-ink);
+  margin-top: 2.2em;
+}
+.article-page main h3, .article-page article h3,
+.article-page .prose h3 {
+  font-family: var(--font-luxe), Georgia, serif; font-weight: 500;
+  font-size: 26px; line-height: 1.2; color: var(--a-ink);
+}
+.article-page main h4, .article-page article h4 { font-weight: 600; color: var(--a-ink); }
+
+/* body copy */
+.article-page .prose { color: var(--a-body); font-size: 18.5px; line-height: 1.8; }
+.article-page .prose p, .article-page .prose li { color: var(--a-body); }
+.article-page .prose strong { color: var(--a-ink); }
+.article-page .prose a, .article-page article a:not([href="/blog"]):not([class*="bg-"]) {
+  color: var(--a-ink); text-decoration: underline; text-decoration-color: var(--a-brass);
+  text-decoration-thickness: 1px; text-underline-offset: 4px;
+}
+.article-page .prose a:hover { color: var(--a-brass); }
+.article-page .prose blockquote {
+  border-left: 1px solid var(--a-brass); padding-left: 1.4em; font-style: italic;
+  font-family: var(--font-luxe), Georgia, serif; font-size: 1.3em; line-height: 1.5; color: var(--a-ink);
+}
+.article-page .prose hr, .article-page hr { border-color: var(--a-line); }
+.article-page .prose code { font-size: 0.86em; }
+
+/* code + callouts: square, quiet */
+.article-page main [class*="rounded"], .article-page article [class*="rounded"] { border-radius: 0; }
+.article-page pre, .article-page .bg-gray-100, .article-page .bg-gray-50 { background: var(--a-code) !important; }
+.article-page pre { border: 1px solid var(--a-line); }
+.article-page .bg-purple-50, .article-page .bg-blue-50, .article-page .from-purple-50 {
+  background: var(--a-paper) !important; background-image: none !important;
+  border: 1px solid var(--a-line) !important; border-left: 2px solid var(--a-brass) !important;
+}
+.article-page .from-purple-600 {
+  background: #0f2a22 !important; background-image: none !important; color: #f4f3ee;
+}
+.article-page .from-purple-600 h2, .article-page .from-purple-600 h3 { color: #f4f3ee; }
+.article-page .from-purple-600 a { border-radius: 0; }
+
+/* end-of-article nav */
+.article-page main .border-t, .article-page article .border-t { border-color: var(--a-line); }
+
+/* reading progress hairline (rendered by Header on essays) */
+.reading-progress { position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%; background: #c8a86e; transform-origin: left; transform: scaleX(0); }
