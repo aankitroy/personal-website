@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Newsreader, Hanken_Grotesk } from "next/font/google";
+import { Newsreader, Hanken_Grotesk, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 
@@ -14,6 +14,16 @@ const display = Newsreader({
 const sans = Hanken_Grotesk({
   variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
+});
+
+// Light, high-contrast display face for the premium surfaces (home, header, footer).
+const luxe = Cormorant_Garamond({
+  variable: "--font-luxe",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -105,7 +115,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${display.variable} ${sans.variable} antialiased`}
+        className={`${display.variable} ${sans.variable} ${luxe.variable} antialiased`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>

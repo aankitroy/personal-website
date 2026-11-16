@@ -2,7 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import { Header } from '../components/Header';
 import { SiteFooter } from '../components/SiteFooter';
-import { BOOKING_URL } from '../components/site';
+import { Reveal } from '../components/Reveal';
+import { DecisionField } from '../components/home/DecisionField';
+import { CalibrationFigure, DecisionArchitectureFigure, Film, Measures } from '../components/home/Figures';
+import { BOOKING_URL, EMAIL } from '../components/site';
+import s from './home.module.css';
+
+const d = (ms: number) => ({ '--d': `${ms}ms` }) as React.CSSProperties;
 
 const record = [
   {
@@ -82,7 +88,7 @@ const pressFeature = {
   logo: '/press/techcrunch.svg',
   date: 'August 2019',
   quote: 'could fill a sizable void in the country where a dedicated heavyweight has failed to emerge.',
-  context: 'Khabri, picked as one of TechCrunch’s 12 favourite startups from Y Combinator’s S19 Demo Day.',
+  context: 'Khabri, picked as one of TechCrunch’s 12 favorite startups from Y Combinator’s S19 Demo Day.',
   href: 'https://techcrunch.com/2019/08/21/our-12-favorite-startups-from-y-combinators-s19-demo-day-2',
 };
 
@@ -96,16 +102,6 @@ const pressMore = [
     context: 'On Khabri’s 350% month-on-month growth through the 2020 lockdown, and the creator economy behind it.',
     href: 'https://www.forbesindia.com/article/take-one-big-story-of-the-day/regional-podcasts-find-their-voice/63743/1',
     action: 'Read on Forbes India',
-  },
-  {
-    outlet: 'ETCIO',
-    logo: '/press/economic-times.svg',
-    logoClass: 'h-5',
-    date: 'ETCIO video interview',
-    headline: 'Your tech mantra for success',
-    context: 'A conversation on the role of a technology leader and scaling a platform to millions of listeners.',
-    href: 'https://www.youtube.com/watch?v=pokPfUjnCek',
-    action: 'Watch the interview',
   },
 ];
 
@@ -154,64 +150,54 @@ const structuredData = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+    <div className={s.page}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <Reveal />
       <Header currentPage="home" tone="dark" />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-evergreen-900 text-evergreen-50">
-        <div className="mx-auto grid max-w-6xl items-end gap-14 px-6 pb-20 pt-14 lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-10 lg:pb-24 lg:pt-16">
-          <div className="lg:col-span-7">
-            <h1 className="hero-rise font-serif text-[2.75rem] font-normal leading-[1.02] tracking-[-0.02em] text-white sm:text-display-lg lg:text-[4.25rem] xl:text-display-xl [text-wrap:balance]">
-              AI strategy from someone who has built it, at scale.
+      {/* ───────── Hero: live confidence surface ───────── */}
+      <section className={s.hero}>
+        <DecisionField className={s.field} />
+        <div className={s.heroShade} aria-hidden />
+        <div className={s.heroGrid}>
+          <div className={s.heroCopy}>
+            <p className={`${s.kicker} ${s.rise}`} style={d(100)}>AI strategy and production systems</p>
+            <h1 className={`${s.display} ${s.rise}`} style={d(250)}>
+              AI strategy from someone
+              <br />
+              <em>who has built it at scale.</em>
             </h1>
-            <div className="hero-rule mt-10 h-px w-40 bg-brass-300" aria-hidden />
-            <p className="hero-rise hero-rise-2 mt-8 max-w-[34rem] text-lg leading-relaxed text-evergreen-100/85 sm:text-[21px] sm:leading-[1.55]">
+            <span className={s.rule} aria-hidden />
+            <p className={`${s.heroLede} ${s.rise}`} style={d(450)}>
               I advise founders, CEOs and boards on where AI creates real value, then help their teams build it.
               Twelve years of engineering leadership, from a Y Combinator startup I co-founded to platforms serving millions.
             </p>
-            <div className="hero-rise hero-rise-3 mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <a
-                href={BOOKING_URL}
-                className="rounded-full bg-brass-300 px-7 py-3.5 text-[15px] font-medium text-evergreen-950 transition-colors hover:bg-brass-200"
-              >
-                Book a conversation
-              </a>
-              <Link href="/about" className="text-[15px] text-evergreen-100/85 underline decoration-brass-300/50 underline-offset-[6px] hover:text-white">
-                Read my background
-              </Link>
+            <div className={`${s.heroActions} ${s.rise}`} style={d(650)}>
+              <a href={BOOKING_URL} className={s.btnBrass}>Book a conversation</a>
+              <a href="#thinking" className={s.linkLight}>See the thinking</a>
             </div>
           </div>
-
-          <figure className="hero-rise hero-rise-2 mx-auto w-full max-w-[20rem] lg:col-span-5 lg:mr-0">
-            <div className="relative">
-              <div className="absolute -inset-3 rounded-t-full border border-brass-300/40" aria-hidden />
-              <img
-                src="/aankitroy-portrait.jpg"
-                alt="Portrait of Aankit Roy"
-                width={960}
-                height={1280}
-                className="relative aspect-[3/4] w-full rounded-t-full object-cover object-top"
-              />
-            </div>
-          </figure>
+          <p className={`${s.heroFig} ${s.rise}`} style={d(1100)}>
+            <span>Fig. 0</span> A confidence surface, drawn live. The bright line is the 0.80 threshold: above it a decision runs on
+            its own, below it a person decides. Move your cursor to disturb it.
+          </p>
         </div>
 
-        <div className="border-t border-evergreen-800">
-          <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 lg:flex-row lg:items-center lg:gap-14 lg:px-10">
-            <p className="shrink-0 text-sm text-evergreen-100/60">Where I&apos;ve built</p>
-            <ul className="flex flex-wrap items-center gap-x-10 gap-y-6 sm:gap-x-12">
+        <div className={s.heroFoot}>
+          <div className={s.heroFootInner}>
+            <p className={s.heroFootLabel}>Where I&rsquo;ve built</p>
+            <ul className={s.logos}>
               {companies.map((c) => (
-                <li key={c.name} className="flex items-center gap-2.5 text-white/85">
+                <li key={c.name}>
                   {c.logo && (
                     <img
                       src={c.logo}
                       alt={c.showName ? '' : c.name}
                       aria-hidden={c.showName ? true : undefined}
-                      className={`${c.logoClass} w-auto brightness-0 invert opacity-85`}
+                      className={c.logoClass}
                     />
                   )}
-                  {c.showName && <span className="text-lg font-semibold tracking-tight">{c.name}</span>}
+                  {c.showName && <span>{c.name}</span>}
                 </li>
               ))}
             </ul>
@@ -219,28 +205,83 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Record */}
-      <section className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
-        <div className="grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <h2 className="font-serif text-display-sm sm:text-display-md">Built for millions, before advising anyone.</h2>
-            <p className="mt-6 max-w-sm leading-relaxed text-gray-600 dark:text-gray-400">
-              The advice I give comes from systems I have shipped and teams I have led, not from slides.
-            </p>
+      {/* ───────── Current thinking: research figures ───────── */}
+      <section id="thinking" className={`${s.section} ${s.paper}`}>
+        <div className={s.inner}>
+          <header className={s.thinkingHead} data-reveal>
+            <div>
+              <p className={s.eyebrow}>Current thinking</p>
+              <h2 className={s.h2}>
+                Decisions you can put
+                <br />
+                <em>a threshold on.</em>
+              </h2>
+            </div>
+            <div>
+              <p className={s.lede} style={{ marginTop: 0 }}>
+                Most of what an AI agent does all day is small decisions: route this, flag that, escalate or don&rsquo;t. I design
+                systems where every decision comes back with an honest probability, so the business chooses what runs on its own and
+                what a person sees.
+              </p>
+              <Link href="/blog/jev-architecture-calibrated-decision-models" className={s.btnLine} style={{ marginTop: 32 }}>
+                Read the essay on Jev
+              </Link>
+            </div>
+          </header>
+          <div className={s.figures}>
+            <div data-reveal>
+              <DecisionArchitectureFigure />
+            </div>
+            <div data-reveal style={d(150)}>
+              <CalibrationFigure />
+            </div>
           </div>
-          <ol className="lg:col-span-8">
-            {record.map((r) => (
-              <li
-                key={r.org}
-                className="grid gap-2 border-t border-gray-200 py-7 first:border-t-0 first:pt-0 sm:grid-cols-[8.5rem_1fr] sm:gap-8 dark:border-gray-800"
-              >
-                <span className="pt-1 text-sm tabular-nums text-gray-500">{r.years}</span>
+        </div>
+      </section>
+
+      {/* ───────── Measured in production ───────── */}
+      <section className={`${s.section} ${s.dark}`}>
+        <div className={s.inner}>
+          <header className={s.measuresHead} data-reveal>
+            <p className={s.kicker}>Results</p>
+            <h2 className={s.h2Light}>
+              Measured in production,
+              <br />
+              <em>not in a demo.</em>
+            </h2>
+          </header>
+          <Measures />
+        </div>
+      </section>
+
+      {/* ───────── Practice: portrait + record ───────── */}
+      <section className={s.section}>
+        <div className={s.split}>
+          <div>
+            <figure className={s.practicePortrait} data-reveal>
+              <div className={s.practiceFrame}>
+                <img src="/aankitroy-portrait.jpg" alt="Portrait of Aankit Roy" width={960} height={1280} />
+              </div>
+            </figure>
+            <header data-reveal>
+              <h2 className={s.h2}>
+                Built for millions,
+                <br />
+                <em>before advising anyone.</em>
+              </h2>
+              <p className={s.lede}>The advice I give comes from systems I have shipped and teams I have led, not from slides.</p>
+            </header>
+          </div>
+          <ol className={s.ledger}>
+            {record.map((r, i) => (
+              <li key={r.org} data-reveal style={d(i * 60)}>
+                <span className={s.ledgerYears}>{r.years}</span>
                 <div>
-                  <p className="font-serif text-2xl leading-tight">
+                  <h3 className={s.ledgerOrg}>
                     {r.org}
-                    <span className="text-gray-500"> / {r.role}</span>
-                  </p>
-                  <p className="mt-2 max-w-xl leading-relaxed text-gray-600 dark:text-gray-400">{r.outcome}</p>
+                    <span className={s.ledgerRole}>{r.role}</span>
+                  </h3>
+                  <p className={s.ledgerOutcome}>{r.outcome}</p>
                 </div>
               </li>
             ))}
@@ -248,82 +289,97 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimony */}
-      <section className="border-y border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
-        <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
-          <blockquote className="max-w-4xl">
-            <p className="font-serif text-[1.9rem] italic leading-[1.25] text-evergreen-900 sm:text-[2.6rem] dark:text-evergreen-100">
-              “{featuredQuote.text}”
+      {/* ───────── Film ───────── */}
+      <section className={`${s.section} ${s.dark}`}>
+        <div className={s.inner}>
+          <header className={s.filmHead} data-reveal>
+            <div>
+              <p className={s.kicker}>In conversation</p>
+              <h2 className={s.h2Light}>
+                On leading technology
+                <br />
+                <em>for millions of listeners.</em>
+              </h2>
+            </div>
+            <p className={s.filmLede}>
+              A video interview with ETCIO on the role of a technology leader, and what it took to scale Khabri&rsquo;s platform.
             </p>
-            <footer className="mt-8 text-[15px]">
-              <span className="font-medium">{featuredQuote.author}</span>
-              <span className="text-gray-500">, {featuredQuote.role}</span>
-            </footer>
-          </blockquote>
+          </header>
+          <div data-reveal style={d(150)}>
+            <Film id="pokPfUjnCek" title="Your tech mantra for success" source="ETCIO video interview" />
+          </div>
+        </div>
+      </section>
 
-          <div className="mt-20 grid gap-10 md:grid-cols-3 md:gap-0 md:divide-x md:divide-gray-200 dark:md:divide-gray-800">
-            {quotes.map((q) => (
-              <figure key={q.author} className="md:px-8 md:first:pl-0 md:last:pr-0">
-                <blockquote className="leading-relaxed text-gray-700 dark:text-gray-300">“{q.text}”</blockquote>
-                <figcaption className="mt-5 text-sm">
-                  <span className="font-medium text-gray-900 dark:text-gray-100">{q.author}</span>
-                  <br />
-                  <span className="text-gray-500">{q.role}</span>
+      {/* ───────── Testimony plate ───────── */}
+      <section className={s.plate}>
+        <DecisionField className={s.plateField} threshold={false} intensity={0.45} />
+        <figure className={s.plateBody} data-reveal>
+          <span className={s.plateMark} aria-hidden>&ldquo;</span>
+          <blockquote className={s.plateQuote}>{featuredQuote.text}</blockquote>
+          <figcaption className={s.plateCite}>
+            <strong>{featuredQuote.author}</strong>
+            <span>{featuredQuote.role}</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      {/* ───────── Supporting testimony ───────── */}
+      <section className={s.section}>
+        <div className={s.inner}>
+          <div className={s.quotes}>
+            {quotes.map((q, i) => (
+              <figure key={q.author} className={s.quote} data-reveal style={d(i * 120)}>
+                <blockquote className={s.quoteText}>&ldquo;{q.text}&rdquo;</blockquote>
+                <figcaption>
+                  <strong>{q.author}</strong>
+                  {q.role}
                 </figcaption>
               </figure>
             ))}
           </div>
-
-          <Link
-            href="/testimonials"
-            className="mt-14 inline-block text-[15px] text-evergreen-700 underline decoration-brass-400/60 underline-offset-[6px] hover:text-evergreen-900 dark:text-evergreen-300 dark:hover:text-white"
-          >
-            Read all testimonials
-          </Link>
+          <div className={s.more} data-reveal>
+            <Link href="/testimonials" className={s.btnLine}>Read all testimonials</Link>
+          </div>
         </div>
       </section>
 
-      {/* Press */}
-      <section className="bg-evergreen-900 text-evergreen-50">
-        <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
-          <h2 className="font-serif text-display-sm text-white sm:text-display-md">What the press saw early</h2>
-
-          <div className="mt-16 grid gap-16 lg:grid-cols-12 lg:gap-12">
-            <figure className="lg:col-span-7">
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                <img src={pressFeature.logo} alt="" aria-hidden className="h-10 w-auto brightness-0 invert" />
-                <span className="font-serif text-2xl text-white">TechCrunch</span>
-                <span className="text-sm text-brass-200">{pressFeature.date}</span>
+      {/* ───────── Press ───────── */}
+      <section className={`${s.section} ${s.tint}`}>
+        <div className={s.inner}>
+          <header data-reveal style={{ marginBottom: 'clamp(48px, 6vw, 80px)' }}>
+            <p className={s.eyebrow}>In the press</p>
+            <h2 className={s.h2}>
+              What the press
+              <br />
+              <em>saw early.</em>
+            </h2>
+          </header>
+          <div className={s.pressGrid}>
+            <figure className={s.pressFeature} data-reveal>
+              <div className={s.pressMeta}>
+                <img src={pressFeature.logo} alt={pressFeature.outlet} className={s.logoInk} />
+                <span>{pressFeature.date}</span>
               </div>
-              <blockquote className="mt-6 font-serif text-[2rem] italic leading-[1.2] text-white sm:text-[2.75rem]">
-                Khabri “{pressFeature.quote}”
+              <blockquote className={s.pressQuote}>
+                Khabri <em>&ldquo;{pressFeature.quote}&rdquo;</em>
               </blockquote>
-              <figcaption className="mt-8 max-w-md leading-relaxed text-evergreen-100/75">{pressFeature.context}</figcaption>
-              <a
-                href={pressFeature.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-block rounded-full border border-brass-300/60 px-6 py-2.5 text-[15px] text-brass-100 transition-colors hover:bg-brass-300 hover:text-evergreen-950"
-              >
+              <figcaption className={s.pressContext}>{pressFeature.context}</figcaption>
+              <a href={pressFeature.href} target="_blank" rel="noopener noreferrer" className={s.btnLine}>
                 Read on TechCrunch
               </a>
             </figure>
 
-            <ul className="space-y-0 lg:col-span-5 lg:border-l lg:border-evergreen-700 lg:pl-12">
-              {pressMore.map((item) => (
-                <li key={item.outlet} className="border-t border-evergreen-700 py-8 first:border-t-0 first:pt-0 lg:first:pt-2">
-                  <a href={item.href} target="_blank" rel="noopener noreferrer" className="group block">
-                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                      <img src={item.logo} alt={item.outlet} className={`${item.logoClass} w-auto brightness-0 invert opacity-90`} />
-                      <span className="text-sm text-brass-200">{item.date}</span>
+            <ul className={s.pressList}>
+              {pressMore.map((item, i) => (
+                <li key={item.outlet} data-reveal style={d(150 + i * 120)}>
+                  <a href={item.href} target="_blank" rel="noopener noreferrer">
+                    <div className={s.pressMeta}>
+                      <img src={item.logo} alt={item.outlet} className={s.logoInk} />
+                      <span>{item.date}</span>
                     </div>
-                    <p className="mt-3 font-serif text-[1.75rem] leading-tight text-white decoration-brass-300 underline-offset-[5px] group-hover:underline">
-                      {item.headline}
-                    </p>
-                    <p className="mt-3 leading-relaxed text-evergreen-100/75">{item.context}</p>
-                    <span className="mt-4 inline-block text-sm text-brass-100 underline decoration-brass-300/50 underline-offset-4 group-hover:decoration-brass-300">
-                      {item.action}
-                    </span>
+                    <p className={s.pressHeadline}>{item.headline}</p>
+                    <p>{item.context}</p>
                   </a>
                 </li>
               ))}
@@ -332,34 +388,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Writing */}
-      <section className="bg-evergreen-50 dark:bg-evergreen-950/60">
-        <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <h2 className="max-w-xl font-serif text-display-sm sm:text-display-md">Notes from building AI agents in production</h2>
-            <Link
-              href="/blog"
-              className="text-[15px] text-evergreen-700 underline decoration-brass-400/60 underline-offset-[6px] hover:text-evergreen-900 dark:text-evergreen-300 dark:hover:text-white"
-            >
-              All writing
-            </Link>
+      {/* ───────── Writing ───────── */}
+      <section className={s.section}>
+        <div className={s.inner}>
+          <div className={s.writingHead} data-reveal>
+            <div>
+              <p className={s.eyebrow}>Writing</p>
+              <h2 className={s.h2}>
+                Notes from building
+                <br />
+                <em>AI agents in production.</em>
+              </h2>
+            </div>
+            <Link href="/blog" className={s.btnLine}>All writing</Link>
           </div>
-          <div className="mt-14 grid gap-12 md:grid-cols-3 md:gap-10">
-            {essays.map((e) => (
-              <Link key={e.slug} href={`/blog/${e.slug}`} className="group block border-t border-evergreen-200 pt-6 dark:border-evergreen-800">
-                <p className="text-sm text-gray-500">
+          <div className={s.essays}>
+            {essays.map((e, i) => (
+              <Link key={e.slug} href={`/blog/${e.slug}`} className={s.essay} data-reveal style={d(i * 120)}>
+                <p className={s.essayMeta}>
                   {e.date}, {e.read} read
                 </p>
-                <h3 className="mt-4 font-serif text-[1.65rem] leading-[1.2] decoration-brass-400 underline-offset-4 group-hover:underline">
-                  {e.title}
-                </h3>
+                <h3 className={s.essayTitle}>{e.title}</h3>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <SiteFooter />
+      {/* ───────── Closing ───────── */}
+      <section className={s.closing}>
+        <DecisionField className={s.plateField} threshold={false} intensity={0.55} />
+        <div className={s.closingBody} data-reveal>
+          <p className={s.kicker}>For founders, CEOs and boards</p>
+          <h2 className={s.closingTitle}>
+            If AI is on your board&rsquo;s agenda,
+            <br />
+            <em>let&rsquo;s talk before the roadmap is set.</em>
+          </h2>
+          <p className={s.closingLede}>
+            A focused first conversation about where AI can create value in your business, and what it would take to build it.
+          </p>
+          <div className={s.closingActions}>
+            <a href={BOOKING_URL} className={s.btnBrass}>Book a conversation</a>
+            <a href={`mailto:${EMAIL}`} className={s.btnGhost}>Write to me</a>
+          </div>
+        </div>
+      </section>
+
+      <SiteFooter compact />
     </div>
   );
 }

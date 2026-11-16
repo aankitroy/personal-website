@@ -70,6 +70,7 @@ export default {
       fontFamily: {
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
         serif: ["var(--font-display)", "ui-serif", "Georgia", "serif"],
+        luxe: ["var(--font-luxe)", "Cormorant Garamond", "Georgia", "serif"],
       },
       fontSize: {
         // Classical scale (Bringhurst): 36 48 60 72 96

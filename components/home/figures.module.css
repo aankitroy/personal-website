@@ -1,0 +1,100 @@
+/* Research figures. Colours come from the surrounding section's custom properties. */
+.figure { margin: 0; }
+.svg { display: block; width: 100%; height: auto; overflow: visible; font-family: var(--font-sans), system-ui, sans-serif; }
+
+.box { fill: none; stroke: var(--line-strong, rgba(19, 32, 25, 0.35)); stroke-width: 1; }
+.token { fill: var(--brass); opacity: 0; transition: opacity 0.5s ease; }
+.on .token { opacity: 0.85; }
+.label { font-size: 14px; font-weight: 500; fill: var(--ink); }
+.labelMuted { font-size: 14px; fill: var(--muted); }
+.tick { font-size: 12.5px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+.grid { stroke: var(--line); stroke-width: 1; }
+
+.branch, .ideal, .curve, .curveMuted {
+  fill: none; stroke-dasharray: 1; stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.on .branch, .on .ideal, .on .curve, .on .curveMuted { stroke-dashoffset: 0; }
+.branch { stroke: var(--brass); stroke-width: 1.2; }
+.ideal { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 1; }
+.curve { stroke: var(--brass); stroke-width: 2.2; }
+.curveMuted { stroke: var(--muted); stroke-width: 1.6; opacity: 0.8; }
+
+.node { fill: var(--paper); stroke: var(--ink); stroke-width: 1; }
+.nodeText { font-size: 15px; font-weight: 500; fill: var(--ink); }
+.optText { font-size: 13.5px; fill: var(--body); }
+.optValue { font-size: 13.5px; font-weight: 500; fill: var(--ink); font-variant-numeric: tabular-nums; }
+.track { fill: var(--line); }
+.bar { fill: var(--muted); transform-box: fill-box; transform-origin: left; transform: scaleX(0); transition: transform 1.1s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.barTop { fill: var(--brass); }
+.on .bar { transform: scaleX(1); }
+
+.zone { fill: var(--brass); fill-opacity: 0.1; }
+.threshold { stroke: var(--brass); stroke-width: 1.4; stroke-dasharray: 4 4; }
+.dot { fill: var(--brass); }
+.dotMuted { fill: var(--porcelain); stroke: var(--muted); stroke-width: 1.4; }
+
+.fade { opacity: 0; transition: opacity 0.9s ease; }
+.on .fade { opacity: 1; }
+
+.caption { margin-top: 22px; max-width: 34rem; font-size: 14.5px; line-height: 1.7; color: var(--body); }
+.caption span { margin-right: 8px; font-family: var(--font-luxe), serif; font-style: italic; font-size: 18px; color: var(--brass); }
+
+/* ───────── measures ───────── */
+.measures { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line-light); }
+.measure { padding: 44px clamp(20px, 3vw, 48px) 0; border-left: 1px solid var(--line-light); }
+.measure:first-child { border-left: 0; padding-left: 0; }
+.measureOrg { margin: 0; font-size: 11px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--champagne); }
+.measureBig {
+  margin: 26px 0 0; font-family: var(--font-luxe), serif; font-weight: 300;
+  font-size: clamp(64px, 7vw, 108px); line-height: 0.9; letter-spacing: -0.02em; color: #f4f3ee;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.measureBig small { margin-left: 8px; font-size: 0.32em; letter-spacing: 0.02em; color: var(--champagne); }
+.measureWhat { margin: 22px 0 0; max-width: 20rem; font-size: 15px; line-height: 1.7; color: rgba(244, 243, 238, 0.66); }
+.meter { margin-top: 34px; display: grid; gap: 12px; }
+.meterRow { display: grid; grid-template-columns: 3.6rem 1fr 4.6rem; align-items: center; gap: 12px; font-size: 12.5px; color: rgba(244, 243, 238, 0.55); font-variant-numeric: tabular-nums; }
+.meterTrack { position: relative; height: 6px; background: rgba(244, 243, 238, 0.08); overflow: hidden; }
+.meterFill { position: absolute; inset: 0; background: rgba(244, 243, 238, 0.32); transform-origin: left; transition: transform 1.6s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.meterAccent { background: var(--champagne); }
+.meterValue { text-align: right; color: rgba(244, 243, 238, 0.8); }
+.scale { position: relative; padding-top: 4px; }
+.scale::before { content: ''; display: block; height: 6px; background: repeating-linear-gradient(90deg, rgba(244, 243, 238, 0.22) 0 1px, transparent 1px 10%), rgba(244, 243, 238, 0.06); }
+.scaleMark { position: absolute; top: -4px; width: 2px; height: 22px; background: var(--champagne); transition: left 2s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.scaleLabels { position: relative; display: block; height: 18px; margin-top: 10px; font-size: 12.5px; color: rgba(244, 243, 238, 0.55); font-variant-numeric: tabular-nums; }
+.scaleLabels span { position: absolute; top: 0; }
+.scaleLabels span:nth-child(1) { left: 0; }
+.scaleLabels span:nth-child(2) { left: 14%; top: -46px; transform: translateX(-50%); color: var(--champagne); }
+.scale { margin-top: 28px; }
+.scaleLabels span:nth-child(3) { right: 0; }
+
+/* ───────── film ───────── */
+.film { position: relative; aspect-ratio: 16 / 9; background: #06120e; overflow: hidden; box-shadow: 0 60px 120px -60px rgba(0, 0, 0, 0.7); }
+.filmFrame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.filmPoster { all: unset; position: absolute; inset: 0; cursor: pointer; display: block; }
+.filmPoster:focus-visible { outline: 2px solid var(--champagne); outline-offset: 4px; }
+.filmImg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.08) brightness(0.8); transform: scale(1.02); transition: transform 2.4s cubic-bezier(0.22, 0.61, 0.36, 1), filter 1.2s ease; }
+.filmPoster:hover .filmImg { transform: scale(1.05); filter: grayscale(0.6) contrast(1.05) brightness(0.85); }
+.filmShade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 29, 23, 0.15) 0%, rgba(10, 29, 23, 0.25) 45%, rgba(10, 29, 23, 0.92) 100%), rgba(15, 42, 34, 0.35); mix-blend-mode: normal; }
+.filmPlay {
+  position: absolute; left: 50%; top: 50%; translate: -50% -50%;
+  display: grid; place-items: center; width: 84px; height: 84px; border-radius: 50%;
+  border: 1px solid rgba(217, 196, 154, 0.7); color: var(--champagne);
+  background: rgba(10, 29, 23, 0.45); backdrop-filter: blur(6px);
+  transition: background-color 0.5s ease, transform 0.5s ease;
+}
+.filmPlay svg { margin-left: 4px; }
+.filmPoster:hover .filmPlay { background: rgba(217, 196, 154, 0.95); color: #0a1d17; transform: scale(1.05); }
+.filmMeta { position: absolute; left: clamp(20px, 4vw, 48px); bottom: clamp(20px, 4vw, 44px); right: 20px; display: grid; gap: 10px; text-align: left; }
+.filmSource { font-family: var(--font-sans), sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--champagne); }
+.filmTitle { font-family: var(--font-luxe), serif; font-weight: 300; font-size: clamp(30px, 4vw, 60px); line-height: 1; color: #f4f3ee; }
+
+@media (max-width: 900px) {
+  .measures { grid-template-columns: 1fr; }
+  .measure { border-left: 0; padding: 40px 0; border-bottom: 1px solid var(--line-light); }
+  .measure:first-child { padding-top: 40px; }
+  .filmPlay { width: 60px; height: 60px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .token, .branch, .ideal, .curve, .curveMuted, .bar, .fade, .meterFill, .scaleMark, .filmImg { transition: none !important; }
+}
