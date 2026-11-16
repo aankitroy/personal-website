@@ -5,9 +5,9 @@ import React from 'react';
 
 const ThemeToggle = dynamic(() => import('./ThemeToggle').then((mod) => ({ default: mod.ThemeToggle })), {
   ssr: false,
-  loading: () => <div className="h-8 w-8" />,
+  loading: () => <div style={{ width: 36, height: 36 }} />,
 });
 
-export function ClientThemeToggle({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
-  return <ThemeToggle tone={tone} />;
+export function ClientThemeToggle() {
+  return <ThemeToggle />;
 }
