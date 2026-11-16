@@ -13,12 +13,25 @@ type Props = {
   threshold?: boolean;
   /** Overall line strength, 0–1. */
   intensity?: number;
+  /** Draw in champagne for a near-black surface. Otherwise colours follow the theme tokens. */
+  onInk?: boolean;
 };
+
+type Rgb = readonly [number, number, number];
+const CHAMPAGNE_LINE: Rgb = [200, 168, 110];
+const CHAMPAGNE_BRIGHT: Rgb = [236, 218, 176];
+const rgba = ([r, g, b]: Rgb, a: number) => `rgba(${r}, ${g}, ${b}, ${a})`;
+
+/** Reads an "r g b" custom property, e.g. --field-rgb: 70 52 28. */
+function readRgb(el: Element, name: string, fallback: Rgb): Rgb {
+  const parts = getComputedStyle(el).getPropertyValue(name).trim().split(/[\s,]+/).map(Number);
+  return parts.length === 3 && parts.every((n) => Number.isFinite(n)) ? (parts as unknown as Rgb) : fallback;
+}
 
 const LEVELS = Array.from({ length: 19 }, (_, i) => (i + 1) / 20); // 0.05 … 0.95
 const THRESHOLD = 0.8;
 
-export function DecisionField({ className, threshold = true, intensity = 1 }: Props) {
+export function DecisionField({ className, threshold = true, intensity = 1, onInk = false }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -41,6 +54,19 @@ export function DecisionField({ className, threshold = true, intensity = 1 }: Pr
     const start = performance.now();
     const pointer = { x: -9999, y: -9999, tx: -9999, ty: -9999, strength: 0, target: 0 };
     let labelPos: { x: number; y: number } | null = null;
+
+    // Line colours: champagne on ink, otherwise the theme's field tokens (re-read when the theme flips).
+    let lineRgb: Rgb = CHAMPAGNE_LINE;
+    let brightRgb: Rgb = CHAMPAGNE_BRIGHT;
+    let alphaScale = 1;
+    const readColors = () => {
+      if (onInk) return;
+      lineRgb = readRgb(canvas, '--field-rgb', [70, 52, 28]);
+      brightRgb = readRgb(canvas, '--field-accent-rgb', [160, 122, 69]);
+      // Dark ink on cream reads stronger than light lines on black, so it is drawn lighter.
+      alphaScale = document.documentElement.classList.contains('dark') ? 0.75 : 0.62;
+    };
+    readColors();
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
@@ -136,10 +162,10 @@ export function DecisionField({ className, threshold = true, intensity = 1 }: Pr
           }
         }
         if (isThreshold) {
-          ctx.strokeStyle = `rgba(236, 218, 176, ${intensity})`;
+          ctx.strokeStyle = rgba(brightRgb, intensity);
           ctx.lineWidth = 1.6;
         } else {
-          ctx.strokeStyle = `rgba(200, 168, 110, ${(major ? 0.5 : 0.26) * intensity})`;
+          ctx.strokeStyle = rgba(lineRgb, (major ? 0.5 : 0.26) * intensity * alphaScale);
           ctx.lineWidth = major ? 0.9 : 0.6;
         }
         ctx.stroke();
@@ -150,11 +176,11 @@ export function DecisionField({ className, threshold = true, intensity = 1 }: Pr
         const b = best as { x: number; y: number };
         labelPos = labelPos ? { x: labelPos.x + (b.x - labelPos.x) * 0.2, y: labelPos.y + (b.y - labelPos.y) * 0.2 } : { x: b.x, y: b.y };
         const { x, y } = labelPos;
-        ctx.fillStyle = `rgba(232, 214, 172, ${intensity})`;
+        ctx.fillStyle = rgba(brightRgb, intensity);
         ctx.beginPath();
         ctx.arc(x, y, 3, 0, Math.PI * 2);
         ctx.fill();
-        ctx.strokeStyle = `rgba(232, 214, 172, ${0.5 * intensity})`;
+        ctx.strokeStyle = rgba(brightRgb, 0.5 * intensity);
         ctx.lineWidth = 0.8;
         const dir = x + 130 > w ? -1 : 1;
         ctx.beginPath();
@@ -163,7 +189,7 @@ export function DecisionField({ className, threshold = true, intensity = 1 }: Pr
         ctx.lineTo(x + 112 * dir, y - 26);
         ctx.stroke();
         ctx.font = `500 11px ${fontFamily}`;
-        ctx.fillStyle = `rgba(232, 214, 172, ${0.95 * intensity})`;
+        ctx.fillStyle = rgba(brightRgb, 0.95 * intensity);
         ctx.textAlign = dir === 1 ? 'left' : 'right';
         ctx.fillText('p = 0.80 threshold', x + 30 * dir, y - 32);
       }
@@ -206,6 +232,12 @@ export function DecisionField({ className, threshold = true, intensity = 1 }: Pr
     const onVis = () => (document.hidden || !visible ? stop() : play());
     document.addEventListener('visibilitychange', onVis);
 
+    const themeWatch = new MutationObserver(() => {
+      readColors();
+      draw(performance.now());
+    });
+    themeWatch.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
     const host = canvas.parentElement ?? canvas;
     const onMove = (e: PointerEvent) => {
       const r = canvas.getBoundingClientRect();
@@ -227,11 +259,12 @@ export function DecisionField({ className, threshold = true, intensity = 1 }: Pr
       stop();
       ro.disconnect();
       io.disconnect();
+      themeWatch.disconnect();
       document.removeEventListener('visibilitychange', onVis);
       host.removeEventListener('pointermove', onMove);
       host.removeEventListener('pointerleave', onLeave);
     };
-  }, [threshold, intensity]);
+  }, [threshold, intensity, onInk]);
 
   return <canvas ref={canvasRef} className={className} aria-hidden />;
 }

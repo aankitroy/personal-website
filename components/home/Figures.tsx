@@ -166,7 +166,7 @@ export function CalibrationFigure() {
 
 function Bar({ label, value, pct, on, d, accent }: { label: string; value: string; pct: number; on: boolean; d: number; accent?: boolean }) {
   return (
-    <div className={f.meterRow}>
+    <div className={`${f.meterRow} ${accent ? f.rowAfter : f.rowBefore}`}>
       <span>{label}</span>
       <span className={f.meterTrack}>
         <span
@@ -174,7 +174,9 @@ function Bar({ label, value, pct, on, d, accent }: { label: string; value: strin
           style={{ transform: `scaleX(${on ? pct : 0})`, transitionDelay: `${d}ms` }}
         />
       </span>
-      <span className={f.meterValue}>{value}</span>
+      <span className={f.meterValue}>
+        <span>{value}</span>
+      </span>
     </div>
   );
 }
@@ -186,8 +188,11 @@ export function Measures() {
   const users = useCount(5, on, 2000);
   return (
     <div ref={ref} className={f.measures}>
-      <article className={f.measure}>
-        <p className={f.measureOrg}>Writesonic</p>
+      <article className={f.measure} data-reveal>
+        <p className={f.measureOrg}>
+          <span>Writesonic</span>
+          <span className={f.deltaText}>↓ 73% latency</span>
+        </p>
         <p className={f.measureBig}>
           {Math.round(latency).toLocaleString('en-US')}
           <small>ms</small>
@@ -199,21 +204,27 @@ export function Measures() {
         </div>
       </article>
 
-      <article className={f.measure}>
-        <p className={f.measureOrg}>GeoIQ</p>
+      <article className={f.measure} data-reveal style={{ '--d': '120ms' } as React.CSSProperties}>
+        <p className={f.measureOrg}>
+          <span>GeoIQ</span>
+          <span className={f.deltaText}>↓ 75% cost</span>
+        </p>
         <p className={f.measureBig}>
           &minus;{Math.round(cost)}
           <small>%</small>
         </p>
         <p className={f.measureWhat}>Agent cost, on agentic systems handling 10,000 sessions a day in production.</p>
         <div className={f.meter}>
-          <Bar label="Before" value="100" pct={1} on={on} d={150} />
-          <Bar label="After" value="25" pct={0.25} on={on} d={650} accent />
+          <Bar label="Before" value="100%" pct={1} on={on} d={150} />
+          <Bar label="After" value="25%" pct={0.25} on={on} d={650} accent />
         </div>
       </article>
 
-      <article className={f.measure}>
-        <p className={f.measureOrg}>Khabri, YC S19</p>
+      <article className={f.measure} data-reveal style={{ '--d': '240ms' } as React.CSSProperties}>
+        <p className={f.measureOrg}>
+          <span>Khabri, YC S19</span>
+          <span className={f.deltaText}>14 ms responses</span>
+        </p>
         <p className={f.measureBig}>
           {users.toFixed(users < 4.95 ? 1 : 0)}
           <small>M+</small>
@@ -249,14 +260,13 @@ export function Film({ id, title, source }: { id: string; title: string; source:
           allowFullScreen
         />
       ) : (
-        <button type="button" className={f.filmPoster} onClick={() => setPlaying(true)} aria-label={`Play: ${title}`}>
+        <button type="button" className={f.filmPoster} onClick={() => setPlaying(true)} aria-label={`Play: ${title}, ${source}`}>
           <img src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`} alt="" className={f.filmImg} loading="lazy" />
           <span className={f.filmShade} />
           <span className={f.filmPlay} aria-hidden>
             <svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg>
           </span>
           <span className={f.filmMeta}>
-            <span className={f.filmSource}>{source}</span>
             <span className={f.filmTitle}>{title}</span>
           </span>
         </button>
