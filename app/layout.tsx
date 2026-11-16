@@ -1,40 +1,34 @@
 import type { Metadata, Viewport } from "next";
-import { Newsreader, Hanken_Grotesk } from "next/font/google";
-import localFont from "next/font/local";
+import { Geist, Geist_Mono, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
 
-const display = Newsreader({
-  variable: "--font-display",
+// Headings: a classic book serif at regular weight with tight tracking. The serif carries the emphasis, not the weight.
+const serif = Libre_Baskerville({
+  variable: "--font-serif",
   subsets: ["latin"],
+  weight: ["400", "700"],
   style: ["normal", "italic"],
-  axes: ["opsz"],
   display: "swap",
 });
 
-const sans = Hanken_Grotesk({
+const sans = Geist({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
   display: "swap",
 });
 
-// Light, high-contrast display face for the premium surfaces (home, header, footer).
-// Self-hosted variable font (weights 300–500): the Google Fonts fetch for Cormorant fails on Vercel builds.
-const luxe = localFont({
-  variable: "--font-luxe",
+const mono = Geist_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
   display: "swap",
-  src: [
-    { path: "./fonts/cormorant-garamond-latin.woff2", weight: "300 500", style: "normal" },
-    { path: "./fonts/cormorant-garamond-italic-latin.woff2", weight: "300 500", style: "italic" },
-  ],
 });
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#0f2a22" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a1d17" },
+    { media: "(prefers-color-scheme: light)", color: "#f8f5ee" },
+    { media: "(prefers-color-scheme: dark)", color: "#12100d" },
   ],
 };
 
@@ -97,8 +91,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Apply the saved or system theme before first paint, so dark mode never flashes cream. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})();`,
+          }}
+        />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
@@ -126,7 +126,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${display.variable} ${sans.variable} ${luxe.variable} antialiased`}
+        className={`${serif.variable} ${sans.variable} ${mono.variable} antialiased`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>

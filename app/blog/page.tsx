@@ -6,9 +6,11 @@ import { SiteFooter } from '../../components/SiteFooter';
 import { Reveal } from '../../components/Reveal';
 import { DecisionField } from '../../components/home/DecisionField';
 import { NEWSLETTER_URL } from '../../components/site';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import s from '../home.module.css';
 
 const d = (ms: number) => ({ '--d': `${ms}ms` }) as React.CSSProperties;
+const rise = (i: number) => ({ '--i': i }) as React.CSSProperties;
 
 const BlogPage = () => {
   // Sample blog posts data - in a real app, this would come from a CMS or API
@@ -565,90 +567,88 @@ Track both technical and human metrics:
   return (
     <div className={s.page}>
       <Reveal />
-      <Header currentPage="blog" tone="dark" />
+      <Header currentPage="blog" />
 
-      {/* Hero */}
-      <section className={s.pageHero}>
-        <DecisionField className={s.field} threshold={false} intensity={1} />
-        <div className={s.pageHeroShade} aria-hidden />
-        <div className={s.pageHeroGrid} style={{ gridTemplateColumns: '1fr' }}>
-          <div>
-            <p className={`${s.kicker} ${s.rise}`} style={d(100)}>Writing</p>
-            <h1 className={`${s.display} ${s.pageTitle} ${s.rise}`} style={d(250)}>
-              Field notes from building
-              <br />
-              <em>production AI systems.</em>
+      <main>
+        {/* Hero */}
+        <section className={s.pageHero}>
+          <DecisionField className={s.pageHeroField} threshold={false} intensity={0.8} />
+          <div className={s.container}>
+            <p className={`${s.eyebrow} ${s.in}`} style={rise(0)}>
+              Writing · {blogPosts.length} essays
+            </p>
+            <h1 className={`${s.pageTitle} ${s.in}`} style={{ ...rise(1), maxWidth: '18ch' }}>
+              Field notes from building <em className={s.heroAccent}>production AI systems.</em>
             </h1>
-            <span className={s.rule} aria-hidden />
-            <p className={`${s.pageLede} ${s.rise}`} style={d(450)}>
+            <p className={`${s.pageLead} ${s.in}`} style={rise(2)}>
               Essays on AI agents, retrieval, calibration and the engineering teams behind them. Written from systems that shipped.
             </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Latest */}
-      <section className={`${s.section} ${s.tint}`} style={{ paddingBottom: 'clamp(64px, 8vw, 112px)' }}>
-        <div className={s.inner}>
+        {/* Latest */}
+        <section className={s.container} style={{ paddingBottom: 72 }}>
           <Link href={`/blog/${lead.id}`} className={s.leadPost} data-reveal>
             <div className={s.leadMeta}>
-              <span>Latest essay</span>
+              <span className={s.leadLabel}>Latest essay</span>
               <span>{formatDate(lead.date)}</span>
               <span>{lead.readTime}</span>
             </div>
             <div>
               <h2 className={s.leadTitle}>{lead.title}</h2>
               <p className={s.leadExcerpt}>{lead.excerpt}</p>
-              <span className={s.btnLine}>Read the essay</span>
+              <span className={`${s.btn} ${s.btnPrimary}`}>
+                Read the essay
+                <ArrowRight size={15} strokeWidth={1.75} aria-hidden />
+              </span>
             </div>
           </Link>
-        </div>
-      </section>
+        </section>
 
-      {/* Archive */}
-      <section className={s.section}>
-        <div className={s.inner}>
-          <header data-reveal style={{ marginBottom: 'clamp(40px, 5vw, 64px)' }}>
-            <p className={s.eyebrow}>The archive</p>
-            <h2 className={s.h2}>
-              Every essay,
-              <br />
-              <em>newest first.</em>
-            </h2>
-          </header>
-          <ul className={s.postList}>
-            {rest.map((post, i) => (
-              <li key={post.id} data-reveal style={d(Math.min(i, 6) * 50)}>
-                <Link href={`/blog/${post.id}`}>
-                  <span className={s.postDate}>{formatDate(post.date)}</span>
-                  <span>
-                    <span className={s.postTitle}>{post.title}</span>
-                    <span className={s.postExcerpt}>{post.excerpt}</span>
-                  </span>
-                  <span className={s.postRead}>{post.readTime}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section className={`${s.section} ${s.dark}`} style={{ paddingBlock: 'clamp(72px, 9vw, 120px)' }}>
-        <div className={`${s.inner} ${s.subscribe}`} data-reveal>
-          <div>
-            <h2 className={s.h2Light}>
-              New essays,
-              <br />
-              <em>by email.</em>
-            </h2>
-            <p className={s.filmLede} style={{ marginTop: 20 }}>Sent when there is something worth reading. Hosted on Substack.</p>
+        {/* Archive */}
+        <section className={`${s.section} ${s.subtle}`}>
+          <div className={s.container}>
+            <header className={s.head} data-reveal>
+              <p className={s.eyebrow}>The archive</p>
+              <h2 className={s.h2}>
+                Every essay, <span className={s.accent}>newest first.</span>
+              </h2>
+            </header>
+            <ul className={s.postList}>
+              {rest.map((post, i) => (
+                <li key={post.id} data-reveal style={d(Math.min(i, 6) * 50)}>
+                  <Link href={`/blog/${post.id}`}>
+                    <span className={`${s.mono} ${s.postDate}`}>{formatDate(post.date)}</span>
+                    <span>
+                      <span className={s.postTitle}>{post.title}</span>
+                      <span className={s.postExcerpt}>{post.excerpt}</span>
+                    </span>
+                    <span className={s.postRead}>{post.readTime}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-          <a href={NEWSLETTER_URL} target="_blank" rel="noopener noreferrer" className={s.btnBrass}>
-            Subscribe
-          </a>
-        </div>
-      </section>
+        </section>
+
+        {/* Newsletter */}
+        <section className={s.section}>
+          <div className={s.container}>
+            <div className={s.subscribe} data-reveal>
+              <div>
+                <h2>
+                  New essays, <em>by email.</em>
+                </h2>
+                <p>Sent when there is something worth reading. Hosted on Substack.</p>
+              </div>
+              <a href={NEWSLETTER_URL} target="_blank" rel="noopener noreferrer" className={`${s.btn} ${s.btnLight}`}>
+                Subscribe
+                <ArrowUpRight size={15} strokeWidth={1.75} aria-hidden />
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
 
       <SiteFooter />
     </div>

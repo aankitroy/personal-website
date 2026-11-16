@@ -1,12 +1,17 @@
 import React from 'react';
+import { ChevronRight } from 'lucide-react';
 import { Header } from '../../components/Header';
 import { SiteFooter } from '../../components/SiteFooter';
 import { BOOKING_URL } from '../../components/site';
 import { Reveal } from '../../components/Reveal';
 import { DecisionField } from '../../components/home/DecisionField';
+import { ContactBlock } from '../../components/home/ContactBlock';
+import { ArchPortrait } from '../../components/home/ArchPortrait';
 import s from '../home.module.css';
 
 const d = (ms: number) => ({ '--d': `${ms}ms` }) as React.CSSProperties;
+const rise = (i: number) => ({ '--i': i }) as React.CSSProperties;
+const ROMAN = ['I', 'II', 'III', 'IV'];
 
 const journey = [
   {
@@ -93,93 +98,108 @@ export default function AboutPage() {
   return (
     <div className={s.page}>
       <Reveal />
-      <Header currentPage="about" tone="dark" />
+      <Header currentPage="about" />
 
-      {/* Hero */}
-      <section className={s.pageHero}>
-        <DecisionField className={s.field} threshold={false} intensity={1} />
-        <div className={s.pageHeroShade} aria-hidden />
-        <div className={s.pageHeroGrid}>
-          <div>
-            <p className={`${s.kicker} ${s.rise}`} style={d(100)}>About</p>
-            <h1 className={`${s.display} ${s.pageTitle} ${s.rise}`} style={d(250)}>
-              Engineer first.
-              <br />
-              <em>Advisor second.</em>
-            </h1>
-            <span className={s.rule} aria-hidden />
-            <p className={`${s.pageLede} ${s.rise}`} style={d(450)}>
-              I have spent twelve years building software that millions of people use every day, first as an engineer, then as a co-founder and
-              CTO, and later leading engineering at AI companies.
-            </p>
-            <p className={`${s.pageLede} ${s.rise}`} style={d(550)}>
-              Today I work with founders, CEOs and boards who know AI matters to their business but want a straight answer on where, how, and
-              what it will take. I help them choose the right bets, then stay close enough to the build that the strategy survives contact with
-              production.
-            </p>
-            <div className={`${s.heroActions} ${s.rise}`} style={d(700)}>
-              <a href={BOOKING_URL} className={s.btnBrass}>Book a conversation</a>
-              <a href="#path" className={s.linkLight}>The path here</a>
-            </div>
-          </div>
-          <figure className={`${s.heroPortrait} ${s.rise}`} style={d(400)}>
-            <div className={s.practiceFrame}>
-              <img src="/aankitroy-portrait.jpg" alt="Portrait of Aankit Roy" width={960} height={1280} />
-            </div>
-          </figure>
-        </div>
-      </section>
-
-      {/* The path here */}
-      <section id="path" className={s.section}>
-        <div className={s.split}>
-          <header className={s.sticky} data-reveal>
-            <p className={s.eyebrow}>The path here</p>
-            <h2 className={s.h2}>
-              Twelve years,
-              <br />
-              <em>millions of users.</em>
-            </h2>
-            <p className={s.lede}>From automating lending workflows for banks to co-founding a Y Combinator company and leading AI engineering.</p>
-          </header>
-          <ol className={s.ledger}>
-            {journey.map((j, i) => (
-              <li key={j.org + j.period} data-reveal style={d(i * 50)}>
-                <span className={s.ledgerYears}>{j.period}</span>
-                <div>
-                  <h3 className={s.ledgerOrg}>
-                    {j.org}
-                    <span className={s.ledgerRole}>{j.role}</span>
-                  </h3>
-                  <p className={s.ledgerOutcome}>{j.description}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* Principles */}
-      <section className={`${s.section} ${s.dark}`}>
-        <div className={s.inner}>
-          <header className={s.measuresHead} data-reveal>
-            <p className={s.kicker}>Principles</p>
-            <h2 className={s.h2Light}>
-              How I think
-              <br />
-              <em>about the work.</em>
-            </h2>
-          </header>
-          <div className={s.principlesGrid}>
-            {principles.map((p, i) => (
-              <div key={p.title} className={s.principleItem} data-reveal style={d((i % 2) * 120)}>
-                <h3 className={s.principleTitle}>{p.title}</h3>
-                <p className={s.principleBody}>{p.body}</p>
+      <main>
+        {/* Hero */}
+        <section className={s.pageHero}>
+          <DecisionField className={s.pageHeroField} threshold={false} intensity={0.8} />
+          <div className={`${s.container} ${s.heroGrid}`}>
+            <div>
+              <p className={`${s.eyebrow} ${s.in}`} style={rise(0)}>
+                About Aankit
+              </p>
+              <h1 className={`${s.pageTitle} ${s.in}`} style={rise(1)}>
+                Engineer first. <em className={s.heroAccent}>Advisor second.</em>
+              </h1>
+              <p className={`${s.pageLead} ${s.in}`} style={rise(2)}>
+                I have spent twelve years building software that millions of people use every day, first as an engineer, then as a
+                co-founder and CTO, and later leading engineering at AI companies.
+              </p>
+              <p className={`${s.pageLead} ${s.in}`} style={rise(2)}>
+                Today I work with founders, CEOs and boards who know AI matters to their business but want a straight answer on where,
+                how, and what it will take. I help them choose the right bets, then stay close enough to the build that the strategy
+                survives contact with production.
+              </p>
+              <div className={`${s.pageActions} ${s.in}`} style={rise(3)}>
+                <a href={BOOKING_URL} className={`${s.btn} ${s.btnPrimary}`}>
+                  Book a conversation
+                  <ChevronRight size={16} strokeWidth={2} aria-hidden />
+                </a>
+                <a href="#path" className={s.link}>
+                  The path here <span aria-hidden>→</span>
+                </a>
               </div>
-            ))}
+            </div>
+            <ArchPortrait className={s.in} style={rise(2)} />
           </div>
+        </section>
+
+        {/* The path here */}
+        <section id="path" className={`${s.section} ${s.subtle}`}>
+          <div className={s.container}>
+            <header className={s.headSplit} data-reveal>
+              <div>
+                <p className={s.eyebrow}>The path here</p>
+                <h2 className={s.h2}>
+                  Twelve years, <span className={s.accent}>millions of users.</span>
+                </h2>
+              </div>
+              <p className={s.lead}>
+                From automating lending workflows for banks to co-founding a Y Combinator company and leading AI engineering.
+              </p>
+            </header>
+            <ol className={s.timeline} data-reveal>
+              {journey.map((j) => (
+                <li key={j.org + j.period}>
+                  <span className={`${s.mono} ${s.timelineWhen}`}>{j.period}</span>
+                  <div>
+                    <h3 className={s.timelineOrg}>
+                      {j.org}
+                      <span className={s.timelineRole}>{j.role}</span>
+                    </h3>
+                    <p className={s.timelineText}>{j.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Principles */}
+        <section className={s.section}>
+          <div className={s.container}>
+            <header className={s.head} data-reveal>
+              <p className={s.eyebrow}>Principles</p>
+              <h2 className={s.h2}>
+                How I think <span className={s.accent}>about the work.</span>
+              </h2>
+            </header>
+            <div className={s.principles}>
+              {principles.map((p, i) => (
+                <article key={p.title} className={s.principle} data-reveal style={d((i % 2) * 120)}>
+                  <div className={s.principleTop}>
+                    <span className={s.numeral} aria-hidden>
+                      {ROMAN[i]}
+                    </span>
+                    <span className={s.mono}>
+                      {String(i + 1).padStart(2, '0')} / {String(principles.length).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <div className={s.principleBody}>
+                    <h3 className={s.principleTitle}>{p.title}</h3>
+                    <p className={s.principleText}>{p.body}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <div className={s.subtle}>
+          <ContactBlock />
         </div>
-      </section>
+      </main>
 
       <SiteFooter />
     </div>

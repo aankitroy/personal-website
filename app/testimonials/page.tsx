@@ -2,6 +2,13 @@
 import React, { useState } from 'react';
 import { Header } from '../../components/Header';
 import { SiteFooter } from '../../components/SiteFooter';
+import { DecisionField } from '../../components/home/DecisionField';
+import { ContactBlock } from '../../components/home/ContactBlock';
+import { Reveal } from '../../components/Reveal';
+import { NotionAvatar } from '../../components/NotionAvatar';
+import s from '../home.module.css';
+
+const rise = (i: number) => ({ '--i': i }) as React.CSSProperties;
 
 const TestimonialsPage = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -181,58 +188,67 @@ const TestimonialsPage = () => {
     ? testimonials
     : testimonials.filter(t => t.category === activeCategory);
 
+  const count = (id: string) => (id === 'all' ? testimonials.length : testimonials.filter((t) => t.category === id).length);
+
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+    <div className={s.page}>
+      <Reveal />
       <Header currentPage="testimonials" />
 
-      <section className="mx-auto max-w-6xl px-6 pb-16 pt-16 lg:px-10 lg:pt-24">
-        <h1 className="hero-rise max-w-4xl font-serif text-[2.75rem] leading-[1.02] tracking-[-0.02em] sm:text-display-lg lg:text-display-xl">
-          In the words of the people I have built with.
-        </h1>
-        <p className="mt-8 max-w-[34rem] text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-          Co-founders, CEOs, engineers and clients, from Khabri and Writesonic to the teams I advise today.
-        </p>
-      </section>
+      <main>
+        <section className={s.pageHero}>
+          <DecisionField className={s.pageHeroField} threshold={false} intensity={0.8} />
+          <div className={s.container}>
+            <p className={`${s.eyebrow} ${s.in}`} style={rise(0)}>
+              Testimonials · {testimonials.length} voices
+            </p>
+            <h1 className={`${s.pageTitle} ${s.in}`} style={{ ...rise(1), maxWidth: '17ch' }}>
+              In the words of the people <em className={s.heroAccent}>I have built with.</em>
+            </h1>
+            <p className={`${s.pageLead} ${s.in}`} style={rise(2)}>
+              Co-founders, CEOs, engineers and clients, from Khabri and Writesonic to the teams I advise today.
+            </p>
+          </div>
+        </section>
 
-      <div className="mx-auto max-w-6xl px-6 lg:px-10">
-        <div role="tablist" aria-label="Filter testimonials" className="flex flex-wrap gap-2 border-b border-gray-200 pb-6 dark:border-gray-800">
-          {categories.map((category) => {
-            const selected = activeCategory === category.id;
-            return (
+        <section className={s.container} style={{ paddingBottom: 96 }}>
+          <div role="tablist" aria-label="Filter testimonials" className={s.filters}>
+            {categories.map((category) => (
               <button
                 key={category.id}
                 role="tab"
-                aria-selected={selected}
+                aria-selected={activeCategory === category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
-                  selected
-                    ? 'border-evergreen-800 bg-evergreen-800 text-white dark:border-brass-300 dark:bg-brass-300 dark:text-evergreen-950'
-                    : 'border-gray-300 text-gray-600 hover:border-gray-500 hover:text-gray-900 dark:border-gray-700 dark:text-gray-400 dark:hover:text-gray-100'
-                }`}
+                className={s.chip}
               >
                 {category.label}
+                <span className={s.chipCount}>{count(category.id)}</span>
               </button>
-            );
-          })}
-        </div>
-      </div>
+            ))}
+          </div>
 
-      <section className="mx-auto max-w-6xl px-6 pb-28 lg:px-10">
-        <div className="columns-1 gap-14 md:columns-2">
-          {filteredTestimonials.map((t) => (
-            <figure key={t.id} className="break-inside-avoid border-b border-gray-200 py-10 dark:border-gray-800">
-              <blockquote className="font-serif text-[1.45rem] leading-[1.4] text-gray-800 dark:text-gray-200">
-                “{t.text}”
-              </blockquote>
-              <figcaption className="mt-6 text-sm">
-                <span className="font-medium text-gray-900 dark:text-gray-100">{t.author}</span>
-                <br />
-                <span className="text-gray-500">{t.role}</span>
-              </figcaption>
-            </figure>
-          ))}
+          <div className={s.masonry}>
+            {filteredTestimonials.map((t) => (
+              <figure key={t.id} className={s.quoteCard}>
+                <blockquote className={s.quoteCardText}>&ldquo;{t.text}&rdquo;</blockquote>
+                <figcaption className={s.cite}>
+                  <span className={s.avatar} aria-hidden>
+                    <NotionAvatar name={t.author} />
+                  </span>
+                  <span>
+                    <strong>{t.author}</strong>
+                    <span>{t.role}</span>
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        <div className={s.subtle}>
+          <ContactBlock />
         </div>
-      </section>
+      </main>
 
       <SiteFooter />
     </div>
